@@ -1,0 +1,267 @@
+
+/*BODY*/
+html,
+body {
+	background: #ecedf0;
+	width: 100%;
+}
+
+html {
+	overflow-x: hidden !important;
+	overflow-y: scroll !important;
+}
+@media only screen and (min-width: 1300px) {
+	/* Layout Boxed - Body Tag */
+	html.boxed body {
+		background: url(../img/patterns/gray_jean.png) repeat;
+		padding-bottom: 5px;
+	}
+}
+@media only screen and (max-width: 800px) {
+	html,
+	body {
+		background: #ecedf0;
+	}
+
+	html.mobile-device .sidebar-left,
+	html.mobile-device .sidebar-right {
+		overflow-y: scroll;
+		overflow-x: hidden;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	body {
+		min-height: 100vh;
+	}
+}
+body {
+	min-height: 0;
+}
+
+
+.form-check a{
+	color: #000;
+}
+.form-check a:active{
+	color: red;
+}
+.form-check a:hover,  a:focus{
+	color: blur;
+}
+
+a {
+	color: #CCC;
+}
+
+a:hover, a:focus {
+	color: #d9d9d9;
+}
+
+a:active {
+	color: #bfbfbf;
+}
+.checkbox-custom label{
+	color: #3B5998;
+}
+img{
+	width: 100%;
+}
+/*list-group*/
+.list-group .img{
+	width: 400px;
+}
+
+.list-group{
+	border: 1px solid blue;
+}
+
+/*btn*/
+html .btn-facebook, html .btn-facebook:active, html .btn-facebook:hover, html .btn-facebook:focus,
+html .btn-google,
+html .btn-google:active,
+html .btn-google:hover,
+html .btn-google:focus,
+html .btn-google,
+html .btn-gplus:active,
+html .btn-gplus:hover,
+html .btn-gplus:focus {
+	color: #FFF;
+	font-weight: 300;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+html .btn-facebook, html .btn-facebook:focus {
+	background: #3B5998;
+	border: 1px solid #37538D;
+}
+
+html .btn-facebook:hover {
+	background: #4162a7;
+	border-color: #3d5c9c;
+}
+
+html .btn-facebook:active {
+	background: #37538d;
+	border-color: #334d82;
+}
+
+html .btn-google, html .btn-google:focus {
+	background: #CC0000;
+	border: 1px solid #990000;
+	color: #FFF;
+}
+
+html .btn-google:hover {
+	background:red;
+	border-color:red;
+}
+
+html .btn-google:active {
+	background: red;
+	border-color: red;
+}
+
+html .btn-gplus, html .btn-gplus:focus {
+	background: #D95232;
+	border: 1px solid #D44927;
+}
+
+html .btn-gplus:hover {
+	background: #dc6143;
+	border-color: #da5635;
+}
+
+html .btn-gplus:active {
+	background: #d04727;
+	border-color: #c34324;
+}
+
+/* Buttons Icon */
+.btn-icon i {
+	margin-right: 10px;
+}
+
+.btn-icon-right i {
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+html.dark .btn-default {
+	background-color: #282d36;
+	border-color: #282d36;
+	color: #EEE;
+}
+
+html.dark .btn-default:hover {
+	background-color: #2a3039;
+	border-color: #2a3039;
+}
+
+html.dark .btn-default:focus, html.dark .btn-default:active {
+	background-color: #242830;
+	border-color: #242830;
+}
+
+html.dark .btn-default:hover,
+html.dark .btn-default:focus,
+html.dark .btn-default:active,
+html.dark .btn-default.active,
+html.dark .show > .dropdown-toggle.btn-default {
+	color: #EEE;
+	background-color: #242830;
+	border-color: #242830;
+}
+
+
+/* Sign Screens - Wrappers */
+.body-sign {
+	display: table;
+	height: 100vh;
+	margin: 0 auto;
+	max-width: 500px;
+	padding: 0 15px;
+	width: 100%;
+}
+
+.body-sign .center-sign {
+	display: table-cell;
+	padding-top: 20px;
+	vertical-align: middle;
+}
+
+.body-sign .card-sign {
+	background: transparent;
+}
+
+.body-sign .card-sign .form-check .card-title-sign .title {
+	background-color: #CCC;
+	border-radius: 5px 5px 0 0;
+	color: blur;
+	display: inline-block;
+	font-size: 20px;
+	font-size: 0.75rem;
+	padding: 13px 17px;
+	vertical-align: bottom;
+}
+
+.body-sign .card-sign .card-body{
+	background: #FFF;
+	color: blur;
+	font-size: 15px ;
+	border-top: 5px solid #CCC;
+	border-radius: 5px 0 5px 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	padding: 33px 33px 15px;
+}
+.form-check .form-check-input{
+	display: flex;
+	background: red;
+	color: #FFF;
+	font-size: 30px;
+	padding: 33px 33px 15px;
+}
+
+/* Sign Screens - Elements */
+.body-sign .checkbox-custom {
+	margin-top: 8px;
+}
+
+.body-sign .line-thru {
+	display: block;
+	font-size: 12px;
+	font-size: 0.75rem;
+	position: relative;
+}
+
+.body-sign .line-thru span {
+	color: #CCC;
+	position: relative;
+	z-index: 3;
+}
+
+.body-sign .line-thru:before {
+	background-color: #FFF;
+	content: '';
+	height: 10px;
+	left: 50%;
+	position: absolute;
+	margin: -5px 0 0 -20px;
+	top: 50%;
+	width: 40px;
+	z-index: 2;
+}
+
+.body-sign .line-thru:after {
+	border-bottom: 1px solid #DADADA;
+	content: '';
+	display: block;
+	left: 10%;
+	position: absolute;
+	top: 47%;
+	width: 81%;
+	z-index: 1;
+}
+

@@ -1,6 +1,9 @@
 
 /*BODY*/
 /*all job*/
+h1 a{
+	color: #0099FF;
+}
 .logo{
 	width: 100px;
 	margin-left: 20px;

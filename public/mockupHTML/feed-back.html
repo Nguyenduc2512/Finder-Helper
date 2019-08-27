@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>feedback</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	
+	<!--endheader -->
+	<div class="site-mobile-menu">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close mt-3">
+				<span class="icon-close2 js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div> <!-- .site-mobile-menu -->
+
+
+	<header class="site-navbar py-1" role="banner">
+
+		<div class="container">
+			<div class="row align-items-center">
+
+				<div class="col-6 col-xl-2">
+					<h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">Finder<strong>Helper</strong></a>
+					</h1>
+				</div>
+
+				<div class="col-10 col-xl-10 d-none d-xl-block">
+					<nav class="site-navigation text-right" role="navigation">
+
+						<ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+							<li class="active"><a href="index.html">Home</a></li>
+							<li>
+								<a href="category.html">Category</a>
+							</li>
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="new-post.html"><span class="rounded bg-primary py-2 px-3 text-white"> Sign
+										In</span></a></li>
+						</ul>
+					</nav>
+				</div>
+
+				<div class="col-6 col-xl-2 text-right d-block">
+
+					<div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a
+							href="#" class="site-menu-toggle js-menu-toggle text-black"><span
+								class="icon-menu h3"></span></a></div>
+
+				</div>
+
+			</div>
+		</div>
+
+	</header>
+	<!--feedback -->
+	<div class="feedback">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card">
+						<div class="card-body">
+							<div class="row" id="info-user">
+								<div class="col-6">
+									<div class="row">
+										<img src="image/avatar-default-icon.png" width="120">
+										<div style="margin-left: 3%;">
+											<p class="card-text"><b>Họ Và Tên: </b>Nguyễn Thị A</p>
+											<p class="card-text"><b>Số điện thoại:</b> 0123456789</p>
+											<p class="card-text"><b>Giới Tính: </b>Nữ</p>
+										</div>
+										
+									</div>
+								</div>
+								<div class="col-6">
+									<p><b>Trạng thái: </b>Đã hoàn thành công việc</p>
+									<p><b>Tiền lương:</b> 100k</p>
+									<button type="button" class="btn btn-danger" data-toggle="modal" 		data-target="#exampleModal" data-whatever="@mdo">
+										Nhận xét
+									</button>
+								</div>
+							</div>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--endfeedback -->
+	<!-- modal-->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document" id="width-modal">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Feedback helper</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label">User Name Finder</label>
+							<input type="text" class="form-control" id="recipient-name" placeholder="User name" readonly>
+						</div>
+						<div class="form-group">
+							<label for="message-text" class="col-form-label">Content feedback</label>
+							<textarea class="form-control" id="message-text"></textarea>
+						</div>
+						<section class='rating-widget'>
+							<!-- Rating Stars Box -->
+							<div class='rating-stars'>
+								<ul id='stars'>
+									<label>Vote</label>
+									<li class='star' title='Bạn không hài lòng' data-value='1'>
+										<i class='fa fa-star fa-fw'></i>
+									</li>
+									<li class='star' title='Hài lòng' data-value='2'>
+										<i class='fa fa-star fa-fw'></i>
+									</li>
+									<li class='star' title='Tuyệt' data-value='3'>
+										<i class='fa fa-star fa-fw'></i>
+									</li>
+									<li class='star' title='Tuyệt vời' data-value='4'>
+										<i class='fa fa-star fa-fw'></i>
+									</li>
+									<li class='star' title='Rât tuyệt vời' data-value='5'>
+										<i class='fa fa-star fa-fw'></i>
+									</li>
+								</ul>
+							</div>
+
+						</section>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+					<button type="button" class="btn btn-primary">Gửi</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- endmodal-->
+	<!--footer -->
+		<footer class="site-footer">
+		<div class="container">
+
+
+			<div class="row">
+				<div class="col-lg-5">
+					<div class="row">
+						<div class="col-md-4 col-lg-4 mb-5 mb-lg-0">
+							<h3 class="footer-heading mb-4">For Candidates</h3>
+							<ul class="list-unstyled">
+								<li><a href="#">News</a></li>
+								<li><a href="#">Post Jobs</a></li>
+								<li><a href="#">Search Jobs</a></li>
+								<li><a href="#">Contact</a></li>
+								<li><a href="#">Help Center</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5">
+					<h3 class="footer-heading mb-4">Contact Info</h3>
+					<ul class="list-unstyled">
+						<li>
+							<span class="d-block text-white">Address</span>
+							107 Nguyen Phong Sac - Cau Giay - Ha Noi
+						</li>
+						<li>
+							<span class="d-block text-white">Telephone</span>
+							+1 232 305 3930
+						</li>
+						<li>
+							<span class="d-block text-white">Email</span>
+							abc@FinderHelper.com
+						</li>
+					</ul>
+
+				</div>
+				<div class="col-lg-2">
+					<h3 class="footer-heading mb-4">Map</h3>
+					<p><iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8103267498295!2d105.78820931535475!3d21.04027399276012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab36e43cf6eb%3A0xc420d35b1d1a47ac!2zMTA3IE5ndXnhu4VuIFBob25nIFPhuq9jLCBE4buLY2ggVuG7jW5nIEjhuq11LCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1566091545149!5m2!1svi!2s"
+							width="300" height="160" frameborder="0" style="border:0" allowfullscreen></iframe></p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--endfooter -->
+
+<script type="text/javascript" src="js/a076d05399.js"></script>
+<script type="text/javascript" src="js/vote.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="js/vote.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+</body>
+</html>

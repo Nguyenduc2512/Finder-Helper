@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('location_id');
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('admin_id');
             $table->dateTime('date_of_hire');
@@ -26,6 +27,7 @@ class CreatePostsTable extends Migration
             $table->text('detail');
             $table->tinyInteger('status');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('location_id')->references('id')->on('locations');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('admin_id')->references('id')->on('admins');
             $table->timestamps();

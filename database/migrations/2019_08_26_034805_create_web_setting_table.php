@@ -15,13 +15,8 @@ class CreateWebSettingTable extends Migration
     {
         Schema::create('web_setting', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('logo');
-            $table->tinyInteger('hotline');
-            $table->string('map');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->text('web_description');
-            $table->text('user_manual');
+            $table->string('name');
+            $table->text('value');
             $table->timestamps();
         });
     }

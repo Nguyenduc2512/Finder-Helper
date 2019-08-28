@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::view('job-detail', 'job-detail');
+Route::view('listapply', 'listapply');
+Route::view('profile', 'profile');
+Route::view('all-job', 'all-job');
+Route::view('feedback', 'feedback');
+Route::view('sign-in', 'loginUser.sign-in');
+Route::view('sign-up', 'loginUser.sign-up');

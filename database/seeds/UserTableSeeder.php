@@ -17,17 +17,17 @@ class UserTableSeeder extends Seeder
         for ($i=0 ; $i<20 ; $i++) {
             $item = [
                 'name'                => $faker->name,
-                'avatar'              => 'images/'.$faker->image('public/images/user',400,300, 'people', false),
+                'avatar'              => 'images/'.$faker->image('public/images/user', 400, 300, 'people', false),
                 'email'               => $faker->email,
                 'password'            => $faker->password,
-                'date_of_birth'       => $faker->date('Y-m-d','1566950400'),
+                'date_of_birth'       => $faker->date('Y-m-d', '1566950400'),
                 'identification_code' => rand(1000000000,9999999999),
                 'identification'      => 'public/images/user/simple.png',
                 'identification_back' => 'public/images/user/simpleback.png',
-                'phone'               => rand(1000000000,9999999999),
-                'gender'              => rand(1,3),
+                'phone'               => rand(1000000000, 9999999999),
+                'gender'              => rand(1, 3),
                 'coin'                => '0',
-                'rules'               => rand(1,2),
+                'rules'               => rand(1, 2),
                 'status'              => '0',
             ];
             $users[] = $item;

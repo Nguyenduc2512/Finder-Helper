@@ -17,7 +17,7 @@ class LocationTableSeeder extends Seeder
         for ($i=0 ; $i<10 ; $i++){
             $item = [
                 'name'         => $faker->name,
-                'map_location' => $faker->realText($maxNbChars =70,$indexSize=2)
+                'map_location' => $faker->realText($maxNbChars = 70, $indexSize = 2)
             ];
             $locat[] = $item;
         }

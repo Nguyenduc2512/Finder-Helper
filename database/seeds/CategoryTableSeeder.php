@@ -16,9 +16,9 @@ class CategoryTableSeeder extends Seeder
 
         for ($i=0 ; $i<10 ; $i++) {
             $item = [
-                'name' => $faker -> name,
+                'name' => $faker->name,
             ];
-            $cate[] = $item;
+            $cate [] = $item;
         }
         DB::table('categories')->insert($cate);
     }

@@ -17,7 +17,7 @@ class AdminTableSeeder extends Seeder
         for ($i=0 ; $i<10 ; $i++) {
             $item = [
                 'name'     => $faker->name,
-                'avatar'   => 'images/'.$faker->image('public/images/admin',400,300, 'people', false),
+                'avatar'   => 'images/'.$faker->image('public/images/admin', 400, 300, 'people', false),
                 'email'    => $faker->email,
                 'password' => $faker->password,
                 ];

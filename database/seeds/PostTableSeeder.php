@@ -28,9 +28,9 @@ class PostTableSeeder extends Seeder
                 'price'        => rand(10,30),
                 'amount'       => rand(1,10),
                 'title'        => $faker->name,
-                'date_of_hire' => $faker->dateTime($max= 'now' , $timezone=null),
+                'date_of_hire' => $faker->dateTime($max = 'now', $timezone = null),
                 'address'      => $faker->address,
-                'detail'       => $faker->realText($maxNbChars =200,$indexSize=2),
+                'detail'       => $faker->realText($maxNbChars = 200, $indexSize = 2),
                 'status'       => '0',
             ]; 
             $posts[] = $item;

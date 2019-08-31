@@ -2,3 +2,4 @@
 @section('content')
     Simple layout admin
 @endsection
+

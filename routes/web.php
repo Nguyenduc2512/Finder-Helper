@@ -10,15 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Http\Request;
+use App\Http\Controllers\Auth;
+Route::group(
+    ['middleware' => 'auth'], function() {
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::view('layout', 'layouts.master');
-Route::view('listapply', 'listapply');
-Route::view('profile', 'profile');
-Route::view('job-detail', 'job-detail');
-Route::view('feedback', 'feedback');
-Route::view('all-job', 'all-job');
-Route::view('sign-in', 'loginUser.sign-in');
-Route::view('sign-up', 'loginUser.sign-up');
+    }
+);
+Route::get('/login', 'Auth\LoginController@loginForm') -> name('login');
+Route::post('/login','Auth\LoginController@store');
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
+Route::get('/', 'User\HomeController@index')->name('home');

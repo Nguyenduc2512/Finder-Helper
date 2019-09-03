@@ -30,8 +30,15 @@
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="new-post.html"><span class="rounded bg-primary py-2 px-3 text-white"> Sign
-                                    In</span></a></li>
+                        <li>
+                            @if(Auth::user())
+                                Hello {{Auth::user()->name}}
+                        <li> <a href="logout"><span class="rounded bg-danger py-2 px-3 text-white"> Log out </span></a></li>
+                            @else
+                                <a href="{{route('login')}}"><span class="rounded bg-primary py-2 px-3 text-white"> Sign
+                                    In</span></a>
+                                @endif
+                        </li>
                     </ul>
                 </nav>
             </div>

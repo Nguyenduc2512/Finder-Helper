@@ -15,14 +15,18 @@
                         <div class="input-group">
                             <input name="email" type="text" class="form-control form-control-lg"/>
                             <span class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-user"></i>
-                                        </span>
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
                             </span>
                         </div>
                     </div>
                     @if (session('errmsg'))
-                        <p class="text-danger">{{session('errmsg')}}</p>
+                        <p class="text-danger"> {{session('errmsg')}} </p>
+                    @endif
+
+                    @if($errors->first('email'))
+                        <span class="text-danger"> {{$errors->first('email')}} </span>
                     @endif
 
                     <div class="form-group mb-3">
@@ -32,12 +36,15 @@
                         <div class="input-group">
                             <input name="password" type="password" class="form-control form-control-lg"/>
                             <span class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </span>
+                                <span class="input-group-text">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </span>
                         </div>
                     </div>
+                    @if($errors->first('password'))
+                        <span class="text-danger"> {{$errors->first('password')}} </span>
+                    @endif
 
                     <div class="row">
                         <div class="col-sm-8">
@@ -64,7 +71,7 @@
                         <a class="btn btn-google mb-3 ml-1 mr-1" href="#">Connect with <i class="fab fa-google"></i></a>
                     </div>
 
-                    <p class="text-center">Don't have an account yet? <a href="index.html">Sign Up!</a></p>
+                    <p class="text-center"> Don't have an account yet? <a href="index.html">Sign Up!</a></p>
 
                 </form>
             </div>

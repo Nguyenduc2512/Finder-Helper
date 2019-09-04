@@ -1,4 +1,6 @@
  <!-- Header-mobile -->
+ @include('layouts.css')
+ @include('layouts.script')
  <div class="site-mobile-menu">
     <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -15,7 +17,7 @@
         <div class="row align-items-center">
 
             <div class="col-6 col-xl-2">
-                <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">Finder<strong>Helper</strong></a>
+                <h1 class="mb-0"><a href="{{route('home')}}" class="text-black h2 mb-0">Finder<strong>Helper</strong></a>
                 </h1>
             </div>
 
@@ -23,15 +25,24 @@
                 <nav class="site-navigation text-right" role="navigation">
 
                     <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="{{route('home')}}">Home</a></li>
                         <li>
-                            <a href="category.html">Category</a>
+                            <a href="{{route('category')}}">Category</a>
                         </li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="new-post.html"><span class="rounded bg-primary py-2 px-3 text-white"> Sign
-                                    In</span></a></li>
+                        <li class="has-children">
+                            @if (Auth::user())
+                                <span class="caret">Hello {{Auth::user()->name}}</span>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('profile')}}">Profile</a></li>
+                                    <li><a href="{{route('logout')}}">Logout</a></li>
+                                </ul>
+                            @else
+                                <a href="{{route('login')}}"><span class="rounded bg-primary py-2 px-3 text-white"> Sign In</span></a>
+                            @endif
+                        </li>
                     </ul>
                 </nav>
             </div>

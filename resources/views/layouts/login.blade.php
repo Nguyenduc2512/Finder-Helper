@@ -20,12 +20,12 @@
 	<link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.css')}}" />
 	
 
-	<link rel="stylesheet" href="{{asset('vendor/font-awesome/css/all.min.css')}}" />
+	<link rel="stylesheet" href="vendor/font-awesome/css/all.min.css" />
 		<!-- <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css" />
 			<link rel="stylesheet" href="vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" /> -->
 
 			<!-- Theme CSS -->
-			<link rel="stylesheet" href="{{asset('css/theme.css')}}" />
+			<link rel="stylesheet" href="css/theme.css" />
 
 			<!-- Theme Custom CSS -->
 			

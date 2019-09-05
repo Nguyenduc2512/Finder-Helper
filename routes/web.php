@@ -37,3 +37,5 @@ Route::get('/category', 'User\HomeController@category')->name('category');
 
 Route::get('/auth/redirect/{provider}', 'Auth\LoginFacebookController@redirect');
 Route::get('/callback/{provider}', 'Auth\LoginFacebookController@callback');
+
+Route::get('/admin', 'Admin\HomeController@index');

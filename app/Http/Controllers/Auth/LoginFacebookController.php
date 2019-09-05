@@ -30,11 +30,11 @@ class LoginFacebookController extends Controller
         $user = $this->loginService->createUser($userInfo, $provider); 
         Auth::login($user);
 
-        if (Auth::user()->rules == Config::get('helper.userFinder')) {
+        if (Auth::user()->rules == Config::get('helper.user_type_finder')) {
 
             return redirect()->route('user.profile-finder');
 
-        } else if (Auth::user()->rules == Config::get('helper.userHelper')) {
+        } else if (Auth::user()->rules == Config::get('helper.user_type_helper')) {
 
             return redirect()->route('user.profile-helper');
 

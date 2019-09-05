@@ -1,6 +1,6 @@
 <?php 
 
 return  [
-    'userFinder' => 1,
-    'userHelper' => 2,
+    'user_type_finder' => 1,
+    'user_type_helper' => 2,
 ];

@@ -66,7 +66,7 @@
                             </span>
 
                     <div class="mb-1 text-center">
-                        <a class="btn btn-facebook mb-3 ml-1 mr-1" href="#">Connect with <i
+                        <a class="btn btn-facebook mb-3 ml-1 mr-1" href="{{ url('/auth/redirect/facebook') }}">Connect with <i
                                 class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-google mb-3 ml-1 mr-1" href="#">Connect with <i class="fab fa-google"></i></a>
                     </div>

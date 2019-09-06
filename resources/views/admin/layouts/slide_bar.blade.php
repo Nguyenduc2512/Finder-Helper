@@ -16,8 +16,6 @@
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
                             Layout Options
-                            <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
@@ -27,13 +25,13 @@
                                 <p>Top Navigation</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('logoutAdmin')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Logout</p>
-                            </a>
-                        </li>   
                     </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                        <a href="{{route('logoutAdmin')}}" class="nav-link">
+                            <i class="nav-icon fas fa-sign-out-alt"></i>
+                            <p>Logout</p>
+                        </a>
                 </li>    
             </ul>
         </nav>

@@ -46,33 +46,4 @@ class LoginController extends Controller
 
         return redirect()->route('login');
     }
-
-    public function loginAdmin()
-    {
-         return view('loginAdmin.login');
-    }
-
-    public function postAdmin(LoginAdmin $request)
-    {
-
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
-
-            return redirect()->route('admin');
-        }else{
-
-            return redirect()->route('loginAdmin')->with('errmsg', 'Email hoặc Password sai');
-        }
-
-            
-        
-        //  $user = $request-> password;
-        //  dd($user);
-    }
-
-    public function logoutAdmin()
-    {
-
-        Auth::logout();
-        return redirect()->route('loginAdmin');
-    }
 }

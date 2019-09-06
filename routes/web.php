@@ -1,6 +1,4 @@
 <?php
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 Route::group(
     ['middleware' => 'auth'], function() {
@@ -22,10 +20,6 @@ Route::get('/home', 'Admin\HomeController@index')->name('admin')->middleware('au
 Route::get('/loginAdmin','Auth\AdminController@loginAdmin')->name('loginAdmin')->middleware('guest');
 Route::post('/loginAdmin','Auth\AdminController@postAdmin');
 Route::get('/logoutAdmin','Auth\AdminController@logoutAdmin')->name('logoutAdmin');
-// Route::get('/logoutAdmin',function(){
-//     Auth::guard('admin')->logout();
-//         return redirect()->route('loginAdmin');
-// })->name('logoutAdmin');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
@@ -35,5 +29,3 @@ Route::get('/category', 'User\HomeController@category')->name('category');
 
 Route::get('/auth/redirect/{provider}', 'Auth\LoginFacebookController@redirect');
 Route::get('/callback/{provider}', 'Auth\LoginFacebookController@callback');
-
-

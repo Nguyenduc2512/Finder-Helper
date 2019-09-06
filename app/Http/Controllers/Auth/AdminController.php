@@ -13,20 +13,21 @@ class AdminController extends Controller
 {
     public function __construct()
     {
+
     }
 
     public function loginAdmin()
     {
-         return view('loginAdmin.login');
+        return view('loginAdmin.login');
     }
 
     public function postAdmin(LoginAdmin $request)
     {
 
-        if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password]) ){
 
             return redirect()->route('admin');
-        }else{
+        } else {
 
             return redirect()->route('loginAdmin')->with('errmsg', 'Email hoặc Password sai');
         }
@@ -37,6 +38,7 @@ class AdminController extends Controller
     public function logoutAdmin()
     {
         Auth::guard('admin')->logout();
+
         return redirect()->route('loginAdmin');
     }
  

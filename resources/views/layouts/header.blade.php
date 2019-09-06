@@ -41,6 +41,7 @@
                                 </ul>
                             @else
                                 <a href="{{route('login')}}"><span class="rounded bg-primary py-2 px-3 text-white"> Sign In</span></a>
+                                <a href="{{route('loginAdmin')}}"><span class="rounded bg-primary py-2 px-3 text-white">Admin</span></a>
                             @endif
                         </li>
                     </ul>

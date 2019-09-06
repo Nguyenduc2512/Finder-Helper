@@ -26,9 +26,9 @@
                         <span>Date of birth : {{ Auth::user()->date_of_birth }}</span><br><br>
                         <span>Coin : {{ Auth::user()->coin }}</span><br><br>
                         <span>Gender :
-                            @if (Auth::user()->gender == 1)
+                            @if ( Auth::user()->gender == $gender['gender_type_male'] )
                                 Nam
-                            @elseif (Auth::user()->gender == 2)
+                            @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
                                 Nữ 
                             @else 
                                 Khác

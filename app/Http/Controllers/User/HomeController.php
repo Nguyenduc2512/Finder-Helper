@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Support\Facades\Config;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,9 @@ class HomeController extends Controller
 
     public function profile()
     {
-        return view('profile');
+        $gender = Config::get('helper');
+
+        return view('profile', compact('gender'));
     }
 
     public function category()
@@ -24,12 +27,21 @@ class HomeController extends Controller
     
     public function profileFinder()
     {
-        return view('userFinder.profile');
+        $gender = Config::get('helper');
+
+        return view('userFinder.profile', compact('gender'));
     }
 
     public function profileHelper()
     {
-        return view('userHelper.profile');
+        $gender = Config::get('helper');
+        
+        return view('userHelper.profile', compact('gender'));
+    }
+
+    public function updateInfo(User $user)
+    {
+        return view('loginUser.update-info');
     }
     
     public function changePassword()

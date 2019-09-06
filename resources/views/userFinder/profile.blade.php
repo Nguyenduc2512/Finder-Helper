@@ -19,23 +19,34 @@
             <div class="container">
                 <div class="row">
                     <div class="col-7">
-                        <h4>Profile Finder</h4>
-                        <span>Name : Nguyen Minh Duc</span><br><br>
-                        <span>Address : 105 - Nguyen Duc Canh - Hoang Mai - Ha Noi</span><br><br>
-                        <span>Phone Number : 01234345323</span><br><br>
-                        <span>Card Number : 0382234215</span><br><br>
+                        <h4>Profile Helper</h4>
+                        <span>Name : {{ Auth::user()->name }}</span><br><br>
+                        <span>Email : {{ Auth::user()->email }}</span><br><br>
+                        <span>Phone Number : {{ Auth::user()->phone }}</span><br><br>
+                        <span>Card Number : {{ Auth::user()->identification_code }}</span><br><br>
+                        <span>Date of birth : {{ Auth::user()->date_of_birth }}</span><br><br>
+                        <span>Coin : {{ Auth::user()->coin }}</span><br><br>
+                        <span>Gender :
+                            @if (Auth::user()->gender == 1)
+                                Nam
+                            @elseif (Auth::user()->gender == 2)
+                                Nữ 
+                            @else 
+                                Khác
+                            @endif
+                        </span>
                         <div class="row">
-                            <div class="col-4"> <button class="btn btn-danger">Edit</button></div>
+                            <div class="col-4"> <a href="#" class="btn btn-danger">Edit</a></div>
                             <div class="col-4"><button class="btn btn-primary">Post Job</button></div>
                             <div class="col-4"><button class="btn btn-dark">Add coid</button></div>
                         </div><br>
                         <hr>
                     </div>
                     <div class="col-5">
-                        <div class="col-1"><img src="{{asset('img/avatar-default-icon.png')}}" class="avatarProfile" width="200"><br></div>
+                        <div class="col-6" style="margin-left: 20%"><img src="{{ asset(Auth::user()->avatar) }}" class="avatarProfile" width="200"><br></div>
                         <div class="row">
-                            <div class="col-6"><img src="{{asset('img/avatar-default-icon.png')}}" alt="" class="card" width="100"></div>
-                            <div class="col-6"><img src="{{asset('img/avatar-default-icon.png')}}" alt="" class="card" width="100"></div>
+                            <div class="col-6"><img src="{{ asset(Auth::user()->identification) }}" alt="" class="card" width="100"></div>
+                            <div class="col-6"><img src="{{ asset(Auth::user()->identification_back) }}" alt="" class="card" width="100"></div>
                         </div>
                     </div>
                 </div>

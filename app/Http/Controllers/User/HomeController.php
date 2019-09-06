@@ -32,9 +32,9 @@ class HomeController extends Controller
         return view('userHelper.profile');
     }
     
-    public function updateInfo(User $user)
+    public function changePassword()
     {
-        return view('loginUser.update-info');
+        return view('client.change-password');
     }
-    
+
 }

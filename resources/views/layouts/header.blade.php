@@ -37,6 +37,9 @@
                                 <span class="caret">Hello {{Auth::user()->name}}</span>
                                 <ul class="dropdown">
                                     <li><a href="{{route('profile')}}">Profile</a></li>
+                                    <li>
+                                        <a href="{{ route('user.change-password') }}">Đổi mật khẩu</a>
+                                    </li>
                                     <li><a href="{{route('logout')}}">Logout</a></li>
                                 </ul>
                             @else

@@ -22,7 +22,7 @@ class HomeController extends Controller
 
     public function category()
     {
-        return view('all-job');
+        return view('all_job');
     }
     
     public function profileFinder()
@@ -41,12 +41,12 @@ class HomeController extends Controller
 
     public function updateInfo(User $user)
     {
-        return view('loginUser.update-info');
+        return view('loginUser.update_info');
     }
     
     public function changePassword()
     {
-        return view('client.change-password');
+        return view('client.change_password');
     }
 
 }

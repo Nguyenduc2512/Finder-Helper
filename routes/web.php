@@ -10,8 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use Illuminate\Http\Request;
-use App\Http\Controllers\Auth;
+
 Route::group(
     ['middleware' => 'auth'], function() {
     Route::get('/profile', 'User\HomeController@profile')->name('profile');
@@ -26,6 +25,9 @@ Route::group(
     Route::get('profile-helper', 'User\HomeController@profileHelper')->name('profile-helper');
     Route::get('update-info/{user}', 'User\HomeController@updateInfo')->name('update-info');
     Route::post('add-info', 'Auth\LoginFacebookController@addInfo')->name('add-info');
+    Route::get('change-password', 'User\HomeController@changePassword')->name('change-password');
+    Route::post('save-password', 'User\UserController@savePassword')->name('save-password');
+    
 });
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');

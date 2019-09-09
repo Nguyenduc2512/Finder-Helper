@@ -38,7 +38,7 @@
                                 <ul class="dropdown">
                                     <li><a href="{{route('profile')}}">Profile</a></li>
                                     <li>
-                                        <a href="{{ route('user.change-password') }}">Đổi mật khẩu</a>
+                                        <a href="{{ route('user.change-password') }}">Change Password</a>
                                     </li>
                                     <li><a href="{{route('logout')}}">Logout</a></li>
                                 </ul>

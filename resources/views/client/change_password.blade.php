@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Change password')
 @section('content')
-    <div class="container" style="margin-top: 5%">
+    <div class="container" style="margin-top: 3%">
         <div class="row">
             <div class="col-md-4">
                 <div class="card mb-3" style="max-width: 100%;">
@@ -22,7 +22,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-info" href="#">
+                                <a class="nav-link text-info" href="{{ route('profile') }}">
                                     <i class="far fa-id-card"></i></i>&nbsp; Profile
                                 </a>
                             </li>
@@ -87,7 +87,7 @@
                                                 <span class="text-danger"> {{$errors->first('repassword')}} </span>
                                             @endif
                                     </div>
-                                    <button type="submit" class="btn btn-outline-danger btn-lg" style="margin-left: 83%">
+                                    <button type="submit" class="btn btn-outline-primary btn-lg" style="margin-left: 83%">
                                         Update
                                     </button>
                                 </form> 

@@ -7,12 +7,12 @@ class UploadService{
     
     public function uploadFile(Request $request)
     {
+
         $filename = $request->avatar->getClientOriginalName();
         $filename = str_replace(' ', '-', $filename);
         $filename = uniqid() . '-' . $filename;
-        $path = request()->avatar->move(('images/avatar'), $filename);
-
-        return $path;
+        
+        return $filename;
     }
     
 }

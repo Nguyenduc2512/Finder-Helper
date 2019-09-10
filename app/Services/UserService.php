@@ -40,12 +40,14 @@ class UserService
     {
         $user = User::find($request->id);
         $user->fill($request->all());
-
+        
         if ($request->hasFile('avatar')) {
             
-            $user->avatar = $this->uploadFile->uploadFile($request);
+            $path = $this->uploadFile->uploadFile($request);
+            
+            $user->avatar = request()->avatar->move('images/avatar', $path);
         }
-
+    
         $user->save();
         
         return $user;

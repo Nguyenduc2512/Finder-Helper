@@ -14,6 +14,8 @@
 Route::group(
     ['middleware' => 'auth'], function() {
     Route::get('/profile', 'User\HomeController@profile')->name('profile');
+    Route::get('/new-post', 'User\PostController@create')->name('post-create');
+    Route::post('/new-post', 'User\PostController@store')->name('post-store');
     }
 );
 
@@ -27,7 +29,7 @@ Route::group(
     Route::post('add-info', 'Auth\LoginFacebookController@addInfo')->name('add-info');
     Route::get('change-password', 'User\HomeController@changePassword')->name('change-password');
     Route::post('save-password', 'User\UserController@savePassword')->name('save-password');
-    
+
 });
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');

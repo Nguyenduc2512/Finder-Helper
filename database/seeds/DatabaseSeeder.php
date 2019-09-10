@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use phpDocumentor\Reflection\Location;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,7 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(UserTableSeeder::class);
+        $this->call(AdminTableSeeder::class);
+        $this->call(CategoryTableSeeder::class);
+        $this->call(LocationTableSeeder::class);
+        $this->call(PostTableSeeder::class);
     }
 }
 

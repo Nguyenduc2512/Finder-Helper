@@ -29,15 +29,20 @@
                             @if ( Auth::user()->gender == $gender['gender_type_male'] )
                                 Nam
                             @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
-                                Nữ 
-                            @else 
+                                Nữ
+                            @else
                                 Khác
                             @endif
                         </span>
                         <div class="row">
-                            <div class="col-4"> <a href="#" class="btn btn-danger">Edit</a></div>
-                            <div class="col-4"><button class="btn btn-primary">Post Job</button></div>
+                            <div class="col-4"> <button class="btn btn-danger">Edit</button></div>
+                            <div class="col-4"><a href="{{route('post-create')}}"><button class="btn btn-primary"> Post job </button> </a></div>
                             <div class="col-4"><button class="btn btn-dark">Add coid</button></div>
+                            <div>
+                                @if (session('errmsg'))
+                                    <p class="text-danger"> {{session('errmsg')}} </p>
+                                @endif
+                            </div>
                         </div><br>
                         <hr>
                     </div>
@@ -72,12 +77,13 @@
                             <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
                         </div>
                         <div class="" job-post-item-body>
-                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
-                            </div>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span></div>
                         </div>
                         <div class="" job-post-item-body>
-                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
-                                        More</a></span>
+                            <div class="mr-3">
+                                <span class="fl-bigmug-line-portfolio23">
+                                    <a href="">See More</a>
+                                </span>
                             </div>
                         </div>
                     </div>

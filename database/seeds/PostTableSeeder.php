@@ -27,12 +27,14 @@ class PostTableSeeder extends Seeder
                 'category_id'  => $faker->randomElement($CateIDs),
                 'price'        => rand(10,30),
                 'amount'       => rand(1,10),
+                'gender'       => rand(1,3),
                 'title'        => $faker->name,
-                'date_of_hire' => $faker->dateTime($max = 'now', $timezone = null),
+                'start_time' => $faker->dateTime($max = 'now', $timezone = null),
+                'end_time' => $faker->dateTime($max = 'now', $timezone = null),
                 'address'      => $faker->address,
                 'detail'       => $faker->realText($maxNbChars = 200, $indexSize = 2),
                 'status'       => '0',
-            ]; 
+            ];
             $posts[] = $item;
         }
         DB::table('posts')->insert($posts);

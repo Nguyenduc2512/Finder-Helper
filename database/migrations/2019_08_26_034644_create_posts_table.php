@@ -18,18 +18,17 @@ class CreatePostsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('location_id');
             $table->unsignedInteger('category_id');
-            $table->unsignedInteger('admin_id');
+            $table->integer('admin_id')->nullable();
             $table->dateTime('date_of_hire');
             $table->tinyInteger('amount');
             $table->string('title');
             $table->integer('price');
             $table->string('address');
             $table->text('detail');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default('0');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('location_id')->references('id')->on('locations');
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('admin_id')->references('id')->on('admins');
             $table->timestamps();
         });
     }

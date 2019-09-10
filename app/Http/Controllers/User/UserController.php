@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Http\Requests\NewPostRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ChangePasswordRequests;
 use App\Services\ChangePasswordService;
+use App\Services\NewPostService;
 
 class UserController extends Controller
 {
@@ -21,8 +23,10 @@ class UserController extends Controller
     public function savePassword(ChangePasswordRequests $request)
     {
         $this->changePassword->savePassword($request);
-        
+
         return redirect()->route('user.change-password');
     }
+
+
 
 }

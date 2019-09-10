@@ -11,7 +11,8 @@
                 <form action="{{route('login')}}" method="post">
                     @csrf
                     <div class="form-group mb-3">
-                        <label>Email *</label>
+                        <label>Email</label>
+                        <span class="text-danger">(*)</span>
                         <div class="input-group">
                             <input name="email" type="text" class="form-control form-control-lg"/>
                             <span class="input-group-append">

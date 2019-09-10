@@ -4,7 +4,7 @@ namespace App\Services;
 use Illuminate\Http\Request;
 
 class UploadService{
-    
+
     public function uploadFile(Request $request)
     {
 
@@ -14,5 +14,5 @@ class UploadService{
         
         return $filename;
     }
-    
+
 }

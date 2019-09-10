@@ -6,10 +6,18 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequests;
+use App\Services\UploadService;
 
 class UserService
 {
-    
+
+    protected $uploadFile;
+
+    public function __construct(UploadService $uploadFile)
+    {
+        $this->uploadFile = $uploadFile;
+    }
+
     public function savePassword(ChangePasswordRequests $request)
     {
         $data = $request->except('_token', 'id');
@@ -34,13 +42,8 @@ class UserService
         $user->fill($request->all());
 
         if ($request->hasFile('avatar')) {
-
-            $filename = $request->avatar->getClientOriginalName();
-            $filename = str_replace(' ', '-', $filename);
-            $filename = uniqid() . '-' . $filename;
-            $path = request()->avatar->move(('images/avatar'), $filename);
-
-            $user->avatar= $path;
+            
+            $user->avatar = $this->uploadFile->uploadFile($request);
         }
 
         $user->save();

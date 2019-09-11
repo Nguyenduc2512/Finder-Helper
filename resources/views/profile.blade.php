@@ -27,7 +27,7 @@
                         <span>Coin : {{ Auth::user()->coin }}</span><br><br>
                         <span>Gender :
                             @if ( Auth::user()->gender == $gender['gender_type_male'] )
-                                Nam
+                                Male
                             @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
                                 Nữ
                             @else

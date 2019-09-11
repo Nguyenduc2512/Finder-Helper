@@ -55,5 +55,10 @@ class HomeController extends Controller
         return view('client.change_password');
     }
 
-
+    public function editProfile()
+    {
+        $gender = Config::get('helper');
+       
+        return view('client.edit_profile', compact('gender'));
+    }
 }

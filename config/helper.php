@@ -5,5 +5,6 @@ return  [
     'user_type_helper' => 2,
     'gender_type_male' => 1,
     'gender_type_female' => 2,
+    'gender_type_other' => 3,
 ];
 

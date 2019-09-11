@@ -1,7 +1,7 @@
-@extends('layouts.master')
+@extends('client.layouts.master')
 @section('title', 'profile')
 @section('content')
-@include('layouts.search-slide')
+@include('client.layouts.search-slide')
 <div class="container">
     <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -19,6 +19,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-7">
+                        <h4>Profile Helper</h4>
                         <span>Name : {{ Auth::user()->name }}</span><br><br>
                         <span>Email : {{ Auth::user()->email }}</span><br><br>
                         <span>Phone Number : {{ Auth::user()->phone }}</span><br><br>
@@ -27,24 +28,19 @@
                         <span>Coin : {{ Auth::user()->coin }}</span><br><br>
                         <span>Gender :
                             @if ( Auth::user()->gender == $gender['gender_type_male'] )
-                                Male
+                                Nam
                             @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
-                                Female
-                            @else
-                                Other
+                                Nữ 
+                            @else 
+                                Khác
                             @endif
                         </span>
                         <div class="row">
                             <div class="col-4">
-                                <a href="{{ route('user.edit-profile')}}" class="btn btn-danger">Edit</a>
+                                <a href="{{ route('user.edit-profile') }}" class="btn btn-danger">Edit</a>
                             </div>
-                            <div class="col-4"><a href="{{route('post-create')}}"><button class="btn btn-primary"> Post job </button> </a></div>
+                            <div class="col-4"><button class="btn btn-primary">Post Job</button></div>
                             <div class="col-4"><button class="btn btn-dark">Add coid</button></div>
-                            <div>
-                                @if (session('errmsg'))
-                                    <p class="text-danger"> {{session('errmsg')}} </p>
-                                @endif
-                            </div>
                         </div><br>
                         <hr>
                     </div>
@@ -79,13 +75,12 @@
                             <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
                         </div>
                         <div class="" job-post-item-body>
-                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span></div>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
+                            </div>
                         </div>
                         <div class="" job-post-item-body>
-                            <div class="mr-3">
-                                <span class="fl-bigmug-line-portfolio23">
-                                    <a href="">See More</a>
-                                </span>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
+                                        More</a></span>
                             </div>
                         </div>
                     </div>

@@ -25,7 +25,7 @@ class PostController extends Controller
         $category = $this->newpost->getCategory();
         $location = $this->newpost->getLocation();
 
-        return view('client.new-post', compact('category', 'location'));
+        return view('client.formClient.new_post', compact('category', 'location'));
 
     }
 

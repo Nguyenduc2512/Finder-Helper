@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function savePassword(ChangePasswordRequests $request)
     {
-        $this->changePassword->savePassword($request);
+        $this->userService->savePassword($request);
 
         return redirect()->route('user.change-password');
 

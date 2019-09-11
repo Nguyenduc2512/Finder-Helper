@@ -24,7 +24,7 @@ class LoginController extends Controller
     public function showLoginForm()
     {
 
-        return view('client/loginform');
+        return view('client.formClient.loginform');
     }
 
     public function login(LoginUser $request)

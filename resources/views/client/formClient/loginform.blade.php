@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('client.layouts.login')
 @section('content')
     <div class="center-sign">
 

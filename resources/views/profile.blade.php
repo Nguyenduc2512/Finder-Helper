@@ -29,9 +29,9 @@
                             @if ( Auth::user()->gender == $gender['gender_type_male'] )
                                 Male
                             @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
-                                Nữ
+                                Female
                             @else
-                                Khác
+                                Other
                             @endif
                         </span>
                         <div class="row">

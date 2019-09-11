@@ -29,7 +29,8 @@ Route::group(
     Route::post('add-info', 'Auth\LoginFacebookController@addInfo')->name('add-info');
     Route::get('change-password', 'User\HomeController@changePassword')->name('change-password');
     Route::post('save-password', 'User\UserController@savePassword')->name('save-password');
-
+    Route::get('edit-profile', 'User\HomeController@editProfile')->name('edit-profile');
+    Route::post('update-profile', 'User\UserController@updateProfile')->name('update-profile');
 });
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');

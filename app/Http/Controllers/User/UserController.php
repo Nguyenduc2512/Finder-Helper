@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Requests\NewPostRequest;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ChangePasswordRequests;
-use App\Services\ChangePasswordService;
-use App\Services\NewPostService;
+use App\Services\UserService;
+use App\Http\Requests\UserRequests;
 
 class UserController extends Controller
 {
-    protected $changePassword;
+    protected $userService;
 
-    public function __construct(ChangePasswordService $changePassword)
+    public function __construct(UserService $userService)
     {
-        $this->changePassword = $changePassword;
+        $this->userService = $userService;
     }
 
     public function savePassword(ChangePasswordRequests $request)
@@ -25,8 +21,13 @@ class UserController extends Controller
         $this->changePassword->savePassword($request);
 
         return redirect()->route('user.change-password');
+
     }
 
+    public function updateProfile(UserRequests $request)
+    {
+        $this->userService->updateProfile($request);
 
-
+        return redirect()->route('profile');
+    }
 }

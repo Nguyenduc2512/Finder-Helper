@@ -27,15 +27,17 @@
                         <span>Coin : {{ Auth::user()->coin }}</span><br><br>
                         <span>Gender :
                             @if ( Auth::user()->gender == $gender['gender_type_male'] )
-                                Nam
+                                Male
                             @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
-                                Nữ
+                                Female
                             @else
-                                Khác
+                                Other
                             @endif
                         </span>
                         <div class="row">
-                            <div class="col-4"> <button class="btn btn-danger">Edit</button></div>
+                            <div class="col-4">
+                                <a href="{{ route('user.edit-profile')}}" class="btn btn-danger">Edit</a>
+                            </div>
                             <div class="col-4"><a href="{{route('post-create')}}"><button class="btn btn-primary"> Post job </button> </a></div>
                             <div class="col-4"><button class="btn btn-dark">Add coid</button></div>
                             <div>

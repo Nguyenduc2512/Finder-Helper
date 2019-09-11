@@ -36,7 +36,9 @@
                             @endif
                         </span>
                         <div class="row">
-                            <div class="col-4"> <a href="#" class="btn btn-danger">Edit</a></div>
+                            <div class="col-4">
+                                <a href="{{ route('user.edit-profile') }}" class="btn btn-danger">Edit</a>
+                            </div>
                             <div class="col-4"><button class="btn btn-primary">Post Job</button></div>
                             <div class="col-4"><button class="btn btn-dark">Add coid</button></div>
                         </div><br>

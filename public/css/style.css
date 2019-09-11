@@ -155,3 +155,18 @@ body{
 .site-footer{
 	margin-top: 10%;
 }
+#avatar-profile{
+	width:200px; 
+	border-radius: 50%;
+}
+#form-profile{
+	position: absolute;
+	top: 25%;
+	left: 35%;
+}
+#card-body-profile{
+	padding: 5%;
+}
+#card-body-profile input{
+	height: 45px;
+}

@@ -1,7 +1,7 @@
-@extends('layouts.master')
+@extends('client.layouts.master')
 @section('title', 'profile')
 @section('content')
-@include('layouts.search-slide')
+@include('client.layouts.search-slide')
 <div class="container">
     <ul class="nav nav-tabs">
         <li class="nav-item">

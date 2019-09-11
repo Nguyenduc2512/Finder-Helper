@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::group(
     ['middleware' => 'auth'], function() {
     Route::get('/profile', 'User\HomeController@profile')->name('profile');

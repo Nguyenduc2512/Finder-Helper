@@ -1,10 +1,10 @@
-@extends('layouts.master')
+@extends('client.layouts.master')
 @section('title', 'Edit-Profile')
 @section('content')
     <div class="container" style="margin-top: 3%">
         <div class="row">
             <div class="col-md-4">
-                @include('layouts.menu_bar')
+                @include('client.layouts.menu_bar')
             </div>
             <div class="col-md-8" id="my-profile">
                 <div class="card mb-3" style="max-width: 100%;">
@@ -99,5 +99,5 @@
             </div>
         </div>
     </div>
-@include('layouts.js')   
+@include('client.layouts.js')   
 @endsection

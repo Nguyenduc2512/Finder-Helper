@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('client.layouts.master')
 @section('title', 'new-post')
 @section('content')
     <div class="user-post">

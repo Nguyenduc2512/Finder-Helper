@@ -1,6 +1,6 @@
  <!-- Header-mobile -->
- @include('layouts.css')
- @include('layouts.script')
+ @include('client.layouts.css')
+ @include('client.layouts.script')
  <div class="site-mobile-menu">
     <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">

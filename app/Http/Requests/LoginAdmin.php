@@ -31,7 +31,6 @@ class LoginAdmin extends FormRequest
 
     public function messages()
     {
-
         return [
             'email.required' => 'ko dc de trong',
             'email.exists' => 'Email hoặc Password sai',

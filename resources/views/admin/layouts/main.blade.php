@@ -1,12 +1,21 @@
-@include('admin.layouts.css')
+<!DOCTYPE html>
+<html>
+<head>
+  @include('admin.layouts.css')
+</head>
+<body class="hold-transition sidebar-mini">
 <div class="wrapper">
-    <!-- Navbar -->
-    @include('admin.layouts.header')
-    <!-- /.navbar -->
-    @include('admin.layouts.slide_bar')
-
-    @yield('content')
-
+  @include('admin.layouts.header')
+  @include('admin.layouts.slide_bar')
+    <section class="content">
+      <div class="container">
+         @yield('content')
+      </div>
+    </section>
+</div>
     @include('admin.layouts.footer')
+    @include('admin.layouts.custom')
 </div>
 @include('admin.layouts.style')
+</body>
+</html>

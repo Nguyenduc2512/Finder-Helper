@@ -33,7 +33,8 @@
                   data-target="#edit" data-cate-id="{{ $cate->id }}" data-cate-name="{{ $cate->name}}">
                   <i class="fa fa-edit"></i>
               </button>
-              <a href="{{ route('admin.delete-cate', $cate->id) }}" class="btn btn-danger btn-sm btn-remove">
+              <a href="javascript:;" class="btn btn-danger btn-sm btn-remove"
+                linkurl="{{ route('admin.delete-cate', $cate->id) }}">
                 <i class="far fa-trash-alt"></i>
               </a>
             </td>
@@ -52,4 +53,45 @@
     </div>
   </div>
 @include('admin.category.formCate')
+<script>
+
+    @if (session('errmsg') == 'success')
+
+      swal({
+        title: "Thành công!",
+        text: "Tạo thành công danh mục mới!",
+        icon: "success",
+        button: true,
+        dangerMode: true,
+
+      });
+
+    @endif
+
+    $('.btn-remove').on('click', function(){
+      
+    swal({
+      title: "Cảnh báo!",
+      text: "Bạn có chắc chắn muốn xoá danh mục này ?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+
+    })
+    .then((willDelete) => {
+
+      if (willDelete) {
+
+        window.location.href = $(this).attr('linkurl');
+        swal("Bạn đã xóa thành công danh mục này!", {
+          icon: "success",
+        });
+
+      }  else {
+
+        swal("Hủy thành công!");
+      }
+    });
+  });
+</script>
 @endsection

@@ -20,14 +20,14 @@ class CategoryController extends Controller
     {
         $this->categoryService->addCate($request);
 
-        return redirect()->route('admin.list-cate');
+        return redirect()->route('admin.list-cate')->with('errmsg', 'success');
     }
 
     public function saveCate(Request $request)
     {
         $this->categoryService->saveCate($request);
 
-        return redirect()->route('admin.list-cate');
+        return redirect()->route('admin.list-cate')->with('errmsg', 'success');
     }
 
     public function deleteCate(Category $cate)

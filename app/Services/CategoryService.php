@@ -6,14 +6,14 @@ use App\Models\Category;
 
 class CategoryService{
 
-    public function listCate()
+    public function show()
     {
         $category = Category::all();
 
         return $category;
     }
 
-    public function addCate(Request $request)
+    public function store(Request $request)
     {
         $data = $request->except('_token');
         $cate = Category::create($data);
@@ -21,7 +21,7 @@ class CategoryService{
         return $cate;
     }
 
-    public function saveCate(Request $request)
+    public function update(Request $request)
     {
         $data = $request->except('_token', 'id');
         $cate = Category::find($request->id);
@@ -30,7 +30,7 @@ class CategoryService{
         return $cate;
     }
 
-    public function deleteCate(Category $cate)
+    public function destroy(Category $cate)
     {
        return $cate->delete(); 
     }

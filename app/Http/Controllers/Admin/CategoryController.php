@@ -16,23 +16,30 @@ class CategoryController extends Controller
         $this->categoryService = $categoryService;
     }
 
-    public function addCate(Request $request)
+    public function show()
     {
-        $this->categoryService->addCate($request);
+        $category = $this->categoryService->show();
 
-        return redirect()->route('admin.list-cate')->with('errmsg', 'success');
+        return view('admin.category.list_cate', compact('category'));
     }
 
-    public function saveCate(Request $request)
+    public function store(Request $request)
     {
-        $this->categoryService->saveCate($request);
+        $this->categoryService->store($request);
 
-        return redirect()->route('admin.list-cate')->with('errmsg', 'success');
+        return redirect()->route('admin.list-cate')->with('success', 'success');
     }
 
-    public function deleteCate(Category $cate)
+    public function update(Request $request)
     {
-       $this->categoryService->deleteCate($cate);
+        $this->categoryService->update($request);
+
+        return redirect()->route('admin.list-cate')->with('success', 'success');
+    }
+
+    public function destroy(Category $cate)
+    {
+       $this->categoryService->destroy($cate);
 
        return redirect()->route('admin.list-cate'); 
     }

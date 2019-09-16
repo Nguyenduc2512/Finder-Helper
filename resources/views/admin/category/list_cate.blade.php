@@ -55,7 +55,7 @@
 @include('admin.category.formCate')
 <script>
 
-    @if (session('errmsg') == 'success')
+    @if (session('success') == 'success')
 
       swal({
         title: "Thành công!",

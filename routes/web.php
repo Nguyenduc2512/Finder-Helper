@@ -64,3 +64,5 @@ Route::group(['prefix' => 'user-admin'], function (){
     Route::get('/list', 'Admin\UserController@index')->name('list-user');
 });
 Auth::routes();
+Route::get('/sign', 'Auth\SignUpController@show')->name('sign');
+Route::post('sign', 'Auth\SignUpController@create');

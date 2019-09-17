@@ -16,9 +16,9 @@ class CategoryController extends Controller
         $this->categoryService = $categoryService;
     }
 
-    public function show()
+    public function index()
     {
-        $category = $this->categoryService->show();
+        $category = $this->categoryService->index();
 
         return view('admin.category.list_cate', compact('category'));
     }
@@ -26,22 +26,23 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->categoryService->store($request);
-
-        return redirect()->route('admin.list-cate')->with('success', 'success');
+       
+        return redirect()->route('categories.index')->with(['success' => 'Tạo danh mục mới thành công']);
+        
     }
 
     public function update(Request $request)
     {
         $this->categoryService->update($request);
 
-        return redirect()->route('admin.list-cate')->with('success', 'success');
+        return redirect()->route('categories.index')->with(['success' => 'Sửa danh mục thành công']);
     }
 
-    public function destroy(Category $cate)
+    public function destroy(Category $category)
     {
-       $this->categoryService->destroy($cate);
+       $this->categoryService->destroy($category);
 
-       return redirect()->route('admin.list-cate'); 
+       return $this->index();
     }
     
 }

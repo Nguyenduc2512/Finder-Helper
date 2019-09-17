@@ -43,10 +43,10 @@ Route::get('/auth/redirect/{provider}', 'Auth\LoginFacebookController@redirect')
 Route::get('/callback/{provider}', 'Auth\LoginFacebookController@callback');
 
 Route::get('/admin', 'Admin\HomeController@index');
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('list-cate', 'Admin\CategoryController@show')->name('list-cate');
-    Route::post('add-cate', 'Admin\CategoryController@store')->name('add-cate');
-    Route::post('save-cate', 'Admin\CategoryController@update')->name('save-cate');
-    Route::get('delete-cate/{cate}', 'Admin\CategoryController@destroy')->name('delete-cate');
+Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
+    Route::get('/', 'Admin\CategoryController@index')->name('index');
+    Route::post('store', 'Admin\CategoryController@store')->name('store');
+    Route::post('update/{category}', 'Admin\CategoryController@update')->name('update');
+    Route::get('destroy/{category}', 'Admin\CategoryController@destroy')->name('destroy');
 });
 

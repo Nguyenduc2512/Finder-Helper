@@ -6,7 +6,7 @@ use App\Models\Category;
 
 class CategoryService{
 
-    public function show()
+    public function index()
     {
         $category = Category::all();
 
@@ -16,23 +16,23 @@ class CategoryService{
     public function store(Request $request)
     {
         $data = $request->except('_token');
-        $cate = Category::create($data);
+        $category = Category::create($data);
 
-        return $cate;
+        return $category;
     }
 
     public function update(Request $request)
     {
         $data = $request->except('_token', 'id');
-        $cate = Category::find($request->id);
-        $cate->update($data);
+        $category = Category::find($request->id);
+        $category->update($data);
 
-        return $cate;
+        return $category;
     }
 
-    public function destroy(Category $cate)
+    public function destroy(Category $category)
     {
-       return $cate->delete(); 
+       return $category->delete(); 
     }
     
 }

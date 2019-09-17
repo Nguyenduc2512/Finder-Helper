@@ -8,7 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form  action="{{ route('admin.add-cate') }}" method="post" class="needs-validation" novalidate>
+        <form  action="{{ route('categories.store') }}" method="post" class="needs-validation" novalidate>
           @csrf
           <div class="form-group">
             <label for="validationCate" class="col-form-label">Cate Name</label>
@@ -38,7 +38,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{ route('admin.save-cate') }}" method="post" class="needs-validation" novalidate>
+        <form action="{{ route('categories.update', $cate->id) }}" method="post" class="needs-validation" novalidate>
             @csrf
             <input type="hidden" name="id" id="id">
           <div class="form-group">

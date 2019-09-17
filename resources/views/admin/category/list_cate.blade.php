@@ -34,7 +34,7 @@
                   <i class="fa fa-edit"></i>
               </button>
               <a href="javascript:;" class="btn btn-danger btn-sm btn-remove"
-                linkurl="{{ route('admin.delete-cate', $cate->id) }}">
+                linkurl="{{ route('categories.destroy', $cate->id) }}">
                 <i class="far fa-trash-alt"></i>
               </a>
             </td>
@@ -55,11 +55,10 @@
 @include('admin.category.formCate')
 <script>
 
-    @if (session('success') == 'success')
+    @if ( session('success') == true)
 
       swal({
-        title: "Thành công!",
-        text: "Tạo thành công danh mục mới!",
+        text: '{{ session('success') }}',
         icon: "success",
         button: true,
         dangerMode: true,

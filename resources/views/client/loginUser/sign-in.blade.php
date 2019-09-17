@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('auth.layouts.login')
 @section('title', 'sign in')
 @section('content')
 <div class="center-sign">

@@ -34,5 +34,4 @@ class NewPostRequest extends FormRequest
             'detail'     => 'required',
         ];
     }
-
 }

@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Services;
 use App\Http\Requests\ChangePasswordRequests;
@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequests;
 use App\Services\UploadService;
-use App\Http\Requests\LostPasswordRequest;
 
 class UserService
 {
@@ -41,16 +40,16 @@ class UserService
     {
         $user = User::find($request->id);
         $user->fill($request->all());
-
+        
         if ($request->hasFile('avatar')) {
-
+            
             $path = $this->uploadFile->uploadFile($request);
-
+            
             $user->avatar = request()->avatar->move('images/avatar', $path);
         }
-
+    
         $user->save();
-
+        
         return $user;
     }
 

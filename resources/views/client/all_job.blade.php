@@ -1,4 +1,4 @@
-@extends('client.clayouts.master')
+@extends('layouts.master')
 @section('title', 'all-job')
 @section('content')
 <div class="container">
@@ -232,48 +232,34 @@
             <div class="d-flex">
                 <div class="p-2  flex-fill">
                     <ul class="list-unstyled">
-                        <li>
-                            Coffee
-                        </li>
-                        <br>
-                        <li>
-                            Tea
-                        </li>
-                        <br>
-                        <li>
-                            Milk
-                        </li>
-                    </ul>
+                    <li>Coffee</li>
+                    <br>
+                    <li>Tea
+                    </li>
+                    <br>
+                    <li>Milk</li>
+                </ul>
             </div>
                 <div class="p-2  flex-fill">
                     <ul class="list-unstyled">
-                        <li>
-                            Coffee
-                        </li>
-                        <br>
-                        <li>
-                            Tea
-                        </li>
-                        <br>
-                        <li>
-                            Milk
-                        </li>
-                    </ul>
+                    <li>Coffee
+                    </li>
+                    <br>
+                    <li>Tea									
+                    </li>
+                    <br>
+                    <li>Milk
+                    </li>
+                </ul>
             </div>
                 <div class="p-2  flex-fill">
                     <ul class="list-unstyled">
-                        <li>
-                            Coffee
-                        </li>
-                        <br>
-                        <li>
-                            Tea
-                        </li>
-                        <br>
-                        <li>
-                            Milk
-                        </li>
-                    </ul
+                    <li>Coffee</li><br>
+                    <li>Tea
+                    </li>
+                    <br>
+                    <li>Milk</li>
+                </ul
                 ></div>
             </div>
         </div>

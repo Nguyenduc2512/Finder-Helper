@@ -1,7 +1,7 @@
-@extends('auth.layouts.master')
+@extends('layouts.master')
 @section('title', 'listapply')
 @section('content')
-    @include('auth.layouts.search-slide')
+    @include('layouts.search-slide')
     <div class="container content">
         <div class="row justify-content-between">
             <div class="col-6 item-header">

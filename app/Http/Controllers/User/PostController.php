@@ -7,23 +7,23 @@ use App\Models\Category;
 use App\Models\Location;
 use App\Models\Post;
 use App\Models\User;
-use App\Services\PostService;
+use App\Services\NewPostService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    protected $postService;
+    protected $newpost;
 
-    public function __construct(PostService $postService)
+    public function __construct(NewPostService $newpost)
     {
-        $this->postService = $postService;
+        $this->newpost = $newpost;
     }
 
     public function create()
     {
-        $category = $this->postService->getCategory();
-        $location = $this->postService->getLocation();
+        $category = $this->newpost->getCategory();
+        $location = $this->newpost->getLocation();
 
         return view('client.formClient.new_post', compact('category', 'location'));
 
@@ -31,7 +31,7 @@ class PostController extends Controller
 
     public function store(NewPostRequest $request)
     {
-        $this->postService->store($request);
+        $this->newpost->store($request);
 
         return redirect()->route('profile');
     }

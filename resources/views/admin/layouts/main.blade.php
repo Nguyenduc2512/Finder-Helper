@@ -17,5 +17,6 @@
     @include('admin.layouts.custom')
 </div>
 @include('admin.layouts.style')
+@include('admin.layouts.table')
 </body>
 </html>

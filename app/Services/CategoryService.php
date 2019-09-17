@@ -6,7 +6,7 @@ use App\Models\Category;
 
 class CategoryService{
 
-    public function index()
+    public function getAllCategories()
     {
         $category = Category::all();
 

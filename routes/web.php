@@ -50,3 +50,4 @@ Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
     Route::get('destroy/{category}', 'Admin\CategoryController@destroy')->name('destroy');
 });
 
+Auth::routes();

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
-class NewPostService
+class PostService
 {
     public function getCategory()
     {

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('auth.layouts.master')
 @section('title', 'feedback')
 @section('content')
 <div class="feedback">
@@ -15,7 +15,7 @@
                                         <p class="card-text"><b>Số điện thoại:</b> 0123456789</p>
                                         <p class="card-text"><b>Giới Tính: </b>Nữ</p>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="col-6">
@@ -26,7 +26,7 @@
                                 </button>
                             </div>
                         </div>
-                    
+
                     </div>
                 </div>
             </div>

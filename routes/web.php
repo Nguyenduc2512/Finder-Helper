@@ -28,6 +28,11 @@ Route::group(
     Route::post('update-profile', 'User\UserController@updateProfile')->name('update-profile');
 });
 
+Route::get('/admin', 'Admin\HomeController@index')->name('admin')->middleware('auth:admin');
+Route::get('/loginAdmin','Auth\AdminController@loginAdmin')->name('loginAdmin')->middleware('guest');
+Route::post('/loginAdmin','Auth\AdminController@postAdmin');
+Route::get('/logoutAdmin','Auth\AdminController@logoutAdmin')->name('logoutAdmin');
+
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');

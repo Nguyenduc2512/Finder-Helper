@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-sm-4 text-right">
                             <button type="submit" class="btn btn-primary mt-2">Sign In</button>
-                            <a href="{{route('password.request')}}" style="color: #999" class="float-right">Lost Password?</a>
+                            <a href="" style="color: #999" class="float-right">Lost Password?</a>
 
                         </div>
                     </div>

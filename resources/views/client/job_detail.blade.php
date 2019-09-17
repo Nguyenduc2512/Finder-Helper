@@ -1,4 +1,4 @@
-@extends('auth.layouts.master')
+@extends('layouts.master')
 @section('title', 'job-detail')
 @section('content')
 <div class="menuDetail">
@@ -99,7 +99,7 @@
                             <p class="card-text">0123456789</p>
                             <a href="#" class="btn btn-danger btn-apply">Ứng tuyển ngay</a>
                         </div>
-
+                        
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                         </p>
                     </div>
                     <div class="card-body" id="card-body">
-
+                
                         <a class="nav-link" style="font-size: 18px;" href="#" data-toggle="tooltip" title="Giúp việc nhà">Giúp việc nhà <br>
                                 <span class="text-dark" style="font-size: 15px;">Cần người giúp việc nhà, nấu cơm...</span>
                         </a>

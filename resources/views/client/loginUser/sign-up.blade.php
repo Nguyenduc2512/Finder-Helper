@@ -1,4 +1,4 @@
-@extends('auth.layouts.login')
+@extends('layouts.login')
 @section('title', 'sign-up')
 @section('content')
 <div class="center-sign">
@@ -63,15 +63,15 @@
                     <div class="d-flex justify-content-between6 ">
 
                     <div class="form-check p-2">
-
+                        
                         <label class="form-check-label" for="exampleRadios2">
                             <a href=""><i class="far fa-file-image"></i> Chọn từ thư viện</a>
-
+                        
                         </label>
                     </div>
-
+                    
                     <div class="form-check p-2 ml-auto ">
-
+                            
                         <label class="form-check-label" for="exampleRadios2"><i class="fas fa-camera"></i>
                             Chụp ảnh
                         </label>
@@ -88,15 +88,15 @@
                     <div class="d-flex justify-content-between6 ">
 
                     <div class="form-check p-2">
-
+                        
                         <label class="form-check-label" for="exampleRadios2">
                             <a href=""><i class="far fa-file-image"></i> Chọn từ thư viện</a>
-
+                        
                         </label>
                     </div>
-
+                    
                     <div class="form-check p-2 ml-auto ">
-
+        
                         <label class="form-check-label" for="exampleRadios2"><i class="fas fa-camera"></i>
                             Chụp ảnh
                         </label>
@@ -110,7 +110,7 @@
                         <label class="float-left">Giới Tính</label>
                     </div>
                     <div class="d-flex justify-content-around">
-
+                    
 
                     <div class="form-check p-2">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
@@ -146,7 +146,7 @@
                             Hepler
                         </label>
                     </div>
-
+                    
                     <div class="form-check ">
                         <input class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                         <label class="form-check-label" for="exampleRadios2">
@@ -170,12 +170,12 @@
 
                         </div>
                     </div>
-
+                    
                 </div>
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <button type="submit" class="btn btn-primary mt-2">Sign Up</button>
-
+                        
 
                     </div>
                 </div>

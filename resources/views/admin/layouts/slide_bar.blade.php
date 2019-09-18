@@ -23,7 +23,6 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
           </li>
@@ -95,7 +94,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>@yield('titlePage', 'Title Page')</h1>
+            <h1>@yield('titlePage')</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

@@ -29,7 +29,7 @@ Route::group(
 });
 
 Route::get('/admin', 'Admin\HomeController@index')->name('admin')->middleware('auth:admin');
-Route::get('/loginAdmin','Auth\AdminController@loginAdmin')->name('loginAdmin')->middleware('guest');
+Route::get('/loginAdmin','Auth\AdminController@loginAdmin')->name('loginAdmin');
 Route::post('/loginAdmin','Auth\AdminController@postAdmin');
 Route::get('/logoutAdmin','Auth\AdminController@logoutAdmin')->name('logoutAdmin');
 

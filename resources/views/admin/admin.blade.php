@@ -1,8 +1,5 @@
 @extends('admin.layouts.main')
 @section('content')
-linh xinh gái
-
-
 <div class="row">
 	<div class="col-lg-3 col-6">
 		<!-- small box -->

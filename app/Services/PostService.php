@@ -62,7 +62,7 @@ class PostService
         $post->fill($data);
         $post->save();
 
-        return redirect()->route('profile', compact('gender'))->with('errmsg', 'Bài viết của bạn đang được chờ duyệt');
+        return redirect()->route('user.profile', compact('gender'))->with('errmsg', 'Bài viết của bạn đang được chờ duyệt');
     }
 
 }

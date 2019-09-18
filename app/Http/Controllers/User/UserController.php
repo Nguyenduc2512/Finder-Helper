@@ -32,7 +32,7 @@ class UserController extends Controller
     {
         $this->userService->updateProfile($request);
 
-        return redirect()->route('profile');
+        return redirect()->route('user.profile');
     }
 
 }

@@ -29,14 +29,14 @@
                         <li>
                             <a href="{{route('category')}}">Category</a>
                         </li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="{{route('all-post')}}">Blog</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li class="has-children">
                             @if (Auth::user())
                                 <span class="caret">Hello {{Auth::user()->name}}</span>
                                 <ul class="dropdown">
-                                    <li><a href="{{route('profile')}}">Profile</a></li>
+                                    <li><a href="{{route('user.profile')}}">Profile</a></li>
                                     <li>
                                         <a href="{{ route('user.change-password') }}">Change Password</a>
                                     </li>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Services;
 use Illuminate\Http\Request;
@@ -8,9 +8,9 @@ class CategoryService{
 
     public function getAllCategories()
     {
-        $category = Category::all();
+        $categories = Category::all();
 
-        return $category;
+        return $categories;
     }
 
     public function store(Request $request)
@@ -32,7 +32,7 @@ class CategoryService{
 
     public function destroy(Category $category)
     {
-       return $category->delete(); 
+       return $category->delete();
     }
-    
+
 }

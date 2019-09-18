@@ -22,8 +22,8 @@ class PostController extends Controller
 
     public function create()
     {
-        $category = $this->postService->getCategory();
-        $location = $this->postService->getLocation();
+        $category = $this->postService->getCategories();
+        $location = $this->postService->getLocations();
 
         return view('client.formClient.new_post', compact('category', 'location'));
 

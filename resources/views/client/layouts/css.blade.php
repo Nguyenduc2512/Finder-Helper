@@ -8,3 +8,4 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.css')}}">
 <link rel="stylesheet" href="{{asset('css/theme.css')}}" />
 <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/all.min.css')}}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">

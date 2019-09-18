@@ -12,7 +12,7 @@
 	font-size: 17px;
 	list-style: none;
 	font-family: 'Montserrat', sans-serif;
-	color: black;	
+	color: black;
 	}
 	#button{
 	width: 100px;
@@ -578,37 +578,52 @@
 	.site-footer ul li {
 	margin-bottom: 10px; }
 .job-post-item {
-	border-radius: 4px; 
-  background: #fff;
-  position: relative;
-  -webkit-transition: .1s all ease;
-  -o-transition: .1s all ease;
-  transition: .1s all ease;
-  top: 0;
-  z-index: 1;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
-  .job-post-item .btn-favorite {
+    border-radius: 4px;
+    background: #fff;
+    position: relative;
+    -webkit-transition: .1s all ease;
+    -o-transition: .1s all ease;
+    transition: .1s all ease;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+.job-post-item .btn-favorite {
     width: 40px;
     height: 40px;
     line-height: 40px;
     padding: 0 !important;
-    margin: 0 !important; }
-    .job-post-item .btn-favorite.active, .job-post-item .btn-favorite:hover {
-      border-color: #f23a2e;
-      background: #f23a2e;
-      color: #fff !important; }
-  .job-post-item.last {
-    border-bottom: 1px solid transparent; }
-  .job-post-item .badge-wrap {
+    margin: 0 !important;
+}
+
+.job-post-item .btn-favorite.active, .job-post-item .btn-favorite:hover {
+    border-color: #f23a2e;
+    background: #f23a2e;
+    color: #fff !important;
+}
+
+.job-post-item.last {
+    border-bottom: 1px solid transparent;
+}
+
+.job-post-item .badge-wrap {
     position: relative;
-    top: -5px; }
-  .job-post-item .badge {
-    border-radius: 30px; }
-  .job-post-item:hover, .job-post-item:focus {
+    top: -5px;
+}
+
+.job-post-item .badge {
+    border-radius: 30px;
+}
+
+.job-post-item:hover, .job-post-item:focus {
     -webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
     top: -5px;
-    z-index: 2; }
-   .job-post-item-body{
-   	height: 30px;
-   }
+    z-index: 2;
+}
+
+.job-post-item-body {
+    height: 30px;
+}
+
+}

@@ -3,5 +3,4 @@
 @if (Auth::user())
 Xin Chào {{ Auth::user()->name }}
 @endif
-
 @endsection

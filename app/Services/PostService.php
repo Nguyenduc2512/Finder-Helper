@@ -12,19 +12,33 @@ use Illuminate\Support\Facades\Config;
 
 class PostService
 {
-    public function getCategory()
+    public function getPosts()
     {
-        $category = Category::all();
+        $posts = Post::all();
 
-        return $category;
+        return $posts;
+    }
+
+    public function getNewPosts()
+    {
+        $newposts = Post::orderBy('start_time', 'desc')->get();
+
+        return $newposts;
+    }
+
+    public function getCategories()
+    {
+        $categories = Category::all();
+
+        return $categories;
 
     }
 
-    public function getLocation()
+    public function getLocations()
     {
-        $location = Location::all();
+        $locations = Location::all();
 
-        return $location;
+        return $locations;
 
     }
 
@@ -48,7 +62,7 @@ class PostService
         $post->fill($data);
         $post->save();
 
-        return redirect()->route('profile', compact('gender'))->with('errmsg', 'Bài viết của bạn đang đưuọc chờ duyệt');
+        return redirect()->route('profile', compact('gender'))->with('errmsg', 'Bài viết của bạn đang được chờ duyệt');
     }
 
 }

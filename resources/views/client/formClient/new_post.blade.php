@@ -10,7 +10,7 @@
                             <h5 style="margin-left: 10%;"> Đăng bài tuyển dụng </h5>
                         </div>
                         <div class="card-body" id="card-body-form">
-                            <form method="post" enctype="multipart/form-data" action="{{route('post-store')}}">
+                            <form method="post" enctype="multipart/form-data" action="{{route('user.post-store')}}">
                                 @csrf
                                 <div class="form-group">
                                     <label> Tiêu đề công việc </label>

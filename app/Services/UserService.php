@@ -54,4 +54,11 @@ class UserService
         return $user;
     }
 
+    public function getUsers()
+    {
+        $users = User::all();
+
+        return $users;
+    }
+
 }

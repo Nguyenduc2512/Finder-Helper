@@ -38,7 +38,7 @@
                             <div class="col-4">
                                 <a href="{{ route('user.edit-profile')}}" class="btn btn-danger">Edit</a>
                             </div>
-                            <div class="col-4"><a href="{{route('post-create')}}"><button class="btn btn-primary"> Post job </button> </a></div>
+                            <div class="col-4"><a href="{{route('user.post-create')}}"><button class="btn btn-primary"> Post job </button> </a></div>
                             <div class="col-4"><button class="btn btn-dark">Add coid</button></div>
                             <div>
                                 @if (session('errmsg'))

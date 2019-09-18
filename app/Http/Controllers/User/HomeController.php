@@ -3,13 +3,30 @@
 namespace App\Http\Controllers\User;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Services\PostService;
+use App\Services\UserService;
 use Illuminate\Support\Facades\Config;
 
 class HomeController extends Controller
 {
+    protected $postService;
+    protected $userService;
+
+    public function __construct( PostService $postService,
+                                 UserService $userService )
+    {
+        $this->postService = $postService;
+        $this->userService = $userService;
+    }
+
     public function index()
     {
-        return view('client.index');
+        $posts    = $this->postService->getPosts();
+        $newPosts  = $this->postService->getNewPosts();
+        $users    = $this->userService->getUsers();
+        $categories = $this->postService->getCategories();
+
+        return view('client.index', compact('posts', 'newPosts', 'users', 'categories'));
     }
 
     public function profile()
@@ -21,7 +38,17 @@ class HomeController extends Controller
 
     public function category()
     {
-        return view('client.all_job');
+
+    }
+
+    public function allPost()
+    {
+        $newPosts   = $this->postService->getNewPosts();
+        $users      = $this->userService->getUsers();
+        $categories  = $this->postService->getCategories();
+        $locations  = $this->postService->getLocations();
+
+        return view('client.all_job', compact( 'newPosts', 'users', 'categories', 'locations'));
     }
 
     public function profileFinder()
@@ -51,7 +78,7 @@ class HomeController extends Controller
     public function editProfile()
     {
         $gender = Config::get('helper');
-       
+
         return view('client.formClient.edit_profile', compact('gender'));
     }
 }

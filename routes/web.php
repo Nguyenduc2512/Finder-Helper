@@ -44,7 +44,6 @@ Route::get('/category', 'User\HomeController@category')->name('category');
 Route::get('/auth/redirect/{provider}', 'Auth\LoginFacebookController@redirect');
 Route::get('/callback/{provider}', 'Auth\LoginFacebookController@callback');
 
-Route::get('/admin', 'Admin\HomeController@index');
 Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
     Route::get('/', 'Admin\CategoryController@index')->name('index');
     Route::post('store', 'Admin\CategoryController@store')->name('store');

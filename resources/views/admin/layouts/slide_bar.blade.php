@@ -29,6 +29,14 @@
               </p>
             </a>
           </li>
+            <li class="nav-item has-treeview">
+                <a href="{{route('logoutAdmin')}}" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <p>
+                        Logout
+                    </p>
+                </a>
+            </li>
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

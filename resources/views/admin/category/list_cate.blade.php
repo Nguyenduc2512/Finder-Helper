@@ -41,18 +41,11 @@
           </tr>
         @endforeach
         </tbody>
-        <tfoot>
-        <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>Created_at</th>
-            <th>Action</th>
-        </tr>
-        </tfoot>
       </table>
     </div>
   </div>
 @include('admin.category.formCate')
+@section('script')
 <script>
 
     @if ( session('success') == true)
@@ -70,7 +63,6 @@
     $('.btn-remove').on('click', function(){
       
     swal({
-      title: "Cảnh báo!",
       text: "Bạn có chắc chắn muốn xoá danh mục này ?",
       icon: "warning",
       buttons: true,
@@ -93,4 +85,46 @@
     });
   });
 </script>
+
+<script type="text/javascript">
+
+	$('#edit').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var name = button.data('cate-name')
+        var id = button.data('cate-id') 
+
+        var modal = $(this)
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #name').val(name)
+  })
+
+</script>
+
+<script>
+    
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+        
+        var forms = document.getElementsByClassName('needs-validation');
+           
+        var validation = Array.prototype.filter.call(forms, function(form) {
+
+            form.addEventListener('submit', function(event) {
+                
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+              }, false);
+            });
+
+        }, false);
+
+    })();
+
+</script>
+@stop
 @endsection

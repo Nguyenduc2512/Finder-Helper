@@ -24,12 +24,12 @@ class Post extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('users', 'user_id', 'id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
     public function category()
     {
-        return $this->belongsTo('categories', 'category_id', 'id');
+        return $this->belongsTo('App\Models\Category', 'category_id', 'id');
     }
 
      public function admin()

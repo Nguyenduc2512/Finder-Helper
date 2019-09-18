@@ -18,5 +18,6 @@
 </div>
 @include('admin.layouts.style')
 @include('admin.layouts.table')
+@yield('script')
 </body>
 </html>

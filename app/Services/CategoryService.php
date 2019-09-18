@@ -3,6 +3,7 @@
 namespace App\Services;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class CategoryService{
 
@@ -19,6 +20,11 @@ class CategoryService{
         $category = Category::create($data);
 
         return $category;
+    }
+
+    public function count(){
+        $categories = DB::table('categories')->count();
+        return $categories;
     }
 
     public function update(Request $request)

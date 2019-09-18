@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 
 class PostService
 {
@@ -63,6 +64,18 @@ class PostService
         $post->save();
 
         return redirect()->route('user.profile', compact('gender'))->with('errmsg', 'Bài viết của bạn đang được chờ duyệt');
+    }
+    public function countPost()
+    {
+        $bv = DB::table('posts')->count();
+
+        return $bv;
+    }
+    public function countPostRequest()
+    {
+        $posts = DB::table('posts')->where('status', '<>', 1)->count('status');
+
+        return $posts;
     }
 
 }

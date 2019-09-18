@@ -5,7 +5,7 @@
 		<!-- small box -->
 		<div class="small-box bg-info">
 			<div class="inner">
-				<h3> {{$users}}</h3>
+				<h3> {{$user}}</h3>
 				<p> Users</p>
 			</div>
 			<div class="icon">
@@ -31,7 +31,7 @@
 		<!-- small box -->
 		<div class="small-box bg-danger">
 			<div class="inner">
-				<h3> {{$posts}}</h3>
+				<h3> {{$post}}</h3>
 				<p> posts chờ duyệt</p>
 			</div>
 			<div class="icon">
@@ -45,7 +45,7 @@
 		<div class="small-box bg-danger">
 			<div class="inner">
 				<h3> {{$bv}}</h3>
-				<p> posts</p>
+				<p>posts</p>
 			</div>
 			<div class="icon">
 				<i class="fas fa-newspaper"></i>

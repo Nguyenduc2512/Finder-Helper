@@ -7,12 +7,9 @@ class HomeAdminService
 {
     public function index()
     {
-        $users = DB::table('users')->count();
-        $admin = DB::table('admins')->count();
-        $categories = DB::table('categories')->count();
-        $bv = DB::table('posts')->count();
-        $posts = DB::table('posts')->where('status', '<>', 1)->count('status');
 
-        return view('admin.admin', ['users' => $users,'admin' => $admin, 'categories' => $categories, 'posts' => $posts, 'bv' => $bv]);
+        $user = DB::table('users')->count();
+
+        return $user;
     }
 }

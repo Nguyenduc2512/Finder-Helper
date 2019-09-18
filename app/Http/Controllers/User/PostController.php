@@ -33,6 +33,6 @@ class PostController extends Controller
     {
         $this->postService->store($request);
 
-        return redirect()->route('profile');
+        return redirect()->route('user.profile');
     }
 }

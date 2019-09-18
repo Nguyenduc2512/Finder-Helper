@@ -1,3 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
-    @endsection
+@if (Auth::user())
+Xin Chào {{ Auth::user()->name }}
+@endif
+@endsection

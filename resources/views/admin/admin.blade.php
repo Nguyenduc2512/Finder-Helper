@@ -6,7 +6,7 @@
 		<div class="small-box bg-info">
 			<div class="inner">
 				<h3> {{$user}}</h3>
-				<p> Users</p>
+				<p> Thành viên</p>
 			</div>
 			<div class="icon">
 				<i class="fas fa-user-alt"></i></i>
@@ -19,7 +19,7 @@
 		<div class="small-box bg-success">
 			<div class="inner">
 				<h3> {{$categories}}</h3>
-				<p> categories</p>
+				<p> Danh mục</p>
 			</div>
 			<div class="icon">
 				<i class="fas fa-list-alt"></i>
@@ -32,7 +32,7 @@
 		<div class="small-box bg-danger">
 			<div class="inner">
 				<h3> {{$posts}}</h3>
-				<p> posts chờ duyệt</p>
+				<p> Bài viết chờ duyệt</p>
 			</div>
 			<div class="icon">
 				<i class="fas fa-newspaper"></i>
@@ -45,7 +45,7 @@
 		<div class="small-box bg-danger">
 			<div class="inner">
 				<h3> {{$bv}}</h3>
-				<p>posts</p>
+				<p>Bài viết</p>
 			</div>
 			<div class="icon">
 				<i class="fas fa-newspaper"></i>

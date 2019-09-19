@@ -29,8 +29,8 @@
             <td>{{ $item->amount }}</td>
             <td>{{ $item->price }}k/h</td>
             <td>{{ $item->address }}</td>
-            <td>{{ $item->status == Config::get('helper.post_type_inActive') ? 'Chờ duyệt' : '' }}</td>
-            <td> 
+            <td>{{ $item->status == Config::get('helper.post_type_inActive') ? Lang::get('messages.errRequest') : '' }}</td>
+            <td>
               <a href="{{ route('posts.edit', $item->id) }}" class="btn btn-info btn-sm">Duyệt bài</a>
               <a href="javascript:;" class="btn btn-danger btn-sm btn-remove"
                 linkurl="{{ route('posts.destroy', $item->id) }}">
@@ -46,25 +46,25 @@
 @section('script')
 <script>
     $('.btn-remove').on('click', function(){
-      
+
       swal({
         text: "Bạn có chắc chắn muốn xoá bài viết này ?",
         icon: "warning",
         buttons: true,
         dangerMode: true,
-  
+
       })
       .then((willDelete) => {
-  
+
         if (willDelete) {
-  
+
           window.location.href = $(this).attr('linkurl');
           swal("Bạn đã xóa thành công bài viết này!", {
             icon: "success",
           });
-  
+
         }  else {
-  
+
           swal("Hủy thành công!");
         }
       });

@@ -46,5 +46,8 @@ return [
     'date_of_birth' => 'Ngày Sinh',
     'gender' => 'Giới Tính',
     'category' => 'Danh Mục',
-    'requestPost' => 'Duyệt Bài Đăng',
+    'requestPost' => 'Bài đăng đã được duyệt',
+    'errorPost' => 'Bài đăng không được phê duyệt',
+    'request' => 'Đã duyệt',
+    'errRequest' => 'Chờ duyệt',
 ];

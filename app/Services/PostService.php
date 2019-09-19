@@ -5,7 +5,6 @@ use App\Http\Requests\NewPostRequest;
 use App\Models\Category;
 use App\Models\Location;
 use App\Models\Post;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;

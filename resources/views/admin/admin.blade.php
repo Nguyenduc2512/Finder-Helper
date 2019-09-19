@@ -31,7 +31,7 @@
 		<!-- small box -->
 		<div class="small-box bg-danger">
 			<div class="inner">
-				<h3> {{$post}}</h3>
+				<h3> {{$posts}}</h3>
 				<p> posts chờ duyệt</p>
 			</div>
 			<div class="icon">

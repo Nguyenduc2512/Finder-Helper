@@ -4,20 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Services\HomeAdminService;
+use App\Services\UserService;
 use App\Services\CategoryService;
 use App\Services\PostService;
 
 
 class HomeController extends Controller
 {
-    protected $homeService;
+    protected $userService;
     protected $cateService;
     protected $postService;
 
-    public function __construct(HomeAdminService $homeService, CategoryService $cateService, PostService $postService)
+    public function __construct(UserService $userService, CategoryService $cateService, PostService $postService)
     {
-        $this->homeService = $homeService;
+        $this->userService = $userService;
         $this->cateService = $cateService;
         $this->postService = $postService;
     }
@@ -26,9 +26,9 @@ class HomeController extends Controller
     {
         $categories =  $this->cateService->count();
         $bv = $this->postService->countPost();
-        $post = $this->postService->countPostRequest();
-        $user =  $this->homeService->index();
-        return view('admin.admin',compact('post','categories', 'bv', 'user'));
+        $posts = $this->postService->countPostRequest();
+        $user =  $this->userService->countUser();
+        return view('admin.admin',compact('posts','categories', 'bv', 'user'));
     }
 
 }

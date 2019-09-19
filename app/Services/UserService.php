@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequests;
 use App\Services\UploadService;
 use App\Http\Requests\LostPasswordRequest;
+use Illuminate\Support\Facades\DB;
 
 class UserService
 {
@@ -61,4 +62,10 @@ class UserService
         return $users;
     }
 
+    public function countUser()
+    {
+        $user = DB::table('users')->count();
+
+        return $user;
+    }
 }

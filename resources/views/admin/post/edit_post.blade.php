@@ -16,7 +16,7 @@
                                 @endif
                                 <div class="form-group">
                                     Tiêu đề công việc
-                                    <input type="text" class="form-control" value="{{ $post->title }}" readonly>        
+                                    <input type="text" class="form-control" value="{{ $post->title }}" readonly>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
@@ -26,10 +26,10 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        Tiền lương                                    
+                                        Tiền lương
                                         <div class="form-group">
                                             <input type="text" class="form-control" value="{{ $post->price }}" readonly>
-                                        </div>                 
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -40,23 +40,23 @@
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        Thời gian kết thúc                                    
+                                        Thời gian kết thúc
                                         <div class="form-group">
                                             <input type="text"  class="form-control" value="{{ $post->end_time }}" readonly>
-                                        </div>                 
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        Số lượng người thuê                                    
+                                        Số lượng người thuê
                                         <div class="form-group">
                                             <input type="number" class="form-control" value="{{ $post->amount }}" readonly>
-                                        </div>                                        
+                                        </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
                                         Yêu cầu giới tính
-                                        <input type="text" class="form-control" 
+                                        <input type="text" class="form-control"
                                             value=
                                                     @if ($post->gender == Config::get('helper.gender_type_male'))
                                                         Nam
@@ -65,17 +65,17 @@
                                                     @elseif($post->gender == Config::get('helper.gender_type_other'))
                                                         Không
                                                     @endif
-                                            readonly>                                   
+                                            readonly>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    Địa chỉ                                 
+                                    Địa chỉ
                                     <input type="text" class="form-control"  value="{{ $post->address }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     Mô tả chi tiết công việc
-                                    <textarea  rows="10" class="form-control" readonly>{{ $post->detail }}</textarea>           
+                                    <textarea  rows="10" class="form-control" readonly>{{ $post->detail }}</textarea>
                                 </div>
                                 <input type="hidden" name="status" value="1">
                                     <button type="submit" class="btn btn-danger btn-sm">Duyệt bài</button>
@@ -92,7 +92,7 @@
 <script>
     $('.btn-cancel').on('click', function(){
         swal({
-            text: 'Bài viết chưa được duyệt',
+            text: "@lang('messages.errorPost')",
             icon: "success",
             button: true,
             dangerMode: true,

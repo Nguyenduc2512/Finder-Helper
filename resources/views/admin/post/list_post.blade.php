@@ -30,9 +30,9 @@
             <td>{{ $item->price }}k/h</td>
             <td>{{ $item->address }}</td>
             <td>
-              {{ $item->status == Config::get('helper.post_type_active') ? 'Đã duyệt' : '' }}
+              {{ $item->status == Config::get('helper.post_type_active') ? Lang::get('messages.request') : '' }}
             </td>
-            <td> 
+            <td>
               <a href="" class="btn btn-info btn-sm">
                 Xem chi tiết
               </a>
@@ -45,7 +45,7 @@
 </div>
 @section('script')
 <script>
-  
+
     @if ( session('success') == true)
 
       swal({

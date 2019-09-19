@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Services\RequestPostService;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Lang;
 
 class PostController extends Controller
 {
@@ -24,7 +25,7 @@ class PostController extends Controller
         return view('admin.post.list_post', compact('post'));
     }
 
-    public function requestPost()
+    public function getPostsRequesting()
     {
         $post = $this->requestPost->getAllPostInActive();
 
@@ -40,14 +41,14 @@ class PostController extends Controller
     {
         $this->requestPost->update($request);
 
-        return redirect()->route('posts.index')->with(['success' => 'Bài đăng đã được duyệt']);
+        return redirect()->route('posts.index')->with(['success' => Lang::get('messages.requestPost') ]);
     }
 
     public function destroy(Post $post)
     {
         $this->requestPost->destroy($post);
 
-        return $this->requestPost();
+        return $this->getPostsRequesting();
     }
 
 }

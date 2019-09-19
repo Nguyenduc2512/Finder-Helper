@@ -8,8 +8,15 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
 use Illuminate\Routing\UrlGenerator;
+=======
+=======
+use Illuminate\Routing\UrlGenerator;
+>>>>>>>  Show detail post
+>>>>>>>  Show detail post
 
 class PostService
 {
@@ -18,6 +25,13 @@ class PostService
         $posts = Post::all();
 
         return $posts;
+    }
+
+    public function getPostSameCate($id)
+    {
+        $postsSameCate = Post::where('category_id', $id)->get();
+
+        return$postsSameCate;
     }
 
     public function getNewPosts()
@@ -50,6 +64,7 @@ class PostService
         return $post;
     }
 
+<<<<<<< HEAD
     public function getPostsSameCategory($id)
     {
         $category_id = Post::find($id)->category_id;
@@ -58,6 +73,8 @@ class PostService
         return$postsSameCategory;
     }
 
+=======
+>>>>>>>  Show detail post
     public function store(NewPostRequest $request)
     {
         $post = new Post();

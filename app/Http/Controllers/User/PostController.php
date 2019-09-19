@@ -40,6 +40,7 @@ class PostController extends Controller
 
     public function detail($id)
     {
+<<<<<<< HEAD
         $post              = $this->postService->getPost($id);
         $categories        = $this->postService->getPost($id)->category;
         $postsSameCategory = $this->postService->getPostsSameCategory($id);
@@ -47,5 +48,14 @@ class PostController extends Controller
         $gender            = Config::get('helper');
 
         return view('client.job_detail', compact('post', 'gender', 'users', 'categories', 'postsSameCategory'));
+=======
+        $post          = $this->postService->getPost($id);
+        $categories    = $this->postService->getPost($id)->category;
+        $postsSameCate = $this->postService->getPostSameCate($id);
+        $users         = $this->postService->getPost($id)->user;
+        $gender        = Config::get('helper');
+
+        return view('client.job_detail', compact('post', 'gender', 'users', 'categories', 'postsSameCate'));
+>>>>>>>  Show detail post
     }
 }

@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 <div class="card mb-3" style="max-width: 100%;">
                     <div class="card-header">
-                        <h4>Change Password</h4>
+                        <h4>@lang('messages.changePassword')</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -23,33 +23,33 @@
                                         <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                                     @endif
                                     <div class="form-group">
-                                        <span>Old Password</span><span class="text-danger">*</span>
-                                        <input type="password" name="password" class="form-control" placeholder="Old password">
+                                        <span>@lang('messages.oldPassword')</span><span class="text-danger">*</span>
+                                        <input type="password" name="password" class="form-control" placeholder="@lang('messages.oldPassword')">
                                             @if($errors->first('password'))
                                                 <span class="text-danger"> {{$errors->first('password')}} </span>
                                             @endif
                                     </div>
                                     <div class="form-group">
-                                        <span>New Password</span><span class="text-danger">*</span>
-                                        <input type="password" name="newpassword" class="form-control" placeholder="New passwords" >
+                                        <span>@lang('messages.newPassword')</span><span class="text-danger">*</span>
+                                        <input type="password" name="newpassword" class="form-control" placeholder="@lang('messages.newPassword')" >
                                             @if($errors->first('newpassword'))
                                                 <span class="text-danger"> {{$errors->first('newpassword')}} </span>
                                             @endif
                                     </div>
                                     <div class="form-group">
-                                        <span>Confirm Password</span><span class="text-danger">*</span>
-                                        <input type="password" name="repassword" class="form-control" placeholder="Confirm password">
+                                        <span>@lang('messages.rePassword')</span><span class="text-danger">*</span>
+                                        <input type="password" name="repassword" class="form-control" placeholder="@lang('messages.rePassword')">
                                             @if($errors->first('repassword'))
                                                 <span class="text-danger"> {{$errors->first('repassword')}} </span>
                                             @endif
                                     </div>
-                                    <button type="submit" class="btn btn-outline-primary btn-lg" style="margin-left: 83%">
-                                        Update
+                                    <button type="submit" class="btn btn-outline-success" style="margin-left: 83%">
+                                        @lang('messages.update')
                                     </button>
-                                </form> 
+                                </form>
                             </div>
                         </div>
-                               
+
                     </div>
                 </div>
             </div>

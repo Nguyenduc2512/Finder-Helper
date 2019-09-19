@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Services;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class RequestPostService
         $post = Post::all()->where('status', Config::get('helper.post_type_active'));
         $post = $post->load('user');
         $post = $post->load('category');
-        
+
         return $post;
     }
 
@@ -30,7 +30,7 @@ class RequestPostService
         $data = $request->except('_token', 'id');
         $post = Post::find($request->id);
 
-        return $post->update($data);;
+        return $post->update($data);
     }
 
     public function destroy(Post $post)

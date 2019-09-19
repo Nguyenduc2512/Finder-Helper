@@ -25,25 +25,24 @@
                 <nav class="site-navigation text-right" role="navigation">
 
                     <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                        <li class="active"><a href="{{route('home')}}">Home</a></li>
+                        <li class="active"><a href="{{route('home')}}">@lang('messages.home')</a></li>
                         <li>
-                            <a href="{{route('category')}}">Category</a>
+                            <a href="#">@lang('messages.postJob')</a>
                         </li>
-                        <li><a href="{{route('all-post')}}">Blog</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">@lang('messages.about')</a></li>
+                        <li><a href="contact.html">@lang('messages.contact')</a></li>
                         <li class="has-children">
                             @if (Auth::user())
                                 <span class="caret">Hello {{Auth::user()->name}}</span>
                                 <ul class="dropdown">
-                                    <li><a href="{{route('user.profile')}}">Profile</a></li>
+                                    <li><a href="{{route('user.profile')}}">@lang('messages.profile')</a></li>
                                     <li>
-                                        <a href="{{ route('user.change-password') }}">Change Password</a>
+                                        <a href="{{ route('user.change-password') }}">@lang('messages.changePassword')</a>
                                     </li>
-                                    <li><a href="{{route('logout')}}">Logout</a></li>
+                                    <li><a href="{{route('logout')}}">@lang('messages.logout')</a></li>
                                 </ul>
                             @else
-                                <a href="{{route('login')}}"><span class="rounded bg-primary py-2 px-3 text-white"> Sign In</span></a>
+                                <a href="{{route('login')}}"><span class="rounded bg-primary py-2 px-3 text-white">@lang('messages.login')</span></a>
                             @endif
                         </li>
                     </ul>

@@ -20,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         $post = $this->requestPost->getAllPostActive();
-        
+
         return view('admin.post.list_post', compact('post'));
     }
 
@@ -40,7 +40,7 @@ class PostController extends Controller
     {
         $this->requestPost->update($request);
 
-        return redirect()->route('posts.index')->with(['success' => 'Bài đăng đã được duyệt ']);
+        return redirect()->route('posts.index')->with(['success' => 'Bài đăng đã được duyệt']);
     }
 
     public function destroy(Post $post)
@@ -49,5 +49,5 @@ class PostController extends Controller
 
         return $this->requestPost();
     }
-    
+
 }

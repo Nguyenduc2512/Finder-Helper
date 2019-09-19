@@ -30,14 +30,14 @@
                 <li class="nav-item has-tree-view menu-open">
                     <a href="{{ route('categories.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>Category</p>
+                        <p>@lang('messages.category')</p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview menu-open">
                     <a href="#" class="nav-link ">
                         <i class="fas fa-newspaper"></i>
                         <p>
-                            Post
+                            @lang('messages.postJob')
                             <i class="fas fa-angle-left right"></i>
                             <span class="right badge badge-danger">New</span>
                         </p>
@@ -46,13 +46,13 @@
                         <li class="nav-item">
                             <a href="{{ route('posts.index') }}" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>List Post</p>
+                                <p>@lang('messages.listPost')</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('posts.request') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Request Post</p>
+                                <p>@lang('messages.requestPost')</p>
                             </a>
                         </li>
                     </ul>
@@ -84,7 +84,7 @@
                 <li class="nav-item has-tree-view">
                     <a href="{{route('logoutAdmin')}}" class="nav-link">
                         <i class="fas fa-sign-out-alt"></i>
-                        <p>Logout</p>
+                        <p>@lang('messages.logout')</p>
                     </a>
                 </li>
             </ul>

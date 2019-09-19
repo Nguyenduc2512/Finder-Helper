@@ -32,7 +32,7 @@
 
                     <div class="form-group mb-3">
                         <div class="clearfix">
-                            <label class="float-left">Password *</label>
+                            <label class="float-left">@lang('messages.password') *</label>
                         </div>
                         <div class="input-group">
                             <input name="password" type="password" class="form-control form-control-lg"/>
@@ -51,13 +51,13 @@
                         <div class="col-sm-8">
                             <div class="checkbox-custom checkbox-default">
                                 <input id="RememberMe" name="rememberme" type="checkbox"/>
-                                <label for="RememberMe" class="card-link">Remember Me</label>
+                                <label for="RememberMe" class="card-link">@lang('messages.savePassword')</label>
 
                             </div>
                         </div>
                         <div class="col-sm-4 text-right">
-                            <button type="submit" class="btn btn-primary mt-2">Sign In</button>
-                            <a href="{{route('password.request')}}" style="color: #999" class="float-right">Lost Password?</a>
+                            <button type="submit" class="btn btn-primary mt-2">@lang('messages.signIn')</button>
+                            <a href="{{route('password.request')}}" style="color: #999" class="float-right">@lang('messages.forgotPassword')</a>
 
                         </div>
                     </div>
@@ -67,17 +67,16 @@
                             </span>
 
                     <div class="mb-1 text-center">
-                        <a class="btn btn-facebook mb-3 ml-1 mr-1" href="{{ url('/auth/redirect/facebook') }}">Connect with <i
+                        <a class="btn btn-facebook mb-3 ml-1 mr-1" href="{{ url('/auth/redirect/facebook') }}">@lang('messages.login') <i
                                 class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-google mb-3 ml-1 mr-1" href="#">Connect with <i class="fab fa-google"></i></a>
+                        <a class="btn btn-google mb-3 ml-1 mr-1" href="#">@lang('messages.login') <i class="fab fa-google"></i></a>
                     </div>
 
-                    <p class="text-center"> Don't have an account yet? <a href="index.html">Sign Up!</a></p>
+                    <p class="text-center">Bạn đã có tài khoản <a href="index.html">@lang('messages.login')</a></p>
 
                 </form>
             </div>
         </div>
-
 
     </div>
 @endsection

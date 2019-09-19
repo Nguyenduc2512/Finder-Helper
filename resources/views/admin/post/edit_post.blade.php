@@ -79,7 +79,7 @@
                                 </div>
                                 <input type="hidden" name="status" value="1">
                                     <button type="submit" class="btn btn-danger btn-sm">Duyệt bài</button>
-                                    <a href="{{ route('posts.request') }}" class="btn btn-warning btn-sm text-light btn-cancel"> Hủy </a>
+                                    <a href="{{ route('posts.index') }}" class="btn btn-warning btn-sm text-light btn-cancel"> Hủy </a>
                             </form>
                         </div>
                     </div>

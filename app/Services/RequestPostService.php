@@ -7,18 +7,9 @@ use Illuminate\Support\Facades\Config;
 
 class RequestPostService
 {
-    public function getAllPostActive()
+    public function getAllPostJob()
     {
-        $post = Post::all()->where('status', Config::get('helper.post_type_active'));
-        $post = $post->load('user');
-        $post = $post->load('category');
-
-        return $post;
-    }
-
-    public function getAllPostInActive()
-    {
-        $post = Post::all()->where('status', Config::get('helper.post_type_inActive'));
+        $post = Post::orderBy('status', 'asc')->get();
         $post = $post->load('user');
         $post = $post->load('category');
 

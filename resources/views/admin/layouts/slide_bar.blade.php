@@ -27,35 +27,20 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item has-tree-view menu-open">
+                <li class="nav-item has-tree-view">
                     <a href="{{ route('categories.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>@lang('messages.category')</p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link ">
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('posts.index') }}" class="nav-link ">
                         <i class="fas fa-newspaper"></i>
                         <p>
                             @lang('messages.postJob')
-                            <i class="fas fa-angle-left right"></i>
                             <span class="right badge badge-danger">New</span>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route('posts.index') }}" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>@lang('messages.listPost')</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('posts.request') }}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>@lang('messages.requestPost')</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item has-tree-view">
                     <a href="{{route('logoutAdmin')}}" class="nav-link">

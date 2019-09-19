@@ -20,16 +20,9 @@ class PostController extends Controller
 
     public function index()
     {
-        $post = $this->requestPost->getAllPostActive();
+        $post = $this->requestPost->getAllPostJob();
 
         return view('admin.post.list_post', compact('post'));
-    }
-
-    public function getPostsRequesting()
-    {
-        $post = $this->requestPost->getAllPostInActive();
-
-        return view('admin.post.request_post', compact('post'));
     }
 
     public function edit(Post $post)
@@ -48,7 +41,7 @@ class PostController extends Controller
     {
         $this->requestPost->destroy($post);
 
-        return $this->getPostsRequesting();
+        return $this->index();
     }
 
 }

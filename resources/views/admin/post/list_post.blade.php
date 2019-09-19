@@ -2,61 +2,100 @@
 @section('title', 'Dánh sách công việc')
 @section('titlePage', 'Quản lí công việc')
 @section('content')
-<div class="card">
-    <div class="card-header">
-      <h3 class="card-title">
-        Danh sách công việc đã duyệt
-      </h3>
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">
+                Danh sách công việc
+            </h3>
+        </div>
+        <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th># Tên người thuê</th>
+                    <th>Công việc</th>
+                    <th>Số lượng</th>
+                    <th>lương</th>
+                    <th>Địa Chỉ</th>
+                    <th>Trạng thái</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($post as $item)
+                    <tr>
+                        <td>{{ $item->id }}# &nbsp; {{ $item->user['name'] }}</td>
+                        <td>{{ $item->category['name'] }}</td>
+                        <td>{{ $item->amount }}</td>
+                        <td>{{ $item->price }}k/h</td>
+                        <td>{{ $item->address }}</td>
+                        <td class="text-center">
+                            @if ( $item->status == Config::get('helper.post_type_inActive') )
+                                <a href="{{ route('posts.edit', $item->id ) }}" class="btn btn-success btn-sm">
+                                    @lang('messages.errRequest')
+                                </a>
+                            @elseif ( $item->status == Config::get('helper.post_type_active') )
+                                <a href="#" class="btn btn-danger btn-sm">
+                                    @lang('messages.request')
+                                </a>
+                            @endif
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-info btn-sm">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="javascript:;" class="btn btn-danger btn-sm btn-remove"
+                               linkurl="{{ route('posts.destroy', $item->id) }}">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="card-body">
-      <table id="example1" class="table table-bordered table-striped">
-        <thead>
-        <tr>
-          <th># Tên người thuê</th>
-          <th>Công việc</th>
-          <th>Số lượng</th>
-          <th>lương</th>
-          <th>Địa Chỉ</th>
-          <th>Trạng thái</th>
-          <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach ($post as $item)
-          <tr>
-            <td>{{ $item->id }}# &nbsp; {{ $item->user['name'] }}</td>
-            <td>{{ $item->category['name'] }}</td>
-            <td>{{ $item->amount }}</td>
-            <td>{{ $item->price }}k/h</td>
-            <td>{{ $item->address }}</td>
-            <td>
-              {{ $item->status == Config::get('helper.post_type_active') ? Lang::get('messages.request') : '' }}
-            </td>
-            <td>
-              <a href="" class="btn btn-info btn-sm">
-                Xem chi tiết
-              </a>
-            </td>
-          </tr>
-        @endforeach
-        </tbody>
-      </table>
-    </div>
-</div>
 @section('script')
-<script>
+    <script>
 
-    @if ( session('success') == true)
+        @if ( session('success') == true)
 
-      swal({
-        text: '{{ session('success') }}',
-        icon: "success",
-        button: true,
-        dangerMode: true,
+        swal({
+            text: '{{ session('success') }}',
+            icon: "success",
+            button: true,
+            dangerMode: true,
 
-      });
+        });
 
-    @endif
-</script>
+        @endif
+    </script>
+
+    <script>
+        $('.btn-remove').on('click', function(){
+
+            swal({
+                text: "Bạn có chắc chắn muốn xoá bài viết này ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+
+            })
+                .then((willDelete) => {
+
+                    if (willDelete) {
+
+                        window.location.href = $(this).attr('linkurl');
+                        swal("Bạn đã xóa thành công bài viết này!", {
+                            icon: "success",
+                        });
+
+                    }  else {
+
+                        swal("Hủy thành công!");
+                    }
+                });
+        });
+    </script>
 @stop
 @endsection

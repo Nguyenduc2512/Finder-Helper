@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="col-sm-4 text-right">
-                            <button type="submit" class="btn btn-primary mt-2">@lang('messages.signIn')</button>
+                            <button type="submit" class="btn btn-primary mt-2">@lang('messages.login')</button>
                             <a href="{{route('password.request')}}" style="color: #999" class="float-right">@lang('messages.forgotPassword')</a>
 
                         </div>

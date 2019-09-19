@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="{{ route('profile') }}">
+                <a class="nav-link text-dark" href="{{ route('user.profile') }}">
                     <i class="far fa-id-card"></i></i>&nbsp; Profile
                 </a>
             </li>
@@ -28,7 +28,7 @@
                 <a class="nav-link text-dark" href="#">
                     <i class="fas fa-key"></i>&nbsp; Change Password
                 </a>
-            </li> 
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" href="#">
                     <i class="fas fa-dollar-sign"></i>&nbsp; Add Coin

@@ -3,16 +3,32 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Config;
-use App\Models\User;
+use App\Services\UserService;
+use App\Services\CategoryService;
+use App\Services\PostService;
+
 
 class HomeController extends Controller
 {
+    protected $userService;
+    protected $cateService;
+    protected $postService;
+
+    public function __construct(UserService $userService, CategoryService $cateService, PostService $postService)
+    {
+        $this->userService = $userService;
+        $this->cateService = $cateService;
+        $this->postService = $postService;
+    }
+
     public function index()
     {
-         return view('admin.admin');
+        $categories =  $this->cateService->count();
+        $bv = $this->postService->countPost();
+        $posts = $this->postService->countPostRequest();
+        $user =  $this->userService->countUser();
+        return view('admin.admin',compact('posts','categories', 'bv', 'user'));
     }
 
 }

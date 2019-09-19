@@ -50,12 +50,5 @@ Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
     Route::post('update/{category}', 'Admin\CategoryController@update')->name('update');
     Route::get('destroy/{category}', 'Admin\CategoryController@destroy')->name('destroy');
 });
-
-Route::group(['prefix'=> 'admin/user'], function (){
-    Route::get('/', 'Admin\UserController@index')->name('list-user');
-    Route::get('/finder', 'Admin\UserController@showFinder')->name('list-finder');
-    Route::get('/helper', 'Admin\UserController@showHelper')->name('list-helper');
-});
-
 Auth::routes();
 

@@ -12,7 +12,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:admin')->except('logoutAdmin');
     }
 
     public function loginAdmin()
@@ -33,11 +33,11 @@ class AdminController extends Controller
             return redirect()->route('loginAdmin')->with('errmsg', 'Email hoặc Password sai');
         }
     }
-    public function logoutAdmin()
+    public function logoutAdmin(Request $request)
     {
         Auth::guard('admin')->logout();
         $request->session()->flush();
         $request->session()->regenerate();
-        return redirect()->guest(route( 'admin.loginAdmin.loginAdmin' ));
+        return redirect()->guest(route( 'loginAdmin' ));
     }
 }

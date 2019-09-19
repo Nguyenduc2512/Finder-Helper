@@ -63,6 +63,6 @@ class Handler extends ExceptionHandler
                 break;
         }
 
-        return redirect()->guest(route($login));
+        return redirect()->guest(route('loginAdmin'));
     }
 }

@@ -18,6 +18,7 @@
                     <th>PHONE</th>
                     <th>AVATAR</th>
                     <th>GENDER</th>
+                    <th>RULES</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -38,6 +39,14 @@
                             @endif
                         </td>
                         <td>
+                            @if ( $item->rules == $gender['user_type_finder'] )
+                                Finder
+                            @elseif ( $item->rules == $gender['user_type_helper'] )
+                                Helper
+
+                            @endif
+                        </td>
+                        <td>
                             <a href="javascript:;" class="btn btn-danger btn-sm btn-remove"
                                linkurl="#">
                                 <i class="far fa-trash-alt"></i>
@@ -54,6 +63,7 @@
                     <th>PHONE</th>
                     <th>AVATAR</th>
                     <th>GENDER</th>
+                    <th>RULES</th>
                 </tr>
                 </tfoot>
             </table>

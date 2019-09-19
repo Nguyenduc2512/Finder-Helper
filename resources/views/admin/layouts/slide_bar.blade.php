@@ -60,20 +60,6 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('list-helper')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Helper</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('list-finder')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Finder</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item has-tree-view">
                     <a href="{{route('logoutAdmin')}}" class="nav-link">

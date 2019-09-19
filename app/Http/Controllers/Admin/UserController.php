@@ -23,18 +23,4 @@ class UserController extends Controller
         return view('admin.user.list_user', compact('users', 'gender'));
     }
 
-    public function showFinder()
-    {
-        $users = $this->userService->getUsersFinder();
-        $gender = Config::get('helper');
-        return view('admin.user.list-finder', compact('users', 'gender'));
-    }
-
-    public function showHelper()
-    {
-        $users = $this->userService->getUsersHelper();
-        $gender = Config::get('helper');
-        return view('admin.user.list-finder', compact('users', 'gender'));
-    }
-
 }

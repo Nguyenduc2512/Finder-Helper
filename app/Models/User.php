@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Model\Post;
 
 class User extends Authenticatable
 {
@@ -30,5 +31,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password'
     ];
+
+    public function post()
+    {
+        return $this->hasMany('App\Models\Post');
+    }
 
 }

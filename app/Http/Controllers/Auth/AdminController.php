@@ -15,7 +15,7 @@ class AdminController extends Controller
     public function postAdmin(LoginAdminRequests $request)
     {
         if( Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password] )) {
-            return redirect()->route('admin');
+            return view('admin.admin');
         } else {
             return redirect()->route('loginAdmin')->with('errmsg', 'Email hoặc Password sai');
         }

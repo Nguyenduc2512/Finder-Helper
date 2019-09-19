@@ -29,7 +29,7 @@ Route::group(
 });
 
 Route::get('/admin', 'Admin\HomeController@index')->name('admin')->middleware('auth:admin');
-Route::get('/loginAdmin','Auth\AdminController@loginAdmin')->name('loginAdmin')->middleware('guest');
+Route::get('/loginAdmin','Auth\AdminController@loginAdmin')->name('loginAdmin');
 Route::post('/loginAdmin','Auth\AdminController@postAdmin');
 Route::get('/logoutAdmin','Auth\AdminController@logoutAdmin')->name('logoutAdmin');
 
@@ -51,6 +51,11 @@ Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
     Route::get('destroy/{category}', 'Admin\CategoryController@destroy')->name('destroy');
 });
 
+Route::group(['prefix'=> 'admin/user'], function (){
+    Route::get('/', 'Admin\UserController@index')->name('list-user');
+    Route::get('/finder', 'Admin\UserController@showFinder')->name('list-finder');
+    Route::get('/helper', 'Admin\UserController@showHelper')->name('list-helper');
+});
 
 Auth::routes();
 

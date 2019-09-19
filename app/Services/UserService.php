@@ -61,4 +61,16 @@ class UserService
         return $users;
     }
 
+    public function getUsersFinder()
+    {
+        $users = User::all()->where('rules', '1');
+        return $users;
+    }
+
+    public function getUsersHelper()
+    {
+        $users = User::all()->where('rules', '2');
+        return $users;
+    }
+
 }

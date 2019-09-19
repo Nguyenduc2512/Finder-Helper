@@ -60,6 +60,29 @@
               </li>
             </ul>
           </li>
+            <li class="nav-item has-treeview menu-open">
+                <a href="{{route('list-user')}}" class="nav-link">
+                    <i class="nav-icon fas fa-th"></i>
+                    <p>
+                        User
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{route('list-helper')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Helper</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('list-finder')}}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Finder</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

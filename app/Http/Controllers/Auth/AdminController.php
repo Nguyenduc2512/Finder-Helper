@@ -8,10 +8,23 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    protected $redirectTo = '/admin';
+
+    public function __construct()
+    {
+        $this->middleware('guest:admin')->except('logout');
+    }
+
     public function loginAdmin()
     {
          return view('admin.loginAdmin.loginAdmin');
     }
+
+    public function guard()
+    {
+        return Auth::guard('admin');
+    }
+
     public function postAdmin(LoginAdminRequests $request)
     {
         if( Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password] )) {
@@ -23,6 +36,8 @@ class AdminController extends Controller
     public function logoutAdmin()
     {
         Auth::guard('admin')->logout();
-        return redirect()->route('loginAdmin');
+        $request->session()->flush();
+        $request->session()->regenerate();
+        return redirect()->guest(route( 'admin.loginAdmin.loginAdmin' ));
     }
 }

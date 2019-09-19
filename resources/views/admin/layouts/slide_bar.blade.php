@@ -48,7 +48,7 @@
                         <p>
                             Users
                             <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">{{$user}}</span>
+                            <span class="badge badge-info right"></span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">

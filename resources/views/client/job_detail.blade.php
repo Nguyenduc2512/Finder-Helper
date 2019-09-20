@@ -11,7 +11,15 @@
         </li>
         <li class="nav-item">
             <a class="nav-link text-info" href="">
-                {{$categories->name}}
+                {{$post->category->name}}
+            </a>
+        </li>
+        <li class="nav-item" id="nav-reponsive">
+            <a class="nav-link">/</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-info" href="">
+                {{$post->title}}
             </a>
         </li>
         <li class="nav-item" id="nav-reponsive">
@@ -51,7 +59,6 @@
                             <div class="card-body">
                                 <p class="card-text"><b>@lang('messages.start') : </b>{{$post->start_time}}</p>
                                 <p class="card-text"><b>@lang('messages.end') : </b>{{$post->start_time}}</p>
-                            </div>
                         </div>
                     </div>
                     <div class="card border-light mb-3" style="max-width: 100%;">
@@ -71,7 +78,6 @@
                         <div class="card-body">
                             <p class="card-text" style="line-height: 30px;">
                                 - @lang('messages.price') : {{$post->price}}
-                            </p>
                         </div>
                     </div>
                     <div class="card border-light mb-3" style="max-width: 100%;">
@@ -86,10 +92,16 @@
                             <div class="card-body">
                                 <p class="card-text">{{$users->name}}</p>
                                 <p class="card-text">{{$users->phone}}</p>
-                                <a href="#" class="btn btn-danger btn-apply">@lang('messages.apply')</a>
                             </div>
-
                         </div>
+                    </div>
+                        <form method="post" enctype="multipart/form-data" action="{{route('user.apply-job')}}">
+                            @csrf
+                            <input type="hidden" name="post_id" value="{{$post->id}}">
+                            <input type="hidden" name="apply_time" value="{{$post->start_time}}">
+                            <input type="hidden" name="status" value="0">
+                            <button class="btn btn-danger btn-apply" type="submit">@lang('messages.apply')</button>
+                        </form>
                     </div>
                 </div>
             <div class="col-lg-4">
@@ -98,6 +110,7 @@
                         <h5>@lang('messages.job-same')</h5>
                     </div>
                     @foreach($postsSameCategory as $postSameCategory)
+                    <div>
                         <div class="card-body" id="card-body">
                             <a class="nav-link" style="font-size: 18px;" href="{{ URL::to('/user/detail-post/'.$postSameCategory->id) }}" data-toggle="tooltip" title="Giúp việc nhà">{{$postSameCategory->title}}<br>
                                 <span class="text-dark" style="font-size: 15px;">{{$postSameCategory->detail}}.</span>
@@ -106,6 +119,7 @@
                                 <span class="text-danger" id="span-time"><i class="fas fa-clock"></i>{{$postSameCategory->created_at}}</span>
                             </p>
                         </div>
+                    </div>
                     @endforeach
                 </div>
             </div>

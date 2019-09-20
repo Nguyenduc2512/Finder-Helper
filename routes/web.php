@@ -18,6 +18,7 @@ Route::group(
     Route::get('new-post', 'User\PostController@create')->name('post-create');
     Route::post('new-post', 'User\PostController@store')->name('post-store');
     Route::get('detail-post/{id}', 'User\PostController@detail')->name('post-detail');
+    Route::post('apply-job', 'User\UserController@applyJob')->name('apply-job');
     Route::get('profile-finder', 'User\HomeController@profileFinder')->name('profile-finder');
     Route::get('profile-helper', 'User\HomeController@profileHelper')->name('profile-helper');
     Route::get('update-info/{user}', 'User\HomeController@updateInfo')->name('update-info');

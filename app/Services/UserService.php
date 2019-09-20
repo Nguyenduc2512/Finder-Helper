@@ -61,7 +61,6 @@ class UserService
 
         return $users;
     }
-
     public function countUser()
     {
         $user = DB::table('users')->count();

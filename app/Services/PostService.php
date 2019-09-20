@@ -20,6 +20,13 @@ class PostService
         return $posts;
     }
 
+    public function getPostSameCate($id)
+    {
+        $postsSameCate = Post::where('category_id', $id)->get();
+
+        return$postsSameCate;
+    }
+
     public function getNewPosts()
     {
         $newposts = Post::orderBy('start_time', 'desc')->get();
@@ -80,17 +87,20 @@ class PostService
 
         return redirect()->route('user.profile', compact('gender'))->with('errmsg', 'Bài viết của bạn đang được chờ duyệt');
     }
+
     public function countPost()
     {
         $bv = DB::table('posts')->count();
 
         return $bv;
     }
+
     public function countPostRequest()
     {
         $posts = DB::table('posts')->where('status', '<>', 1)->count('status');
 
         return $posts;
+
     }
 
 }

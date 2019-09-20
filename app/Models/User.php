@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Model\Post;
+use App\Models\Post;
 
 class User extends Authenticatable
 {
 
-    protected $user = 'users';
+    protected $table = 'users';
     protected $fillable = [
         'name',
         'email',

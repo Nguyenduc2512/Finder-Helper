@@ -41,7 +41,6 @@ class PostController extends Controller
     public function detail($id)
     {
         $post              = $this->postService->getPost($id);
-        $categories        = $this->postService->getPost($id)->category;
         $postsSameCategory = $this->postService->getPostsSameCategory($id);
         $users             = $this->postService->getPost($id)->user;
         $gender            = Config::get('helper');

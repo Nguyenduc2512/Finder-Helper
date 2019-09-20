@@ -42,7 +42,8 @@
                                     <li><a href="{{route('logout')}}">@lang('messages.logout')</a></li>
                                 </ul>
                             @else
-                                <a href="{{route('login')}}"><span class="rounded bg-primary py-2 px-3 text-white">@lang('messages.login')</span></a>
+                                <a href="{{route('login')}}"><span class="rounded bg-primary py-2 px-3 text-white"> Sign In</span></a>
+                                <a href="{{route('sign')}}"><span class="rounded bg-primary py-2 px-3 text-white"> Sign Up</span></a>
                             @endif
                         </li>
                     </ul>

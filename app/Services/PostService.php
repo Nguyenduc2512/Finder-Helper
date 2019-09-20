@@ -8,7 +8,6 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\UrlGenerator;
 
 class PostService
@@ -90,14 +89,14 @@ class PostService
 
     public function countPost()
     {
-        $bv = DB::table('posts')->count();
+        $bv = Post::all()->count();
 
         return $bv;
     }
 
     public function countPostRequest()
     {
-        $posts = DB::table('posts')->where('status', '<>', 1)->count('status');
+        $posts = Post::all()->where('status', '<>', 1)->count('status');
 
         return $posts;
 

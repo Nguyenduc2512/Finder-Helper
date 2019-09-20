@@ -3,7 +3,6 @@
 namespace App\Services;
 use Illuminate\Http\Request;
 use App\Models\Category;
-use Illuminate\Support\Facades\DB;
 
 class CategoryService{
 
@@ -23,7 +22,7 @@ class CategoryService{
     }
 
     public function count(){
-        $categories = DB::table('categories')->count();
+        $categories = Category::all()->count();
         return $categories;
     }
 

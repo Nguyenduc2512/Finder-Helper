@@ -60,4 +60,7 @@ Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
     Route::get('destroy/{post}', 'Admin\PostController@destroy')->name('destroy');
 });
 
+Route::group(['prefix' => 'user1'], function (){
+    Route::get('/list', 'Admin\UserController@index')->name('list-user');
+});
 Auth::routes();

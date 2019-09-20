@@ -22,7 +22,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item has-tree-view">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('admin')}}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
@@ -43,28 +43,13 @@
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
-                    <a href="" class="nav-link">
+                    <a href="{{route('list-user')}}" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            Users
-                            <i class="fas fa-angle-left right"></i>
+                            @lang('messages.user')
                             <span class="badge badge-info right"></span>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="../layout/top-nav.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Finders</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../layout/boxed.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Helpers</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item has-tree-view">
                     <a href="{{route('logoutAdmin')}}" class="nav-link">
@@ -88,7 +73,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin')}}">Home</a></li>
                         <li class="breadcrumb-item active">DataTables</li>
                     </ol>
                 </div>

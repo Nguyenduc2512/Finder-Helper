@@ -45,6 +45,6 @@ class PostController extends Controller
         $users             = $this->postService->getPost($id)->user;
         $gender            = Config::get('helper');
 
-        return view('client.job_detail', compact('post', 'gender', 'users', 'categories', 'postsSameCategory'));
+        return view('client.job_detail', compact('post', 'gender', 'users', 'postsSameCategory'));
     }
 }

@@ -50,4 +50,7 @@ return [
     'errorPost' => 'Bài đăng không được phê duyệt',
     'request' => 'Đã duyệt',
     'errRequest' => 'Chờ duyệt',
+    'user' => 'Thành Viên',
+    'helper' => 'Làm Việc',
+    'finder' => 'Tìm Việc',
 ];

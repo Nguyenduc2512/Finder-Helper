@@ -22,6 +22,6 @@ class UserController extends Controller
         $users = $this->userService->getUsers();
         $gender = Config::get('helper');
 
-        return view("admin.user.list_user",compact('gender', 'users'));
+        return view("admin.user.list_user", compact('gender', 'users'));
     }
 }

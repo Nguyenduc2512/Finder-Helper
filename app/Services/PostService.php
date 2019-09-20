@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Routing\UrlGenerator;
 
 class PostService
 {
@@ -40,6 +41,21 @@ class PostService
 
         return $locations;
 
+    }
+
+    public function getPost($id)
+    {
+        $post = Post::find($id);
+
+        return $post;
+    }
+
+    public function getPostsSameCategory($id)
+    {
+        $category_id = Post::find($id)->category_id;
+        $postsSameCategory = Post::where('category_id', $category_id)->take('5')->get();
+
+        return$postsSameCategory;
     }
 
     public function store(NewPostRequest $request)

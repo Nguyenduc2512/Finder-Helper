@@ -12,7 +12,7 @@
           @csrf
           <div class="form-group">
             <label for="validationCate" class="col-form-label">Cate Name</label>
-            <input type="text" name="name" class="form-control" 
+            <input type="text" name="name" class="form-control"
                id="validationCate" required>
             <div class="invalid-feedback">
               Please choose a catename.
@@ -43,7 +43,7 @@
             <input type="hidden" name="id" id="id">
           <div class="form-group">
             <label for="name" class="col-form-label">Cate Name</label>
-            <input type="text" name="name" class="form-control" 
+            <input type="text" name="name" class="form-control"
                    id="name" required>
             <div class="invalid-feedback">
                 Please choose a catename.
@@ -59,43 +59,3 @@
   </div>
 </div>
 
-@include('admin.layouts.style')
-<script type="text/javascript">
-
-	$('#edit').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) 
-        var name = button.data('cate-name')
-        var id = button.data('cate-id') 
-
-        var modal = $(this)
-        modal.find('.modal-body #id').val(id)
-        modal.find('.modal-body #name').val(name)
-  })
-
-</script>
-<script>
-    
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-        
-        var forms = document.getElementsByClassName('needs-validation');
-           
-        var validation = Array.prototype.filter.call(forms, function(form) {
-
-            form.addEventListener('submit', function(event) {
-                
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-
-                form.classList.add('was-validated');
-              }, false);
-            });
-
-        }, false);
-
-    })();
-
-</script>

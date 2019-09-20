@@ -8,15 +8,8 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
-<<<<<<< HEAD
 use Illuminate\Routing\UrlGenerator;
-=======
-=======
-use Illuminate\Routing\UrlGenerator;
->>>>>>>  Show detail post
->>>>>>>  Show detail post
 
 class PostService
 {
@@ -64,7 +57,6 @@ class PostService
         return $post;
     }
 
-<<<<<<< HEAD
     public function getPostsSameCategory($id)
     {
         $category_id = Post::find($id)->category_id;
@@ -73,8 +65,6 @@ class PostService
         return$postsSameCategory;
     }
 
-=======
->>>>>>>  Show detail post
     public function store(NewPostRequest $request)
     {
         $post = new Post();
@@ -97,17 +87,20 @@ class PostService
 
         return redirect()->route('user.profile', compact('gender'))->with('errmsg', 'Bài viết của bạn đang được chờ duyệt');
     }
+
     public function countPost()
     {
         $bv = DB::table('posts')->count();
 
         return $bv;
     }
+
     public function countPostRequest()
     {
         $posts = DB::table('posts')->where('status', '<>', 1)->count('status');
 
         return $posts;
+
     }
 
 }

@@ -2,7 +2,7 @@
 @section('title', 'Home')
 @section('content')
 @include('client.layouts.search-slide')
-<div class="container-fluid">
+<div class="container-fluid" style="padding: 100px">
     <div class="row justify-conten-between">
         <div class="col-6">
             <h3>Need You</h3>

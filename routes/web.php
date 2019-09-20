@@ -18,6 +18,7 @@ Route::group(
     Route::get('new-post', 'User\PostController@create')->name('post-create');
     Route::post('new-post', 'User\PostController@store')->name('post-store');
     Route::get('detail-post/{id}', 'User\PostController@detail')->name('post-detail');
+    Route::post('apply-job', 'User\UserController@applyJob')->name('apply-job');
     Route::get('profile-finder', 'User\HomeController@profileFinder')->name('profile-finder');
     Route::get('profile-helper', 'User\HomeController@profileHelper')->name('profile-helper');
     Route::get('update-info/{user}', 'User\HomeController@updateInfo')->name('update-info');
@@ -49,6 +50,14 @@ Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
     Route::post('store', 'Admin\CategoryController@store')->name('store');
     Route::post('update/{category}', 'Admin\CategoryController@update')->name('update');
     Route::get('destroy/{category}', 'Admin\CategoryController@destroy')->name('destroy');
+});
+
+Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
+    Route::get('/', 'Admin\PostController@index')->name('index');
+    Route::get('request', 'Admin\PostController@getPostsRequesting')->name('request');
+    Route::get('{post}/request', 'Admin\PostController@edit')->name('edit');
+    Route::post('update', 'Admin\PostController@update')->name('update');
+    Route::get('destroy/{post}', 'Admin\PostController@destroy')->name('destroy');
 });
 
 Auth::routes();

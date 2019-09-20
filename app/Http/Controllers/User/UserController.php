@@ -8,16 +8,21 @@ use App\Services\UserService;
 use App\Http\Requests\UserRequests;
 use App\Services\ChangePasswordService;
 use App\Services\PostService;
+use App\Services\ApplyJobService;
 use App\Http\Requests\LostPasswordRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
 {
     protected $userService;
+    protected $applyJobService;
 
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService,
+                                ApplyJobService $applyJobService)
     {
         $this->userService = $userService;
+        $this->applyJobService = $applyJobService;
     }
 
     public function savePassword(ChangePasswordRequests $request)
@@ -35,4 +40,10 @@ class UserController extends Controller
         return redirect()->route('user.profile');
     }
 
+    public function applyJob(Request $request)
+    {
+        $this->applyJobService->applyJob($request);
+
+        return redirect()->route('user.profile');
+    }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('client.layouts.login')
 @section('title', 'sign-up')
 @section('content')
 <div class="center-sign">
@@ -7,15 +7,9 @@
         <div class="card-title-sign mt-3 text-right">
             <h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> Sign Up</h2>
         </div>
-        @if(count($errors)>0)
-        <div class="alert alert-danger">
-            @foreach($errors->all() as $err)
-            {{$err}}<br>
-            @endforeach
-        </div>
-        @endif
         <div class="card-body">
-            <form action="" method="post">
+            <form action="{{route('sign')}}" method="post" enctype="multipart/form-data" novalidate >
+                @csrf
                 <div class="form-group mb-3">
                     <label>Tên hiển thị *</label>
                     <div class="input-group">
@@ -26,6 +20,9 @@
                             </span>
                         </span>
                     </div>
+                    @if($errors->first('name'))
+                        <span class="text-danger"> {{$errors->first('name')}} </span>
+                    @endif
                 </div>
                 <div class="form-group mb-3">
                     <label>Email *</label>
@@ -37,17 +34,23 @@
                             </span>
                         </span>
                     </div>
+                    @if($errors->first('email'))
+                        <span class="text-danger"> {{$errors->first('email')}} </span>
+                    @endif
                 </div>
                 <div class="form-group mb-3">
                     <label>Password *</label>
                     <div class="input-group">
-                        <input name="password" type="password" class="form-control form-control-lg" />
+                        <input name="password" type="password" class="form-control form-control-lg" value="{{old('password')}}" />
                         <span class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fas fa-lock"></i>
                             </span>
                         </span>
                     </div>
+                    @if($errors->first('password'))
+                        <span class="text-danger"> {{$errors->first('password')}} </span>
+                    @endif
                 </div>
 
                 <div class="form-group mb-3">
@@ -55,13 +58,16 @@
                         <label class="float-left">Nhập lại password *</label>
                     </div>
                     <div class="input-group">
-                        <input name="pwd" type="password" class="form-control form-control-lg" />
+                        <input name="pwd" type="password" class="form-control form-control-lg" value="{{old('pwd')}}"/>
                         <span class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fas fa-lock"></i>
                             </span>
                         </span>
                     </div>
+                    @if($errors->first('pwd'))
+                        <span class="text-danger"> {{$errors->first('pwd')}} </span>
+                    @endif
                 </div>
                 <div class="form-group mb-3">
                     <div class="clearfix">
@@ -73,12 +79,13 @@
                 </div>
                 <div class="form-group mb-3 ">
                     <div class="d-flex justify-content-between6 ">
-
-
                         <div class="form-check p-2"  id="form-profile">
                             <input type="hidden" name="avatar" value="images/user/avatar-default-icon.png" >
                         </div>
                     </div>
+                    @if($errors->first('identification_code'))
+                        <span class="text-danger"> {{$errors->first('identification_code')}} </span>
+                    @endif
                 </div>
                 <div class="form-group mb-3 ">
                     <div class="clearfix">
@@ -86,22 +93,25 @@
                     </div>
                     <div class="d-flex justify-content-between6 ">
                         <div class="form-check p-2">
-                            <input type="file" name="identification">
+                            <input type="file" name="identification" value="{{old('identification')}}" >
                         </div>
-
                     </div>
+                    @if($errors->first('identification'))
+                        <span class="text-danger"> {{$errors->first('identification')}} </span>
+                    @endif
                 </div>
                 <div class="form-group mb-3 ">
                     <div class="clearfix">
                         <label class="float-left">Mặt sau CMT/CCCD</label>
                     </div>
                     <div class="d-flex justify-content-between6 ">
-
                         <div class="form-check p-2">
-                            <input type="file" name="identification_back">
+                            <input type="file" name="identification_back" value="{{old('identification_back')}}">
                         </div>
-
                     </div>
+                    @if($errors->first('identification_back'))
+                        <span class="text-danger"> {{$errors->first('identification_back')}} </span>
+                    @endif
                 </div>
                 <div class="form-group mb-3 ">
                     <div class="clearfix">
@@ -125,9 +135,10 @@
                             <label class="form-check-label" for="exampleRadios2">
                                 OTHER
                             </label>
-
                         </div>
-
+                        @if($errors->first('gender'))
+                            <span class="text-danger"> {{$errors->first('gender')}} </span>
+                        @endif
                     </div>
                 </div>
                     <div class="form-group mb-3 ">
@@ -142,28 +153,15 @@
                                 Hepler
                             </label>
                         </div>
-
                         <div class="form-check ">
                             <input class="form-check-input " type="radio" name="rules" value="2">
                             <label class="form-check-label" for="exampleRadios2">
                                 Finder
                             </label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Hepler
-                        </label>
                     </div>
-
-                    <div class="form-check ">
-                        <input class="form-check-input " type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Finder
-                        </label>
-
-                        </div>
-
-                    </div>
+                        @if($errors->first('rules'))
+                            <span class="text-danger"> {{$errors->first('rules')}} </span>
+                        @endif
                 </div>
 
 
@@ -175,7 +173,9 @@
                                 <label for="RememberMe">I agree withs term of use</label>
 
                             </div>
-
+                            @if($errors->first('rememberme'))
+                                <span class="text-danger"> {{$errors->first('rememberme')}} </span>
+                            @endif
                         </div>
                     </div>
 

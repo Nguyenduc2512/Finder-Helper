@@ -25,13 +25,17 @@ class SignUpRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|email|max:255|min:4',
+            'name' => 'required|max:255|min:4',
             'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:6',
             'pwd' => 'required|same:password',
             'identification_code'=>'required',
+            'identification'=>'required',
+            'identification_back'=>'required',
+            'gender'=>'required',
+            'rules'=>'required',
+            'rememberme'=>'required',
         ];
     }
 }
 
-       

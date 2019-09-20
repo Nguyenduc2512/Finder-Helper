@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+
 use App\Http\Requests\ChangePasswordRequests;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,7 @@ class UserService
         $data = $request->except('_token', 'id');
         $user = User::find($request->id);
 
-        if ( password_verify($request->password, $user->password) == false) {
+        if (password_verify($request->password, $user->password) == false) {
             return redirect()->route('user.change-password')->with('errmsg', 'Old password is incorrect');
         }
 
@@ -54,22 +55,20 @@ class UserService
 
         return $user;
     }
-    }
 
     public function create(Request $request)
     {
-
         $user = new User();
         $data = [
-        'name'                 => $request->name,
-        'email'                => $request->email,
-        'password'             => bcrypt($request->password),
-        'gender'               => $request->gender,
-        'rules'                => $request->rules,
-        'identification_code'  => $request->identification_code,
-        'avatar'               => $request->avatar,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'gender' => $request->gender,
+            'rules' => $request->rules,
+            'identification_code' => $request->identification_code,
+            'avatar' => $request->avatar,
         ];
-        $user -> fill($data);
+        $user->fill($data);
         if ($request->hasFile('identification')) {
 
             $path = $this->uploadFile->uploadIdentification($request);
@@ -86,17 +85,18 @@ class UserService
         $user->save();
     }
 
-public function getUsers()
-{
-    $users = User::all();
+    public function getUsers()
+    {
+        $users = User::all();
 
-    return $users;
-}
-public function countUser()
-{
-    $user = DB::table('users')->count();
+        return $users;
+    }
 
-    return $user;
-}
+    public function countUser()
+    {
+        $user = DB::table('users')->count();
+
+        return $user;
+    }
 
 }

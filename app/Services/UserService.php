@@ -54,17 +54,49 @@ class UserService
 
         return $user;
     }
-
-    public function getUsers()
-    {
-        $users = User::all();
-
-        return $users;
     }
-    public function countUser()
-    {
-        $user = DB::table('users')->count();
 
-        return $user;
+    public function create(Request $request)
+    {
+
+        $user = new User();
+        $data = [
+        'name'                 => $request->name,
+        'email'                => $request->email,
+        'password'             => bcrypt($request->password),
+        'gender'               => $request->gender,
+        'rules'                => $request->rules,
+        'identification_code'  => $request->identification_code,
+        'avatar'               => $request->avatar,
+        ];
+        $user -> fill($data);
+        if ($request->hasFile('identification')) {
+
+            $path = $this->uploadFile->uploadIdentification($request);
+
+            $user->identification = request()->identification->move('images/user', $path);
+        }
+        if ($request->hasFile('identification_back')) {
+
+
+            $path = $this->uploadFile->uploadIdentification_back($request);
+
+            $user->identification_back = request()->identification_back->move('images/user', $path);
+        }
+        $user->save();
     }
+
+public function getUsers()
+{
+    $users = User::all();
+
+    return $users;
+}
+public function countUser()
+{
+    $user = DB::table('users')->count();
+
+    return $user;
+}
+
 }

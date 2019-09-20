@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequests;
 use App\Services\UploadService;
 use App\Http\Requests\LostPasswordRequest;
-use Illuminate\Support\Facades\DB;
 
 class UserService
 {
@@ -69,14 +68,13 @@ class UserService
             'avatar' => $request->avatar,
         ];
         $user->fill($data);
-        if ($request->hasFile('identification')) {
+        if ( $request->hasFile('identification') ) {
 
             $path = $this->uploadFile->uploadIdentification($request);
 
             $user->identification = request()->identification->move('images/user', $path);
         }
-        if ($request->hasFile('identification_back')) {
-
+        if ( $request->hasFile('identification_back') ) {
 
             $path = $this->uploadFile->uploadIdentification_back($request);
 
@@ -94,7 +92,7 @@ class UserService
 
     public function countUser()
     {
-        $user = DB::table('users')->count();
+        $user = User::all()->count();
 
         return $user;
     }

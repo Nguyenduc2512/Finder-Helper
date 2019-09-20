@@ -6,37 +6,37 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-list"></i>&nbsp; List Posts
+                    <i class="fas fa-list"></i>&nbsp; @lang('messages.listPost')
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-notes-medical"></i>&nbsp; Post a New Job
+                    <i class="fas fa-notes-medical"></i>&nbsp; @lang('messages.newPost')
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" href="{{ route('user.profile') }}">
-                    <i class="far fa-id-card"></i></i>&nbsp; Profile
+                    <i class="far fa-id-card"></i></i>&nbsp; @lang('messages.profile')
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-history"></i>&nbsp; History
+                    <i class="fas fa-history"></i>&nbsp; @lang('messages.history')
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-key"></i>&nbsp; Change Password
+                    <i class="fas fa-key"></i>&nbsp; @lang('messages.changePassword')
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-dollar-sign"></i>&nbsp; Add Coin
+                    <i class="fas fa-dollar-sign"></i>&nbsp; @lang('messages.addCoin')
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-sign-out-alt"></i>&nbsp; Logout
+                    <i class="fas fa-sign-out-alt"></i>&nbsp; @lang('messages.logout')
                 </a>
             </li>
         </ul>

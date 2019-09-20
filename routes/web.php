@@ -51,4 +51,12 @@ Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
     Route::get('destroy/{category}', 'Admin\CategoryController@destroy')->name('destroy');
 });
 
+Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
+    Route::get('/', 'Admin\PostController@index')->name('index');
+    Route::get('request', 'Admin\PostController@getPostsRequesting')->name('request');
+    Route::get('{post}/request', 'Admin\PostController@edit')->name('edit');
+    Route::post('update', 'Admin\PostController@update')->name('update');
+    Route::get('destroy/{post}', 'Admin\PostController@destroy')->name('destroy');
+});
+
 Auth::routes();

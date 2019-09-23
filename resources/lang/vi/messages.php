@@ -53,4 +53,7 @@ return [
     'user' => 'Thành Viên',
     'helper' => 'Làm Việc',
     'finder' => 'Tìm Việc',
+    'success' => 'Thực hiện thành công',
+    'error' => 'Thực hiện không thành công',
+    'coin' => 'Nạp tiền',
 ];

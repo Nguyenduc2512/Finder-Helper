@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Services\CategoryService;
@@ -26,16 +27,16 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->categoryService->store($request);
-       
-        return redirect()->route('categories.index')->with(['success' => 'Tạo danh mục mới thành công']);
-        
+
+        return redirect()->route('categories.index')->with(['success' => Lang::get('messages.success')]);
+
     }
 
     public function update(Request $request)
     {
         $this->categoryService->update($request);
 
-        return redirect()->route('categories.index')->with(['success' => 'Sửa danh mục thành công']);
+        return redirect()->route('categories.index')->with(['success' => Lang::get('messages.success')]);
     }
 
     public function destroy(Category $category)
@@ -44,5 +45,5 @@ class CategoryController extends Controller
 
        return $this->index();
     }
-    
+
 }

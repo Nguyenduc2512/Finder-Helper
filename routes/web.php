@@ -27,6 +27,8 @@ Route::group(
     Route::post('save-password', 'User\UserController@savePassword')->name('save-password');
     Route::get('edit-profile', 'User\HomeController@editProfile')->name('edit-profile');
     Route::post('update-profile', 'User\UserController@updateProfile')->name('update-profile');
+    Route::get('coin', 'User\CoinController@index')->name('coin');
+    Route::post('store', 'User\CoinController@store')->name('store');
 });
 
 Route::get('/admin', 'Admin\HomeController@index')->name('admin')->middleware('auth:admin');
@@ -66,5 +68,11 @@ Route::group(['prefix' => 'user-admin'], function (){
 
 Route::get('/sign', 'Auth\SignUpController@show')->name('sign');
 Route::post('/sign', 'Auth\SignUpController@create');
+Route::group(['prefix' => 'coins', 'as' => 'coins.'], function () {
+    Route::get('/', 'Admin\CoinController@index')->name('index');
+    Route::get('{coin}/edit', 'Admin\CoinController@edit')->name('edit');
+    Route::post('update', 'Admin\CoinController@update')->name('update');
+    Route::post('store', 'Admin\CoinController@store')->name('store');
+});
 Auth::routes();
 

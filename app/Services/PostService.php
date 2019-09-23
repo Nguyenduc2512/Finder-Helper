@@ -14,23 +14,26 @@ class PostService
 {
     public function getPosts()
     {
-        $posts = Post::all();
+        $status = Config::get('helper.post_type_active');
+        $posts = Post::where('status', $status)->get();
 
         return $posts;
     }
 
-    public function getPostSameCate($id)
-    {
-        $postsSameCate = Post::where('category_id', $id)->get();
-
-        return$postsSameCate;
-    }
-
     public function getNewPosts()
     {
-        $newposts = Post::orderBy('start_time', 'desc')->get();
+        $status = Config::get('helper.post_type_active');
+        $newposts = Post::where('status', $status)->orderBy('start_time', 'desc')->get();
 
         return $newposts;
+    }
+
+    public function getPostsPriceHigh()
+    {
+        $status = Config::get('helper.post_type_active');
+        $postsPriceHigh = Post::where('status', $status)->orderBy('price', 'desc')->get();
+
+        return $postsPriceHigh;
     }
 
     public function getCategories()
@@ -58,8 +61,9 @@ class PostService
 
     public function getPostsSameCategory($id)
     {
+        $status = Config::get('helper.post_type_active');
         $category_id = Post::find($id)->category_id;
-        $postsSameCategory = Post::where('category_id', $category_id)->take('5')->get();
+        $postsSameCategory = Post::where('category_id', $category_id)->where('status', $status)->take('5')->get();
 
         return$postsSameCategory;
     }

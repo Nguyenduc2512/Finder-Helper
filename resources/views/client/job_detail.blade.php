@@ -100,7 +100,11 @@
                             <input type="hidden" name="post_id" value="{{$post->id}}">
                             <input type="hidden" name="apply_time" value="{{$post->start_time}}">
                             <input type="hidden" name="status" value="0">
-                            <button class="btn btn-danger btn-apply" type="submit">@lang('messages.apply')</button>
+                            @if($post->apply == true)
+                                <a href="javascript:;" linkurl="{{route('user.cancel-apply', ['id' => $post->id])}}" class="btn btn-danger py-2 text-white" style="margin: 20px; margin-left: 300px; width: 120px">@lang('messages.cancel')</a>
+                            @else
+                                <button class="btn btn-warning py-2 text-white" type="submit" style="margin: 20px; margin-left: 300px; width: 120px">@lang('messages.apply')</button>
+                            @endif
                         </form>
                     </div>
                 </div>
@@ -126,4 +130,26 @@
         </div>
     </div>
 </div>
+<div style="padding: 50px"></div>
+    @section('script')
+        <script>
+            $('.btn-danger').on('click', function(){
+
+                swal({
+                    text: "Bạn có chắc chắn muốn bỏ ứng tuyển công việc này ?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+
+                })
+                    .then((willDelete) => {
+
+                        if (willDelete) {
+
+                            window.location.href = $(this).attr('linkurl');
+                        }
+                    });
+            });
+        </script>
+    @stop
 @endsection

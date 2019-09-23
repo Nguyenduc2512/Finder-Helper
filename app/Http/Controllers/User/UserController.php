@@ -11,6 +11,7 @@ use App\Services\PostService;
 use App\Services\ApplyJobService;
 use App\Http\Requests\LostPasswordRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
@@ -44,6 +45,13 @@ class UserController extends Controller
     {
         $this->applyJobService->applyJob($request);
 
-        return redirect()->route('user.profile');
+        return redirect()->route('all-post')->with(['success' => Lang::get('messages.applySuccess') ]);
+    }
+
+    public function cancelApply($id)
+    {
+        $this->applyJobService->cancelApply($id);
+
+        return redirect()->route('all-post')->with(['success' => Lang::get('messages.cancelSuccess') ]);
     }
 }

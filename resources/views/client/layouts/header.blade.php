@@ -27,7 +27,7 @@
                     <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                         <li class="active"><a href="{{route('home')}}">@lang('messages.home')</a></li>
                         <li>
-                            <a href="#">@lang('messages.postJob')</a>
+                            <a href="{{route('all-post')}}">@lang('messages.postJob')</a>
                         </li>
                         <li><a href="about.html">@lang('messages.about')</a></li>
                         <li><a href="contact.html">@lang('messages.contact')</a></li>

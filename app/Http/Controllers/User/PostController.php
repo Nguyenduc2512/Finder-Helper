@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Location;
 use App\Models\Post;
 use App\Models\User;
+use App\Services\ApplyJobService;
 use App\Services\PostService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
@@ -16,10 +17,13 @@ use Illuminate\Support\Facades\Config;
 class PostController extends Controller
 {
     protected $postService;
+    protected $userApplyService;
 
-    public function __construct(PostService $postService)
+    public function __construct(PostService $postService,
+                                ApplyJobService $userApplyService)
     {
         $this->postService = $postService;
+        $this-> userApplyService = $userApplyService;
     }
 
     public function create()
@@ -44,7 +48,17 @@ class PostController extends Controller
         $postsSameCategory = $this->postService->getPostsSameCategory($id);
         $users             = $this->postService->getPost($id)->user;
         $gender            = Config::get('helper');
+        $usersApply = $this->userApplyService->userApply();
+        $post->apply = false;
+        if ($usersApply != null) {
+            foreach ($usersApply as $userApply) {
+                if ($id == $userApply->post_id) {
+                    $post->apply = true;
+                }
+            }
+        }
 
         return view('client.job_detail', compact('post', 'gender', 'users', 'postsSameCategory'));
     }
+
 }

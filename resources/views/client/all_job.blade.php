@@ -57,7 +57,11 @@
                         </div>
                     </div>
                     <div class="ml-auto">
-                        <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-danger py-2">Apply Job</a>
+                        @if($newPost->apply == true)
+                            <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-danger py-2 text-white" style="width: 120px">@lang('messages.cancel')</a>
+                        @else
+                            <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-warning py-2 text-white" style="width: 120px">@lang('messages.apply')</a>
+                        @endif
                     </div>
                 </div>
             @endforeach
@@ -121,7 +125,21 @@
             </div>
         </div>
     </div>
-
-
 </div>
+@section('script')
+    <script>
+
+        @if ( session('success') == true)
+
+        swal({
+            text: '{{ session('success') }}',
+            icon: "success",
+            button: true,
+            dangerMode: true,
+
+        });
+
+        @endif
+    </script>
+@stop
 @endsection

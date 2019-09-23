@@ -33,7 +33,7 @@ body{
 .flex-container > div {
   margin: 10px;
   padding: 20px;
- 
+
 }
 .text-span{
 	margin-left: 10%;
@@ -47,7 +47,7 @@ body{
   padding: 20px;
 }
 #card-body{
-	border-bottom: 2px solid #f6f6f6; 
+	border-bottom: 2px solid #f6f6f6;
 	line-height: 20px;
 }
 #span-time{
@@ -57,7 +57,7 @@ body{
 	text-decoration: none;
 }
 #span-card-text{
-	margin-left: 5%;	
+	margin-left: 5%;
 }
 .footer{
 	background-color: #0080b7;
@@ -128,13 +128,13 @@ body{
 .rating-stars ul {
   list-style-type:none;
   padding:0;
-  
+
   -moz-user-select:none;
   -webkit-user-select:none;
 }
 .rating-stars ul > li.star {
   display:inline-block;
-  
+
 }
 
 /* Idle State of the stars */
@@ -152,11 +152,10 @@ body{
 .rating-stars ul > li.star.selected > i.fa {
   color:#FF912C;
 }
-.site-footer{
-	margin-top: 10%;
+
 }
 #avatar-profile{
-	width:200px; 
+	width:200px;
 	border-radius: 50%;
 }
 #form-profile{

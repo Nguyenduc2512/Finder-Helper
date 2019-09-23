@@ -51,6 +51,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{route('coins.index')}}" class="nav-link">
+                        <i class="fas fa-dollar-sign"></i>
+                        <p>
+                            @lang('messages.coin')
+                            <span class="badge badge-info right"></span>
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item has-tree-view">
                     <a href="{{route('logoutAdmin')}}" class="nav-link">
                         <i class="fas fa-sign-out-alt"></i>

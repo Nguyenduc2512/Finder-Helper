@@ -30,6 +30,9 @@
         <div class="col-lg">
             <h3>Job</h3>
             @foreach($newPosts as $newPost)
+                @php
+                    $applies = $newPost->applies->pluck('id')->toArray();
+                @endphp
                 <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
                             <div class="mb-4 mb-md-0 mr-5">
                                 <img src="{{$newPost->user->avatar}}" alt="" style="width: 70px;">
@@ -57,7 +60,15 @@
                         </div>
                     </div>
                     <div class="ml-auto">
-                        <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-danger py-2">Apply Job</a>
+                        @if(Auth::check())
+                            @if(in_array(Auth::id(), $applies))
+                                <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-danger py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
+                            @else
+                                <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                            @endif
+                        @else
+                            <a href="{{route('user.new-post', ['id' => $newPost->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                        @endif
                     </div>
                 </div>
             @endforeach
@@ -121,7 +132,21 @@
             </div>
         </div>
     </div>
-
-
 </div>
+@section('script')
+    <script>
+
+        @if ( session('success') == true)
+
+        swal({
+            text: '{{ session('success') }}',
+            icon: "success",
+            button: true,
+            dangerMode: true,
+
+        });
+
+        @endif
+    </script>
+@stop
 @endsection

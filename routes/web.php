@@ -29,6 +29,8 @@ Route::group(
     Route::post('update-profile', 'User\UserController@updateProfile')->name('update-profile');
     Route::get('coin', 'User\CoinController@index')->name('coin');
     Route::post('store', 'User\CoinController@store')->name('store');
+    Route::get('cancel-apply/{id}', 'User\UserController@cancelApply')->name('cancel-apply');
+
 });
 
 Route::get('/admin', 'Admin\HomeController@index')->name('admin')->middleware('auth:admin');
@@ -56,7 +58,6 @@ Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
 
 Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
     Route::get('/', 'Admin\PostController@index')->name('index');
-    Route::get('request', 'Admin\PostController@getPostsRequesting')->name('request');
     Route::get('{post}/request', 'Admin\PostController@edit')->name('edit');
     Route::post('update', 'Admin\PostController@update')->name('update');
     Route::get('destroy/{post}', 'Admin\PostController@destroy')->name('destroy');

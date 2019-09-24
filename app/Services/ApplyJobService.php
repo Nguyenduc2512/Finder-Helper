@@ -20,6 +20,24 @@ class ApplyJobService
         $apply->fill($data);
         $apply->save();
 
-        return redirect()->route('user.profile')->with('errmsg', 'Ứng tuyển thành công');
+        return redirect()->route('user.profile');
     }
+
+    public function userApply()
+    {
+        if (Auth::user()) {
+            $userApply = UserApply::where('user_id', Auth::user()->id)->get();
+
+            return $userApply;
+        }
+    }
+
+    public function cancelApply($id)
+    {
+        $cancel = $this->userApply()->where('post_id', $id)->first();
+        if ($cancel) {
+            return $cancel->delete();
+        }
+    }
+
 }

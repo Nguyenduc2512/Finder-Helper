@@ -27,6 +27,11 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    public function applies()
+    {
+        return $this->belongsToMany(User::class, 'user_apply', 'post_id', 'user_id');
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');

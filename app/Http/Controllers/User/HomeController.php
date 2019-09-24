@@ -1,32 +1,39 @@
 <?php
 
 namespace App\Http\Controllers\User;
+use App\Models\Post;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Services\PostService;
 use App\Services\UserService;
+use App\Services\ApplyJobService;
 use Illuminate\Support\Facades\Config;
+use function Symfony\Component\VarDumper\Dumper\esc;
 
 class HomeController extends Controller
 {
     protected $postService;
     protected $userService;
+    protected $userApplyService;
 
     public function __construct( PostService $postService,
-                                 UserService $userService )
+                                 UserService $userService,
+                                 ApplyJobService $userApplyService )
     {
         $this->postService = $postService;
         $this->userService = $userService;
+        $this-> userApplyService = $userApplyService;
     }
 
     public function index()
     {
         $posts    = $this->postService->getPosts();
         $newPosts  = $this->postService->getNewPosts();
-        $users    = $this->userService->getUsers();
         $categories = $this->postService->getCategories();
+        $postsPriceHigh = $this->postService->getPostsPriceHigh();
 
-        return view('client.index', compact('posts', 'newPosts', 'users', 'categories'));
+        return view('client.index',
+               compact('posts', 'newPosts', 'categories', 'postsPriceHigh'));
     }
 
     public function profile()
@@ -43,26 +50,29 @@ class HomeController extends Controller
 
     public function allPost()
     {
+        $rule = Config::get('helper.user_type_helper');
         $newPosts   = $this->postService->getNewPosts();
-        $users      = $this->userService->getUsers();
-        $categories  = $this->postService->getCategories();
+        $categories = $this->postService->getCategories();
         $locations  = $this->postService->getLocations();
 
-        return view('client.all_job', compact( 'newPosts', 'users', 'categories', 'locations'));
+        return view('client.all_job',
+               compact( 'newPosts', 'categories', 'locations', 'rule'));
     }
 
     public function profileFinder()
     {
         $gender = Config::get('helper');
+        $rule = Config::get('helper.user_type_helper');
 
-        return view('client.userFinder.profile', compact('gender'));
+        return view('client.userFinder.profile', compact('gender', 'rule'));
     }
 
     public function profileHelper()
     {
         $gender = Config::get('helper');
+        $rule = Config::get('helper.user_type_helper');
 
-        return view('client.userHelper.profile', compact('gender'));
+        return view('client.userHelper.profile', compact('gender', 'rule'));
     }
 
     public function updateInfo(User $user)

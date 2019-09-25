@@ -31,11 +31,11 @@
                         <td>{{ $item->address }}</td>
                         <td class="text-center">
                             @if ( $item->status == Config::get('helper.post_type_inActive') )
-                                <a href="{{ route('posts.edit', $item->id ) }}" class="btn btn-success btn-sm">
+                                <a href="{{ route('posts.edit', $item->id ) }}" class="btn btn-warning btn-sm">
                                     @lang('messages.errRequest')
                                 </a>
                             @elseif ( $item->status == Config::get('helper.post_type_active') )
-                                <a href="#" class="btn btn-danger btn-sm">
+                                <a href="#" class="btn btn-success btn-sm">
                                     @lang('messages.request')
                                 </a>
                             @endif

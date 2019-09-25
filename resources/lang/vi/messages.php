@@ -17,7 +17,6 @@ return [
     'interest'       => 'Quyền lợi được hưởng',
     'price'          => 'Lương',
     'recruiter'      => 'Người thuê',
-    'phone'          => 'Số điện thoại',
     'male'           => 'Nam',
     'female'         => 'Nữ',
     'nope'           => 'Không yêu cầu',

@@ -36,13 +36,16 @@ class CoinController extends Controller
     {
         $this->coinService->update($request);
 
-        return redirect()->route('coins.index')->with(['success' => Lang::get('messages.success')]);
+        return redirect()->route('coins.index')
+            ->with('success', Lang::get('messages.success'));
     }
 
     public function store(Request $request)
     {
         $this->coinService->store($request);
 
-        return redirect()->route('coins.index')->with(['success' => Lang::get('messages.success')]);
+        return redirect()->route('coins.index')
+            ->with('success', Lang::get('messages.success'));
     }
+
 }

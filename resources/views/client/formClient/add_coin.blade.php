@@ -10,9 +10,6 @@
                 <div class="card mb-3" style="max-width: 100%;">
                     <div class="card-header">
                         <h4>Nạp Tiền</h4>
-                        @if ( session('succes'))
-                            <span class="text-danger">{{ session('succes') }}</span>
-                        @endif
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -94,4 +91,7 @@
             </div>
         </div>
     </div>
+@section('script')
+    @include('client.layouts.success')
 @stop
+@endsection

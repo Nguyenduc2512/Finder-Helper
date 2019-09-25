@@ -15,7 +15,9 @@ class HomeController extends Controller
     protected $cateService;
     protected $postService;
 
-    public function __construct(UserService $userService, CategoryService $cateService, PostService $postService)
+    public function __construct(UserService $userService,
+                                CategoryService $cateService,
+                                PostService $postService)
     {
         $this->userService = $userService;
         $this->cateService = $cateService;

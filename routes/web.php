@@ -43,6 +43,8 @@ Route::group(
     Route::get('cancel-apply/{id}', 'User\UserController@cancelApply')->name('cancel-apply');
     Route::get('helper-confirm/{id}', 'User\UserController@helperConfirm')->name('helper-confirm');
 
+    Route::get('contact', 'ContactController@index')->name('index');
+    Route::post('contact', 'ContactController@store')->name('contact');
 });
 
 Route::get('/admin', 'Admin\HomeController@index')->name('admin')->middleware('auth:admin');
@@ -91,4 +93,8 @@ Route::group(['prefix' => 'coins', 'as' => 'coins.'], function () {
 });
 
 Auth::routes();
-
+Route::post('search', 'User\HomeController@search')->name('search');
+Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
+    Route::get('/', 'ContactController@listContact')->name('list-contact');
+    Route::post('update', 'ContactController@update')->name('update');
+});

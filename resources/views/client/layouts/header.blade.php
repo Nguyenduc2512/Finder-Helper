@@ -30,7 +30,7 @@
                             <a href="{{route('all-post')}}">@lang('messages.postJob')</a>
                         </li>
                         <li><a href="about.html">@lang('messages.about')</a></li>
-                        <li><a href="contact.html">@lang('messages.contact')</a></li>
+                        <li><a href="{{ route('user.contact') }}">@lang('messages.contact')</a></li>
                         <li class="has-children">
                             @if (Auth::user())
                                 <span class="caret">Hello {{Auth::user()->name}}</span>

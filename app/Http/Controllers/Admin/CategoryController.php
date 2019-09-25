@@ -28,15 +28,16 @@ class CategoryController extends Controller
     {
         $this->categoryService->store($request);
 
-        return redirect()->route('categories.index')->with(['success' => Lang::get('messages.success')]);
-
+        return redirect()->route('categories.index')
+            ->with('success', Lang::get('messages.success'));
     }
 
     public function update(Request $request)
     {
         $this->categoryService->update($request);
 
-        return redirect()->route('categories.index')->with(['success' => Lang::get('messages.success')]);
+        return redirect()->route('categories.index')
+            ->with('success', Lang::get('messages.success'));
     }
 
     public function destroy(Category $category)

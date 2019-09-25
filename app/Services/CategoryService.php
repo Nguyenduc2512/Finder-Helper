@@ -4,8 +4,8 @@ namespace App\Services;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
-class CategoryService{
-
+class CategoryService
+{
     public function getAllCategories()
     {
         $categories = Category::all();

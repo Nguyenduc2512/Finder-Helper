@@ -17,7 +17,6 @@ return [
     'interest'       => 'Quyền lợi được hưởng',
     'price'          => 'Lương',
     'recruiter'      => 'Người thuê',
-    'phone'          => 'Số điện thoại',
     'male'           => 'Nam',
     'female'         => 'Nữ',
     'nope'           => 'Không yêu cầu',
@@ -57,5 +56,8 @@ return [
     'applySuccess'   => 'Ứng tuyển thành công',
     'cancel'         => 'Hủy',
     'cancelSuccess'  => 'Bỏ ứng tuyển thành công',
-
+    'coinSuccess'    => 'Nạp tiền thành công',
+    'coin'           => 'Nạp Tiền',
+    'user'           => 'Thành Viên',
+    'success'        => 'Thực hiện thành công'
 ];

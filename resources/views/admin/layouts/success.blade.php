@@ -6,6 +6,5 @@
         icon: "success",
         button: true,
     });
-
     @endif
 </script>

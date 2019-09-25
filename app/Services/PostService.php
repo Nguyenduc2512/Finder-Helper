@@ -5,10 +5,9 @@ use App\Http\Requests\NewPostRequest;
 use App\Models\Category;
 use App\Models\Location;
 use App\Models\Post;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Routing\UrlGenerator;
 
 class PostService
 {
@@ -104,6 +103,15 @@ class PostService
 
         return $posts;
 
+    }
+
+    public function search(Request $request)
+    {
+        $newPosts = Post::where('address', 'LIKE', '%' .$request->address. '%')
+                        ->Where('category_id', 'LIKE', '%' .$request->category_id. '%')
+                        ->get();
+
+        return $newPosts;
     }
 
 }

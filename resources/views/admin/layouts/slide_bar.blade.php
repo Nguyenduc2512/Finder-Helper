@@ -60,6 +60,15 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{route('contact.list-contact')}}" class="nav-link">
+                        <i class="fas fa-file-signature"></i>
+                        <p>
+                            @lang('messages.contact')
+                            <span class="badge badge-info right"></span>
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item has-tree-view">
                     <a href="{{route('logoutAdmin')}}" class="nav-link">
                         <i class="fas fa-sign-out-alt"></i>

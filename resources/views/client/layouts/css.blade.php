@@ -9,3 +9,4 @@
 <link rel="stylesheet" href="{{asset('css/theme.css')}}" />
 <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/all.min.css')}}" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">

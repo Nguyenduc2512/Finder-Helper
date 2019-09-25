@@ -28,32 +28,23 @@
                                 </div>
                             </div>
                             <div class="job-post-item-body d-block d-md-flex">
-                                <div><span
-                                        class="fl-bigmug-line-big104"></span><span>Địa chỉ : {{$newPost->address}}</span>
-                                </div>
+                                <div><span class="fl-bigmug-line-big104"></span><span>Địa chỉ : {{$newPost->address}}</span></div>
                             </div>
                             <br>
                             <br>
                             <div class="job-post-item-body d-block d-md-flex">
-                                <div class="mr-5"><span class="fl-bigmug-line-portfolio23"></span>
-                                    <span>Price :{{$newPost->price}}</span></div>
+                                <div class="mr-5"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :{{$newPost->price}}</span></div>
                             </div>
                         </div>
                         <div class="ml-auto">
                             @if(Auth::check())
                                 @if(in_array(Auth::id(), $applies))
-                                    <a href="{{route('user.post-detail', ['id' => $newPost->id])}}"
-                                       class="btn btn-danger py-2 text-white"
-                                       style="width: 150px">  @lang('messages.cancel')</a>
+                                    <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-danger py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
                                 @else
-                                    <a href="{{route('user.post-detail', ['id' => $newPost->id])}}"
-                                       class="btn btn-warning py-2 text-white"
-                                       style="width: 150px">  @lang('messages.detail')</a>
+                                    <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                                 @endif
                             @else
-                                <a href="{{route('user.new-post', ['id' => $newPost->id])}}"
-                                   class="btn btn-warning py-2 text-white"
-                                   style="width: 150px">  @lang('messages.detail')</a>
+                                <a href="{{route('user.new-post', ['id' => $newPost->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                             @endif
                         </div>
                     </div>
@@ -112,8 +103,7 @@
                                 Milk
                             </li>
                         </ul
-                        >
-                    </div>
+                        ></div>
                 </div>
             </div>
         </div>

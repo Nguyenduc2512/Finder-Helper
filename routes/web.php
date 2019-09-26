@@ -33,6 +33,8 @@ Route::group(
 
 });
 
+Route::group([]);
+
 Route::get('/admin', 'Admin\HomeController@index')->name('admin')->middleware('auth:admin');
 Route::get('/loginAdmin','Auth\AdminController@loginAdmin')->name('loginAdmin');
 Route::post('/loginAdmin','Auth\AdminController@postAdmin');

@@ -20,6 +20,7 @@ class HomeController extends Controller
         $this->userService = $userService;
         $this->cateService = $cateService;
         $this->postService = $postService;
+        $this->middleware('auth:admin');
     }
 
     public function index()

@@ -12,8 +12,8 @@
 */
 Route::group(
     ['prefix' => 'user',
-     'as' => 'user.',
-     'middleware' => 'auth'], function () {
+        'as' => 'user.',
+        'middleware' => 'auth'], function () {
     Route::get('profile', 'User\HomeController@profile')->name('profile');
     Route::get('new-post', 'User\PostController@create')->name('post-create');
     Route::post('new-post', 'User\PostController@store')->name('post-store');
@@ -33,12 +33,10 @@ Route::group(
 
 });
 
-Route::group([]);
-
 Route::get('/admin', 'Admin\HomeController@index')->name('admin')->middleware('auth:admin');
-Route::get('/loginAdmin','Auth\AdminController@loginAdmin')->name('loginAdmin');
-Route::post('/loginAdmin','Auth\AdminController@postAdmin');
-Route::get('/logoutAdmin','Auth\AdminController@logoutAdmin')->name('logoutAdmin');
+Route::get('/loginAdmin', 'Auth\AdminController@loginAdmin')->name('loginAdmin');
+Route::post('/loginAdmin', 'Auth\AdminController@postAdmin');
+Route::get('/logoutAdmin', 'Auth\AdminController@logoutAdmin')->name('logoutAdmin');
 
 Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
@@ -65,7 +63,7 @@ Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
     Route::get('destroy/{post}', 'Admin\PostController@destroy')->name('destroy');
 });
 
-Route::group(['prefix' => 'user-admin'], function (){
+Route::group(['prefix' => 'user-admin'], function () {
     Route::get('/list', 'Admin\UserController@index')->name('list-user');
 });
 
@@ -77,5 +75,6 @@ Route::group(['prefix' => 'coins', 'as' => 'coins.'], function () {
     Route::post('update', 'Admin\CoinController@update')->name('update');
     Route::post('store', 'Admin\CoinController@store')->name('store');
 });
+
 Auth::routes();
 

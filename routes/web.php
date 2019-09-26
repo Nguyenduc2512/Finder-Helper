@@ -98,3 +98,4 @@ Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
     Route::get('/', 'ContactController@listContact')->name('list-contact');
     Route::post('update', 'ContactController@update')->name('update');
 });
+Route::view('layout', 'client.layouts.test');

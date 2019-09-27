@@ -55,7 +55,13 @@ return [
     'highPrice'      => 'Việc lương cao',
     'hot'            => 'Nhiều người quan tâm',
     'applySuccess'   => 'Ứng tuyển thành công',
-    'cancel'         => 'Hủy',
+    'cancel'         => 'Đã ứng tuyển',
     'cancelSuccess'  => 'Bỏ ứng tuyển thành công',
+    'coin'           => 'Lịch sử thanh toán',
+    'delete'         => 'Xóa thành công',
+    'post'           => 'Tin của bạn',
+    'accept'         => 'Phê duyệt thành công',
+    'decline'        => 'Bỏ phê duyệt thành công',
+    'success'        => 'Xác nhận thành công'
 
 ];

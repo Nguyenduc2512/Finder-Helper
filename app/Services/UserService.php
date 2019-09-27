@@ -26,7 +26,8 @@ class UserService
         $user = User::find($request->id);
 
         if (password_verify($request->password, $user->password) == false) {
-            return redirect()->route('user.change-password')->with('errmsg', 'Old password is incorrect');
+            return redirect()->route('user.change-password')
+                             ->with('errmsg', 'Old password is incorrect');
         }
 
         $user->update(
@@ -35,7 +36,8 @@ class UserService
             ]
         );
 
-        return redirect()->route('user.change-password')->with('errmsg', 'Change password successfully');
+        return redirect()->route('user.change-password')
+                         ->with('errmsg', 'Change password successfully');
     }
 
     public function updateProfile(UserRequests $request)
@@ -88,6 +90,13 @@ class UserService
         $users = User::all();
 
         return $users;
+    }
+
+    public function getUserLogin()
+    {
+        $userLogin = User::find(Auth::id());
+
+        return $userLogin;
     }
 
     public function countUser()

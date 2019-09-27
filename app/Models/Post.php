@@ -29,7 +29,13 @@ class Post extends Model
 
     public function applies()
     {
-        return $this->belongsToMany(User::class, 'user_apply', 'post_id', 'user_id');
+        return $this->belongsToMany(User::class, 'user_apply', 'post_id', 'user_id')
+                    ->withPivot(['status', 'id', 'user_apply_status', 'owner_post_status']);
+    }
+
+    public function success()
+    {
+        return $this->hasMany(UserApply::class, 'post_id', 'id');
     }
 
     public function category()

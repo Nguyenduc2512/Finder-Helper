@@ -34,13 +34,19 @@ class HomeController extends Controller
 
         return view('client.index',
                compact('posts', 'newPosts', 'categories', 'postsPriceHigh'));
+
     }
 
     public function profile()
     {
+        $user = $this->userService->getUserLogin();
         $gender = Config::get('helper');
+        $rule = Config::get('helper.user_type_helper');
+        $success = Config::get('helper');
+        $posts = $this->postService->getPostsAccountLogin();
 
-        return view('client.profile', compact('gender'));
+        return view('client.profile',
+               compact('gender', 'rule', 'user', 'success', 'posts'));
     }
 
     public function category()
@@ -57,6 +63,7 @@ class HomeController extends Controller
 
         return view('client.all_job',
                compact( 'newPosts', 'categories', 'locations', 'rule'));
+
     }
 
     public function profileFinder()
@@ -90,5 +97,13 @@ class HomeController extends Controller
         $gender = Config::get('helper');
 
         return view('client.formClient.edit_profile', compact('gender'));
+    }
+
+    public function postCategory($id)
+    {
+        $posts = $this->postService->getPostsCategory($id);
+        $categories = $this->postService->getCategories();
+
+        return view('client.post_category', compact('posts', 'categories'));
     }
 }

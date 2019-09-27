@@ -36,7 +36,7 @@
                                 <span class="caret">Hello {{Auth::user()->name}}</span>
                                 <ul class="dropdown">
                                     <li>
-                                            <a href="{{route('user.profile')}}">@lang('messages.profile')</a>
+                                        <a href="{{route('user.profile')}}">@lang('messages.profile')</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('user.change-password') }}">@lang('messages.changePassword')</a>

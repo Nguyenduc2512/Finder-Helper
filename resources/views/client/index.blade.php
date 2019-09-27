@@ -46,12 +46,12 @@
                         <div class="ml-auto">
                             @if(Auth::check())
                                 @if(in_array(Auth::id(), $applies))
-                                    <a href="{{route('user.post-detail', ['id' => $post->id])}}" class="btn btn-danger py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
+                                    <a href="{{route('post-detail', ['id' => $post->id])}}" class="btn btn-primary py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
                                 @else
-                                    <a href="{{route('user.post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                                    <a href="{{route('post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                                 @endif
                             @else
-                                <a href="{{route('user.post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                                <a href="{{route('post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                             @endif
                         </div>
                     </div>
@@ -99,12 +99,12 @@
                         <div class="ml-auto">
                             @if(Auth::check())
                                 @if(in_array(Auth::id(), $applies))
-                                    <a href="{{route('user.post-detail', ['id' => $post->id])}}" class="btn btn-danger py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
+                                    <a href="{{route('post-detail', ['id' => $post->id])}}" class="btn btn-primary py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
                                 @else
-                                    <a href="{{route('user.post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                                    <a href="{{route('post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                                 @endif
                             @else
-                                <a href="{{route('user.post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                                <a href="{{route('post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                             @endif
                         </div>
                     </div>
@@ -151,12 +151,12 @@
                         <div class="ml-auto">
                             @if(Auth::check())
                                 @if(in_array(Auth::id(), $applies))
-                                    <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-danger py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
+                                    <a href="{{route('post-detail', ['id' => $newPost->id])}}" class="btn btn-primary py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
                                 @else
-                                    <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                                    <a href="{{route('post-detail', ['id' => $newPost->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                                 @endif
                             @else
-                                <a href="{{route('user.post-detail', ['id' => $newPost->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                                <a href="{{route('post-detail', ['id' => $newPost->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                             @endif
                         </div>
                     </div>
@@ -218,12 +218,12 @@
                     <div class="ml-auto">
                         @if(Auth::check())
                             @if(in_array(Auth::id(), $applies))
-                                <a href="{{route('user.post-detail', ['id' => $postPriceHigh->id])}}" class="btn btn-danger py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
+                                <a href="{{route('post-detail', ['id' => $postPriceHigh->id])}}" class="btn btn-primary py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
                             @else
-                                <a href="{{route('user.post-detail', ['id' => $postPriceHigh->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                                <a href="{{route('post-detail', ['id' => $postPriceHigh->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                             @endif
                         @else
-                            <a href="{{route('user.post-detail', ['id' => $postPriceHigh->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
+                            <a href="{{route('post-detail', ['id' => $postPriceHigh->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
                         @endif
                     </div>
                 </div>

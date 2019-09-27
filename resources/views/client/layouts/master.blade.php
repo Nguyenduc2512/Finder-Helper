@@ -1,9 +1,11 @@
+<title>@yield('title')</title>
 @include('client.layouts.css')
-@include('client.layouts.header')
-<section class="content" style="background: #F6F6F6">
+<div class="theme-layout" id="scrollup">
+    @include('client.layouts.header')
+    {{--    @include('client.layouts.search-slide')--}}
     @yield('content')
-</section>
-<!-- Footer -->
-@include('client.layouts.footer')
+    @include('client.layouts.footer')
+</div>
 @include('client.layouts.script')
 @yield('script')
+

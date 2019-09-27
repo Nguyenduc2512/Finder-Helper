@@ -1,91 +1,245 @@
-<div id="history" class="container tab-pane"><br>
-    @php
-        $applies = $user->post;
-    @endphp
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">
-                Danh sách công việc
-            </h3>
-        </div>
-        <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th># Tên người thuê</th>
-                    <th>Công việc</th>
-                    <th>Số lượng</th>
-                    <th>lương</th>
-                    <th>Địa Chỉ</th>
-                    <th>Trạng thái</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($applies as $apply)
-                    @php
-                        $userApplies = $apply->success;
-                        foreach ($userApplies as $userApply) {
-                            if ($userApply->user_id == Auth::id()) {
-                                $status = $userApply->status;
-                            }
-                        }
-                    @endphp
-                    <tr>
-                        <td>{{ $apply->user['name'] }}</td>
-                        <td>{{ $apply->title }}</td>
-                        <td>{{ $apply->amount }}</td>
-                        <td>{{ $apply->price }}k/h</td>
-                        <td>{{ $apply->address }}</td>
-                        <td class="text-center">
-                            @if($apply->status == $success['post_type_success'] && $status == $success['post_type_unSuccess'])
-                                <div class="text-danger"><i>Công việc đã kết thúc</i></div>
-                            @elseif($apply->status == $success['post_type_success'])
-                                <a href="{{route('post-detail', ['id' => $apply->id])}}" class="btn btn-success py-2 text-white" style="width: 150px">Đã hoàn thành</a>
+@extends('client.layouts.test')
+@section('title', 'profile')
+@section('content')
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#profile">Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#rented">Rented</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#added">Added coid and payment</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div id="profile" class="container tab-pane active"><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-7">
+                        <h4>Profile Helper</h4>
+                        <span>Name : {{ Auth::user()->name }}</span><br><br>
+                        <span>Email : {{ Auth::user()->email }}</span><br><br>
+                        <span>Phone Number : {{ Auth::user()->phone }}</span><br><br>
+                        <span>Card Number : {{ Auth::user()->identification_code }}</span><br><br>
+                        <span>Date of birth : {{ Auth::user()->date_of_birth }}</span><br><br>
+                        <span>Coin : {{ Auth::user()->coin }}</span><br><br>
+                        <span>Gender :
+                            @if ( Auth::user()->gender == $gender['gender_type_male'] )
+                                Nam
+                            @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
+                                Nữ
                             @else
-                                @if( $status == $success['post_type_unSuccess'])
-                                    <a href="{{route('user.confirm-success', ['id' => $apply->id])}}" class="btn btn-primary py-2 text-white" style="width: 150px">Đã Ứng tuyển</a>
-                                @elseif($status == $success['post_type_confirm'])
-                                    <a href="{{route('user.confirm-success', ['id' => $apply->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">Đã xác nhận</a>
-                                @endif
+                                Khác
                             @endif
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<div id="coin" class="container tab-pane"><br>
-    <div class="col">
-        <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-            <div class="mb-4 mb-md-0 mr-5">
-                <img src="{{asset('img/avatar-default-icon.png')}}" alt="" style="width: 100px;">
+                        </span>
+                        <div class="row">
+                            <div class="col-4">
+                                <a href="{{ route('user.edit-profile') }}" class="btn btn-danger">Edit</a>
+                            </div>
+                            <div class="col-4"><button class="btn btn-primary">Post Job</button></div>
+                            <div class="col-4"><button class="btn btn-dark">Add coid</button></div>
+                        </div><br>
+                        <hr>
+                    </div>
+                    <div class="col-5">
+                        <div class="col-6" style="margin-left: 20%"><img src="{{ asset(Auth::user()->avatar) }}" class="avatarProfile" width="200"><br></div>
+                        <div class="row">
+                            <div class="col-6"><img src="{{ asset(Auth::user()->identification) }}" alt="" class="card" width="100"></div>
+                            <div class="col-6"><img src="{{ asset(Auth::user()->identification_back) }}" alt="" class="card" width="100"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mb-4 mb-md-0 mr-5">
-                <div class="job-post-item-header d-flex align-items-center">
-                    <h2 class="mr-3 text-black h4"></h2>
-                </div>
-                <div class="job-post-item-body d-block d-md-flex">
-                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook,
-                            Inc.</a></div>
-                    <div><span class="fl-bigmug-line-big104"></span> <span>My Dinh, Ha Noi</span></div>
-                </div>
-                <div class="job-post-item-body d-block d-md-flex">
-                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :
+        </div>
+        <div id="rented" class="container tab-pane"><br>
+            <div class="col">
+                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <img src="{{asset('img/avatar-default-icon.png')}}" alt="" style="width: 100px;">
+                    </div>
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <div class="job-post-item-header d-flex align-items-center">
+                            <h2 class="mr-3 text-black h4">Clean House</h2>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook,
+                                    Inc.</a></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>My Dinh, Ha Noi</span></div>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :
                                     1000$</span></div>
-                    <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
-                </div>
-                <div class="" job-post-item-body>
-                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
+                            </div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
+                                        More</a></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="" job-post-item-body>
-                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
+            </div>
+            <div class="col">
+                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <img src="{{asset('img/avatar-default-icon.png')}}" alt="" style="width: 100px;">
+                    </div>
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <div class="job-post-item-header d-flex align-items-center">
+                            <h2 class="mr-3 text-black h4">Clean House</h2>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook,
+                                    Inc.</a></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>My Dinh, Ha Noi</span></div>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :
+                                    1000$</span></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
+                            </div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
                                         More</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <img src="{{asset('img/avatar-default-icon.png')}}" alt="" style="width: 100px;">
+                    </div>
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <div class="job-post-item-header d-flex align-items-center">
+                            <h2 class="mr-3 text-black h4">Clean House</h2>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook,
+                                    Inc.</a></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>My Dinh, Ha Noi</span></div>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :
+                                    1000$</span></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
+                            </div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
+                                        More</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <img src="{{asset('img/avatar-default-icon.png')}}" alt="" style="width: 100px;">
+                    </div>
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <div class="job-post-item-header d-flex align-items-center">
+                            <h2 class="mr-3 text-black h4">Clean House</h2>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook,
+                                    Inc.</a></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>My Dinh, Ha Noi</span></div>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :
+                                    1000$</span></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
+                            </div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
+                                        More</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="added" class="container tab-pane"><br>
+            <div class="col">
+                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <img src="{{asset('img/avatar-default-icon.png')}}" alt="" style="width: 100px;">
+                    </div>
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <div class="job-post-item-header d-flex align-items-center">
+                            <h2 class="mr-3 text-black h4"></h2>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook,
+                                    Inc.</a></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>My Dinh, Ha Noi</span></div>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :
+                                    1000$</span></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
+                            </div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
+                                        More</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <img src="{{asset('img/avatar-default-icon.png')}}" alt="" style="width: 100px;">
+                    </div>
+                    <div class="mb-4 mb-md-0 mr-5">
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook,
+                                    Inc.</a></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>My Dinh, Ha Noi</span></div>
+                        </div>
+                        <div class="job-post-item-body d-block d-md-flex">
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :
+                                    1000$</span></div>
+                            <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
+                            </div>
+                        </div>
+                        <div class="" job-post-item-body>
+                            <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
+                                        More</a></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div><br>
+@endsection

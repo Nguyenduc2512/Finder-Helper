@@ -272,11 +272,14 @@ i{font-style:italic}
 :-ms-input-placeholder{opacity:1}
 input[type="text"],
 input[type="password"],
-input[type="email"], textarea {
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"], textarea, select {
     background: #e4e4e4 none repeat scroll 0 0;
     border: medium none;
     float: left;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     margin-bottom: 20px;
     padding: 19px 28px;
@@ -1545,7 +1548,7 @@ label::after {
     -o-border-radius: 20px;
     border-radius: 20px;
 
-    width: 108px;
+    width: 150px;
     margin: 9px 0;
     text-align: center;
 }
@@ -3378,7 +3381,6 @@ header.style3 .menu-sec nav {
 header.style4 {
     float: left;
     width: 100%;
-    background: #ffffff;
 }
 .topbar {
     float: left;
@@ -3886,13 +3888,11 @@ header.style5 .menu-sec {
 header.style5 .post-job-btn {
     background: none;
     border: 2px solid #ffffff;
-
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
     border-radius: 3px;
-
 }
 header.style5 nav {
     float: left;
@@ -7064,6 +7064,10 @@ aside .widget.border:first-child {
 }
 
 /* Profiles Dropdown */
+ .btns-profiles-sec img {
+     width: 50px;
+     height: 50px;
+ }
 .btns-profiles-sec {
     float: right;
     position: relative;
@@ -8069,11 +8073,11 @@ header.gradient{
 .can-detail-s > p i {
     margin-right: 5px;
 }
-.download-cv {
+.img-cmt {
     vertical-align: middle;
     text-align: right;
 }
-.download-cv a {
+.img-cmt a {
     float: right;
     background: #ffffff;
     border: 2px solid #8b91dd;
@@ -10207,9 +10211,9 @@ header.white {
     font-family: open sans;
     font-size: 15px;
     color: #ffffff;
-    background: #fb236a;
+    background: #007bff;
     padding: 15px 58px;
-    border: 2px solid #fb236a;
+    border: 2px solid #007bff;
 
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -10667,8 +10671,8 @@ terms {
 
 .btn-extars .post-job-btn:hover {
     background: transparent;
-    border: 2px solid #fb236a;
-    color: #FFF;
+    border: 2px solid #28a745;
+    color: #28a745;
 }
 
 .account-popup > form button:hover{
@@ -10997,8 +11001,8 @@ header.style5 .post-job-btn:hover {
 }
 .contact-form > form button:hover {
     background: transparent;
-    border: 2px solid #fb236a;
-    color: #fb236a;
+    border: 2px solid #28a745;
+    color: #28a745;
 }
 .contact-textinfo > a.fill:hover, .contact-textinfo > a:hover {
     background: #fb236a;
@@ -11830,11 +11834,63 @@ header.style4 .account-btns > li a,
     width: 100%;
     height: 50px;
     margin: 2px;
-    background-color: #e8ecec;
+    background-color: #f4f5fa;
 }
 .specialism_widget ul li:hover{
-    background-color: antiquewhite;
+    background-color: rgba(129,139,255,0.45);
 }
-.specialism_widget ul li a{
-    color: #0e141b;
+.img-cmt{
+    position: absolute;
+    left: 25%;
+    top: 35%;
 }
+ .img-cmnd{
+     position: absolute;
+     left: 60%;
+     top: 35%;
+ }
+ #avatar-profile{
+     width:200px;
+     border-radius: 50%;
+ }
+ #form-profile{
+     position: absolute;
+     top: 20%;
+     left: 25%;
+ }
+ .detail-job{
+     margin-top: 0%;
+     background-color: #f4f5fa;
+ }
+ .flex-container {
+     display: flex;
+ }
+ .flex-container > div {
+     margin: 10px;
+     padding: 20px;
+
+ }
+ .text-span{
+     margin-left: 10%;
+ }
+ .flex-container-contact {
+     display: flex;
+ }
+
+ .flex-container-contact > div {
+     margin: 10px;
+     padding: 20px;
+ }
+ #card-body{
+     border-bottom: 2px solid #f6f6f6;
+     line-height: 20px;
+ }
+ #span-time{
+     margin-left: 35%;
+ }
+ .list-job {
+     text-decoration: none;
+ }
+ #span-card-text{
+     margin-left: 5%;
+ }

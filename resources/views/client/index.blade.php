@@ -1,8 +1,9 @@
 @extends('client.layouts.test')
-@section('title', 'Home')
+@section('title', 'Trang chủ')
 @section('content')
+    @include('client.layouts.search-slide')
     <section>
-        <div class="block" style="margin-top: 10%">
+        <div class="block" style="margin-top: 5%">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
@@ -16,8 +17,7 @@
                                     <div class="c-logo"><img src="{{ asset('images/em4.jpg') }}" alt=""/></div>
                                     <h3><a href="#" title="">{{$post->title}}</a></h3>
                                     <span>{{$post->category->name}}</span>
-                                    <div class="job-lctn"
-                                    ">
+                                    <div class="job-lctn text-danger">
                                     <i class="fas fa-map-marker"></i>{{$post->address}}
                                     <i class="fas fa-dollar-sign" style="margin-left: 5%"></i>{{$post->price}}
                                 </div>
@@ -59,7 +59,7 @@
                                 <div class="c-logo"><img src="{{ asset('images/em4.jpg') }}"></div>
                                 <h3><a href="#" title="">{{$post->title}}</a></h3>
                                 <span>{{$post->category->name}}</span>
-                                <div class="job-lctn">
+                                <div class="job-lctn text-danger">
                                     <i class="fas fa-map-marker"></i>{{$post->address}}
                                     <i class="fas fa-dollar-sign" style="margin-left: 5%"></i>{{$post->price}}
                                 </div>
@@ -113,7 +113,7 @@
                                         <div class="c-logo"><img src="{{ asset('images/em4.jpg') }}"></div>
                                         <h3><a href="#" title="">{{$postPriceHigh->title}}</a></h3>
                                         <span>{{$postPriceHigh->category->name}}</span>
-                                        <div class="job-lctn">
+                                        <div class="job-lctn text-danger">
                                             <i class="fas fa-map-marker"></i>{{$postPriceHigh->address}}
                                             <i class="fas fa-dollar-sign"
                                                style="margin-left: 5%"></i>{{$postPriceHigh->price}}
@@ -151,30 +151,44 @@
                     <div class="widget">
                         <h4>Danh mục công việc</h4>
                         <div class="specialism_widget">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Giúp việc nhà</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Sửa máy tính</a>
-                                </li>
-                            </ul>
+                            @foreach($categories as $category)
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-primary" href="#">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            @endforeach
                         </div>
                     </div>
                 </aside>
             </div>
         </div>
     </section>
-
     <section>
-        <div class="block gray" style="margin-top: 10%">
+        <div class="block gray">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="heading">
                             <h2>Các đối tác</h2>
                             <span>Nhà tuyển dụng hàng đầu</span>
-                        </div><!-- Heading -->
+                        </div>
+                        <div class="reviews-sec" id="reviews-carousel">
+                            <div class="col-lg-4">
+                                <img src="{{ asset('images/em4.jpg') }}" alt=""/>
+                            </div>
+                            <div class="col-lg-4">
+                                <img src="{{ asset('images/em4.jpg') }}" alt=""/>
+                            </div>
+                            <div class="col-lg-4">
+                                <img src="{{ asset('images/em4.jpg') }}" alt=""/>
+                            </div>
+                            <div class="col-lg-4">
+                                <img src="{{ asset('images/em4.jpg') }}" alt=""/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

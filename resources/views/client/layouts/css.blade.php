@@ -1,12 +1,16 @@
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>@yield('title')</title>
-<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/font-awesome.css')}}">
-<link rel="stylesheet" href="{{asset('css/theme.css')}}" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="CreativeLayers">
+
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="{{ asset('css/css/bootstrap-grid.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/css/animate.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/css/style.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/css/responsive.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/css/chosen.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/css/colors.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('css/css/bootstrap.css') }}" />
 <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/all.min.css')}}" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />

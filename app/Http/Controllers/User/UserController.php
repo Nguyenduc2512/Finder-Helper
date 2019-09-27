@@ -30,14 +30,14 @@ class UserController extends Controller
         $this->userService->savePassword($request);
 
         return redirect()->route('user.change-password');
-
     }
 
     public function updateProfile(UserRequests $request)
     {
         $this->userService->updateProfile($request);
 
-        return redirect()->route('user.profile');
+        return redirect()->route('user.profile')
+            ->with('success', Lang::get('messages.success'));
     }
 
     public function applyJob(Request $request)

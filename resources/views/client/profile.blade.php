@@ -115,17 +115,6 @@
 
 @section('script')
     <script>
-        @if ( session('success') == true)
-        swal({
-            text: '{{ session('success') }}',
-            icon: "success",
-            button: true,
-            dangerMode: true,
-        });
-        @endif
-    </script>
-
-    <script>
         $('.btn-remove').on('click', function(){
             swal({
                 text: "Bạn có chắc chắn muốn xoá bài viết này ?",

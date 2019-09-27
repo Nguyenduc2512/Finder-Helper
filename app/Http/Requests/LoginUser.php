@@ -29,4 +29,12 @@ class LoginUser extends FormRequest
             'password' => 'required|min:6',
         ];
     }
+
+    public function messages(){
+        return [
+            'email.required'    => 'Email không được để trống',
+            'password.required' => 'Mật khẩu không được để trống'
+        ];
+    }
+
 }

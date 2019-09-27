@@ -62,6 +62,8 @@ return [
     'post'           => 'Tin của bạn',
     'accept'         => 'Phê duyệt thành công',
     'decline'        => 'Bỏ phê duyệt thành công',
-    'success'        => 'Xác nhận thành công'
+    'success'        => 'Xác nhận thành công',
+    'upPost'         => 'Bài viết của bạn đang được chờ duyệt'
+
 
 ];

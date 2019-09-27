@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <label> Thoi Gian Bat Dau </label>
+                                        <label> Thời gian bắt  </label>
                                         <span class="text-danger">(*)</span>
                                         <div class="form-group">
                                             <input type="datetime-local" name="start_time" class="form-control" id="time-day" value="{{old('start_time')}}">
@@ -42,7 +42,7 @@
                                     </div>
 
                                     <div class="col-6">
-                                        <label> Thoi Gian Ket Thuc </label>
+                                        <label> Thời gian kết th </label>
                                         <span class="text-danger">(*)</span>
                                         <div class="form-group">
                                             <input type="datetime-local" name="end_time" class="form-control" value="{{old('end_time')}}">
@@ -70,13 +70,13 @@
                                             <select class="form-control" name="gender">
                                                 <option value="1" > Nam </option>
                                                 <option value="2" > Nữ </option>
-                                                <option value="3" > Khong yeu cau </option>
+                                                <option value="3" > Không yêu c </option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label> Quan/Huyen </label>
+                                    <label> Quận/H </label>
                                     <span class="text-danger">(*)</span>
                                     <select class="form-control" name="location_id">
                                         @foreach($location as $lo)
@@ -95,9 +95,9 @@
                                     @endif
                                 </div>
                                 <div class="form-group">
-                                    <label> Tiền lương </label>
+                                    <label> Tiền lương </label> <i class="fas fa-coins"></i>
                                     <span class="text-danger">(*)</span>
-                                    <input type="number" name="price" class="form-control" placeholder="Tính theo giờ vd: 35k/1h">
+                                    <input type="number" name="price" class="form-control" placeholder="Tính theo giờ vd: 35 coin/1h" >
                                     @if($errors->first('price'))
                                         <span class="text-danger"> {{$errors->first('price')}} </span>
                                     @endif

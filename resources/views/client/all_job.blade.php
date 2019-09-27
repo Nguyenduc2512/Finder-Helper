@@ -77,7 +77,9 @@
                             </div>
                         </div>
                     @endforeach
+                    {{ $newPosts->links() }}
                 </div>
+
                 <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
                     <div>
                         <h5>Danh mục liên quan :</h5><br>

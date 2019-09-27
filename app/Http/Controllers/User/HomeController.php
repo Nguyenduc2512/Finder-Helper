@@ -56,13 +56,14 @@ class HomeController extends Controller
 
     public function allPost()
     {
+        $post = Post::paginate(3);
         $rule = Config::get('helper.user_type_helper');
         $newPosts   = $this->postService->getNewPosts();
         $categories = $this->postService->getCategories();
         $locations  = $this->postService->getLocations();
 
         return view('client.all_job',
-               compact( 'newPosts', 'categories', 'locations', 'rule'));
+               compact( 'newPosts', 'categories', 'locations', 'rule', 'post'));
 
     }
 

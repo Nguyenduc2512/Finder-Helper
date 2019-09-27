@@ -10,22 +10,22 @@
                                 <h3>Find the career you deserve</h3>
                                 <span>Your job search starts and ends with us.</span>
                                 <div class="search-job2 style2">
-                                    <form>
+                                    <form action="{{ route('search') }}" method="post">
+                                        @csrf
                                         <div class="row no-gape">
                                             <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
                                                 <div class="job-field">
                                                     <label>Địa điểm làm việc</label>
-                                                    <input type="text" placeholder="Hà Nội" />
+                                                    <input type="text" placeholder="Địa chỉ" name="address"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
                                                 <div class="job-field">
                                                     <label>Ngành Nghề</label>
-                                                    <select  class="chosen-city">
-                                                        <option>Banking</option>
-                                                        <option>Estate</option>
-                                                        <option>Retail</option>
-                                                        <option>Agency</option>
+                                                    <select  class="chosen-city" name="category-id">
+                                                        @foreach($categories as $category)
+                                                            <option value="{{ $category->id }}">{{$category->name}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>

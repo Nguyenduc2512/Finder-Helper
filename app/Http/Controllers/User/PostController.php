@@ -13,6 +13,7 @@ use App\Services\UserService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Lang;
 
 class PostController extends Controller
 {
@@ -39,7 +40,7 @@ class PostController extends Controller
     {
         $this->postService->store($request);
 
-        return redirect()->route('user.profile');
+        return redirect()->route('user.profile')->with(['success' => Lang::get('messages.upPost') ]);
     }
 
     public function detail($id)

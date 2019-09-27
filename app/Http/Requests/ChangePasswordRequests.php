@@ -29,4 +29,15 @@ class ChangePasswordRequests extends FormRequest
             'repassword' => 'required|required_with:newpassword|same:newpassword'
         ];
     }
+
+    public function messages(){
+        return [
+            'password.required'         => 'Mật khẩu không được để trống',
+            'newpassword.required'      => 'Không được để trống',
+            'newpassword.min'           => 'Mật khẩu phải có 6 kí tự',
+            'newpassword.max'           => 'Mật khẩu có ít hơn kí tự',
+            'repassword.required'       => 'Không được để trống',
+            'repassword.same'           => 'Mật khẩu không đúng'
+        ];
+    }
 }

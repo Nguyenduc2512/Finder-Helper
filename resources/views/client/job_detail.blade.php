@@ -61,7 +61,7 @@
                                 <p class="card-text"><b>@lang('messages.posted') : </b>{{$post->created_at}}</p>
                             </div>
                             <div class="card-body">
-                                <p class="card-text"><b>@lang('messages.start') : </b>{{$post->start_time}}</p>
+                                <p class="card-text" style=""><b>@lang('messages.start') : </b>{{$post->start_time}}</p>
                                 <p class="card-text"><b>@lang('messages.end') : </b>{{$post->start_time}}</p>
                         </div>
                     </div>

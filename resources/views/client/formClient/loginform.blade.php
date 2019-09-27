@@ -72,7 +72,7 @@
                         <a class="btn btn-google mb-3 ml-1 mr-1" href="#">@lang('messages.login') <i class="fab fa-google"></i></a>
                     </div>
 
-                    <p class="text-center">Bạn đã có tài khoản <a href="index.html">@lang('messages.login')</a></p>
+                    <p class="text-center">Bạn đã có tài khoản <a href="{{route('sign')}}">Đăng ký</a></p>
 
                 </form>
             </div>

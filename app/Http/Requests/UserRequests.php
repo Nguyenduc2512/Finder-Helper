@@ -32,4 +32,12 @@ class UserRequests extends FormRequest
             'gender' => 'required',
         ];
     }
+
+    public function messages(){
+        return [
+            'name.required'    => 'Tên của bạn không được để trống',
+            'email.required'   => 'Email không được để trống',
+            'phone.required'   => 'Số điện thoại không được để trống',
+        ];
+    }
 }

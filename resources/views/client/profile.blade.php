@@ -28,33 +28,35 @@
             <div class="container">
                 <div class="row">
                     <div class="col-7">
-                        <span>Name : {{ Auth::user()->name }}</span><br><br>
+                        <span>Tên : {{ Auth::user()->name }}</span><br><br>
                         <span>Email : {{ Auth::user()->email }}</span><br><br>
-                        <span>Phone Number : {{ Auth::user()->phone }}</span><br><br>
-                        <span>Card Number : {{ Auth::user()->identification_code }}</span><br><br>
-                        <span>Date of birth : {{ Auth::user()->date_of_birth }}</span><br><br>
-                        <span>Coin : {{ Auth::user()->coin }}</span><br><br>
-                        <span>Gender :
+                        <span>Số điện thoại : {{ Auth::user()->phone }}</span><br><br>
+                        <span>Số CMT/CCCD : {{ Auth::user()->identification_code }}</span><br><br>
+                        <span>Ngày sinh : {{ Auth::user()->date_of_birth }}</span><br><br>
+                        <span>Số dư khả dụng : {{ Auth::user()->coin }}</span><br><br>
+                        <span>Giới tính :
                             @if ( Auth::user()->gender == $gender['gender_type_male'] )
-                                Male
+                                Nam
                             @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
-                                Female
+                                Nữ
                             @else
-                                Other
+                                Khác
                             @endif
                         </span>
-                        <div class="row">
+                        <br>
+                        <div class="row justify-content-around" style="padding: 30px">
                             <div class="col-4">
-                                <a href="{{ route('user.edit-profile')}}" class="btn btn-danger">Edit</a>
+                                <a href="{{ route('user.edit-profile')}}" class="btn btn-danger">Sửa thông tin</a>
                             </div>
                             @if($rule == Auth::user()->rules)
-                                <div class="col-4"><a href="{{route('all-post')}}"><button class="btn btn-primary"> Find job </button> </a></div>
-                                <div class="col-4"><button class="btn btn-dark">@lang('messages.addCoin')</button></div>
+                                <div class="col-3"><a href="{{route('all-post')}}"><button class="btn btn-primary"> Tìm việc </button> </a></div>
+                                <div class="col-4"><button class="btn btn-dark">Tài khoản</button></div>
                             @else
-                                <div class="col-4"><a href="{{route('user.post-create')}}"><button class="btn btn-primary"> Post job </button> </a></div>
+                                <div class="col-4"><a href="{{route('user.post-create')}}"><button class="btn btn-primary"> Đăng bài viết </button> </a></div>
                                 <div class="col-4"><a href="{{ route('user.coin') }}" ><button class="btn btn-dark">@lang('messages.addCoin')</button></a></div>
                             @endif
-                        </div><br>
+                        </div>
+                        <br>
                         <hr>
                     </div>
                     <div class="col-5">

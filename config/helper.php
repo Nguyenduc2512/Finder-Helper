@@ -14,5 +14,7 @@ return  [
 
     'done' => 1,
     'doing' => 2,
+
+    'min_coin_post_job' => 10,
 ];
 

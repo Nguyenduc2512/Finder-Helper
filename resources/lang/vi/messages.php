@@ -63,7 +63,8 @@ return [
     'accept'         => 'Phê duyệt thành công',
     'decline'        => 'Bỏ phê duyệt thành công',
     'success'        => 'Xác nhận thành công',
-    'upPost'         => 'Bài viết của bạn đang được chờ duyệt'
+    'upPost'         => 'Bài viết của bạn đang được chờ duyệt',
+    'fail'           => 'Bạn không đủ tiền để đăng bài viết này',
 
 
 ];

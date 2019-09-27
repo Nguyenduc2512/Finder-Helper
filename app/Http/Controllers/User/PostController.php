@@ -12,6 +12,7 @@ use App\Services\PostService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
 
@@ -31,16 +32,22 @@ class PostController extends Controller
     {
         $category = $this->postService->getCategories();
         $location = $this->postService->getLocations();
+        $check = Config::get('helper');
 
-        return view('client.formClient.new_post', compact('category', 'location'));
+        return view('client.formClient.new_post', compact('category', 'location', 'check'));
 
     }
 
     public function store(NewPostRequest $request)
     {
-        $this->postService->store($request);
 
-        return redirect()->route('user.profile')->with(['success' => Lang::get('messages.upPost') ]);
+        if($request->price > Auth::user()->coin) {
+            return redirect()->route('user.post-create')->with(['fail' => Lang::get('messages.fail')]);
+        }else {
+            $this->postService->store($request);
+
+            return redirect()->route('user.profile')->with(['success' => Lang::get('messages.upPost')]);
+        }
     }
 
     public function detail($id)

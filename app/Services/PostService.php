@@ -5,6 +5,7 @@ use App\Http\Requests\NewPostRequest;
 use App\Models\Category;
 use App\Models\Location;
 use App\Models\Post;
+use App\Models\UserApply;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -23,7 +24,8 @@ class PostService
     public function getNewPosts()
     {
         $status = Config::get('helper.post_type_active');
-        $newposts = Post::where('status', $status)->orderBy('start_time', 'desc')->get();
+        $newposts = Post::where('status', $status)
+                        ->orderBy('start_time', 'desc')->get();
 
         return $newposts;
     }
@@ -31,7 +33,8 @@ class PostService
     public function getPostsPriceHigh()
     {
         $status = Config::get('helper.post_type_active');
-        $postsPriceHigh = Post::where('status', $status)->orderBy('price', 'desc')->get();
+        $postsPriceHigh = Post::where('status', $status)
+                              ->orderBy('price', 'desc')->get();
 
         return $postsPriceHigh;
     }
@@ -63,7 +66,8 @@ class PostService
     {
         $status = Config::get('helper.post_type_active');
         $category_id = Post::find($id)->category_id;
-        $postsSameCategory = Post::where('category_id', $category_id)->where('status', $status)->take('5')->get();
+        $postsSameCategory = Post::where('category_id', $category_id)
+                                 ->where('status', $status)->take('5')->get();
 
         return$postsSameCategory;
     }
@@ -88,7 +92,8 @@ class PostService
         $post->fill($data);
         $post->save();
 
-        return redirect()->route('user.profile', compact('gender'))->with('errmsg', 'Bài viết của bạn đang được chờ duyệt');
+        return redirect()->route('user.profile', compact('gender'))
+                         ->with('errmsg', 'Bài viết của bạn đang được chờ duyệt');
     }
 
     public function countPost()
@@ -106,4 +111,56 @@ class PostService
 
     }
 
+    public function getPostsAccountLogin()
+    {
+        $posts = Post::where('user_id', Auth::id())->orderBy('status', 'asc')->get();
+
+        return $posts;
+    }
+
+    public function deletePost($id)
+    {
+        $post = Post::find($id);
+
+        return $post->delete();
+
+    }
+
+    public function getPostsCategory($id)
+    {
+        $status = Config::get('helper');
+        $posts = Post::where('category_id', $id)
+                     ->where('status', $status['post_type_active'])->get();
+
+        return $posts;
+    }
+
+    public function ownerCheckStatusPost($id)
+    {
+        $status = Config::get('helper');
+        $getUserApplyByPostId = UserApply::where('post_id', $id)->get();
+        foreach ($getUserApplyByPostId as $stt) {
+            if ($stt->owner_post_status == $stt->user_apply_status) {
+                $statusPost = Post::where('id', $id)->first();
+                $statusPost->status = $status['post_type_success'];
+                $statusPost->save();
+
+            }else {
+                return $status;
+            }
+        }
+    }
+
+    public function userCheckStatusPost($id)
+    {
+        $status = Config::get('helper');
+        $getUserApplyById = UserApply::where('id', $id)->first();
+        if ($getUserApplyById->owner_post_status == $status['post_type_confirm']) {
+            $statusPost = Post::where('id', $getUserApplyById->post_id)->first();
+            $statusPost->status = $status['post_type_success'];
+            $statusPost->save();
+        }else {
+            return $status;
+        }
+    }
 }

@@ -53,5 +53,27 @@ class PostController extends Controller
         return view('client.job_detail',
                compact('post', 'gender', 'users', 'postsSameCategory', 'rule'));
     }
+    public function applyRequest($id)
+    {
+        $status            = Config::get('helper');
+        $post              = $this->postService->getPost($id);
+        $countAmount       = $this->userApplyService->countAmount($id);
+        $gender            = Config::get('helper');
+
+        return view('client.userFinder.apply_request',
+               compact('post', 'gender', 'status', 'countAmount', 'statusOwner'));
+    }
+
+    public function confirmSuccess($id)
+    {
+        $check             = Config::get('helper');
+        $post              = $this->postService->getPost($id);
+        $countAmount       = $this->userApplyService->countAmount($id);
+        $userApplyById     = $this->userApplyService->getUserApplyById($id);
+        $gender            = Config::get('helper');
+
+        return view('client.userHelper.confirm-success',
+            compact('post', 'gender', 'check', 'countAmount', 'userApplyById'));
+    }
 
 }

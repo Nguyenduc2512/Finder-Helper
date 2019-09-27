@@ -39,9 +39,9 @@
 
                         <td >
                             @if ( $item->rules == $gender['user_type_finder'] )
-                                <label class="btn btn-danger">@lang('messages.helper')</label>
+                                <label class="btn btn-danger">Finder</label>
                             @elseif ( $item->rules == $gender['user_type_helper'] )
-                                <label class="btn btn-success">@lang('messages.finder')</label>
+                                <label class="btn btn-success">Helper</label>
                             @endif
                         </td>
                     </tr>

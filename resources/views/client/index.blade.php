@@ -1,4 +1,4 @@
-@extends('client.layouts.test')
+@extends('client.layouts.master')
 @section('title', 'Trang chủ')
 @section('content')
     @include('client.layouts.search-slide')
@@ -25,20 +25,20 @@
                             <div class="job-style-bx">
                                 @if(Auth::check())
                                     @if(in_array(Auth::id(), $applies))
-                                        <a href="{{route('user.post-detail', ['id' => $post->id])}}">
+                                        <a href="{{route('post-detail', ['id' => $post->id])}}">
                                             <span class="job-is fill btn-danger" style="width: 150px;">
                                                 @lang('messages.cancel')
                                             </span>
                                         </a>
                                     @else
-                                        <a href="{{route('user.post-detail', ['id' => $post->id])}}">
+                                        <a href="{{route('post-detail', ['id' => $post->id])}}">
                                             <span class="job-is fill btn-warning" style="width: 150px;">
                                                 @lang('messages.detail')
                                             </span>
                                         </a>
                                     @endif
                                 @else
-                                    <a href="{{route('user.post-detail', ['id' => $post->id])}}">
+                                    <a href="{{route('post-detail', ['id' => $post->id])}}">
                                         <span class="job-is fill btn-warning" style="width: 150px;">
                                             @lang('messages.detail')
                                         </span>
@@ -67,20 +67,20 @@
                             <div class="job-style-bx">
                                 @if(Auth::check())
                                     @if(in_array(Auth::id(), $applies))
-                                        <a href="{{route('user.post-detail', ['id' => $post->id])}}">
+                                        <a href="{{route('post-detail', ['id' => $post->id])}}">
                                             <span class="job-is fill btn-danger" style="width: 150px;">
                                                 @lang('messages.cancel')
                                             </span>
                                         </a>
                                     @else
-                                        <a href="{{route('user.post-detail', ['id' => $post->id])}}">
+                                        <a href="{{route('post-detail', ['id' => $post->id])}}">
                                             <span class="job-is fill btn-warning" style="width: 150px">
                                                 @lang('messages.detail')
                                             </span>
                                         </a>
                                     @endif
                                 @else
-                                    <a href="{{route('user.post-detail', ['id' => $post->id])}}">
+                                    <a href="{{route('post-detail', ['id' => $post->id])}}">
                                         <span class="job-is fill btn-warning" style="width: 150px">
                                             @lang('messages.detail')
                                         </span>
@@ -122,20 +122,20 @@
                                     <div class="job-style-bx">
                                         @if(Auth::check())
                                             @if(in_array(Auth::id(), $applies))
-                                                <a href="{{route('user.post-detail', ['id' => $postPriceHigh->id])}}">
+                                                <a href="{{route('post-detail', ['id' => $postPriceHigh->id])}}">
                                                 <span class="job-is btn-danger" style="width: 150px;">
                                                     @lang('messages.cancel')
                                                 </span>
                                                 </a>
                                             @else
-                                                <a href="{{route('user.post-detail', ['id' => $postPriceHigh->id])}}">
+                                                <a href="{{route('post-detail', ['id' => $postPriceHigh->id])}}">
                                                 <span class="job-is btn-warning" style="width: 150px;">
                                                     @lang('messages.detail')
                                                 </span>
                                                 </a>
                                             @endif
                                         @else
-                                            <a href="{{route('user.post-detail', ['id' => $postPriceHigh->id])}}">
+                                            <a href="{{route('post-detail', ['id' => $postPriceHigh->id])}}">
                                             <span class="job-is btn-warning" style="width: 150px;">
                                                 @lang('messages.detail')
                                             </span>

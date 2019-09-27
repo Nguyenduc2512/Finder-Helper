@@ -26,13 +26,13 @@
                                     </div>
                                     @if(Auth::check())
                                         @if(in_array(Auth::id(), $applies))
-                                            <a href="{{route('user.post-detail', ['id' => $newPost->id])}}">
+                                            <a href="{{route('post-detail', ['id' => $newPost->id])}}">
                                                  <span class="job-is fill btn-danger" style="width: 150px;">
                                                 @lang('messages.cancel')
                                             </span>
                                             </a>
                                         @else
-                                            <a href="{{route('user.post-detail', ['id' => $newPost->id])}}">
+                                            <a href="{{route('post-detail', ['id' => $newPost->id])}}">
                                                 <span class="job-is fill btn-warning" style="width: 150px">
                                                 @lang('messages.detail')
                                             </span>

@@ -9,6 +9,7 @@ use App\Http\Requests\UserRequests;
 use App\Services\ApplyJobService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
+use App\Services\PostService;
 
 class UserController extends Controller
 {

@@ -15,7 +15,7 @@
                     <th># Tên </th>
                     <th>Email</th>
                     <th>@lang('messages.phone')</th>
-                    <th>Ngày Sinh</th>
+                    <th>@lang('messages.coin')</th>
                     <th>Giới Tính</th>
                     <th>Tài Khoản</th>
                 </tr>
@@ -26,7 +26,7 @@
                         <td>{{ $item->name}}</td>
                         <td>{{$item->email}}</td>
                         <td>{{$item->phone}}</td>
-                        <td>{{$item->date_of_birth}}</td>
+                        <td>{{$item->coin}}</td>
                         <td>
                             @if ( $item->gender == $gender['gender_type_male'] )
                                 @lang('messages.male')
@@ -39,9 +39,9 @@
 
                         <td >
                             @if ( $item->rules == $gender['user_type_finder'] )
-                                <label class="btn btn-danger">@lang('messages.helper')</label>
+                                <label class="btn btn-danger">Finder</label>
                             @elseif ( $item->rules == $gender['user_type_helper'] )
-                                <label class="btn btn-success">@lang('messages.finder')</label>
+                                <label class="btn btn-success">Helper</label>
                             @endif
                         </td>
                     </tr>

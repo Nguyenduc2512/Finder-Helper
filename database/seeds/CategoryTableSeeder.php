@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CategoryTableSeeder extends Seeder
 {
@@ -11,15 +12,22 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-          $cate = [];
-        $faker = Faker\Factory::create();
-
-        for ($i=0 ; $i<10 ; $i++) {
-            $item = [
-                'name' => $faker->name,
-            ];
-            $cate [] = $item;
-        }
-        DB::table('categories')->insert($cate);
+        DB::table('categories')->insert([
+            [
+                'name' => 'Giúp việc theo giờ',
+            ],
+            [
+                'name' => 'Ship đồ nhanh',
+            ],
+            [
+                'name' => 'Giúp việc dài hạn',
+            ],
+            [
+                'name' => 'Trông em bé',
+            ],
+            [
+                'name' => 'Đón đưa theo giờ',
+            ],
+        ]);
     }
 }

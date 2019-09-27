@@ -25,7 +25,7 @@ class PostService
     {
         $status = Config::get('helper.post_type_active');
         $newposts = Post::where('status', $status)
-                        ->orderBy('start_time', 'desc')->get();
+                        ->orderBy('start_time', 'desc')->paginate(10);
 
         return $newposts;
     }

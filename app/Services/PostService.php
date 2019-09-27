@@ -9,6 +9,7 @@ use App\Models\UserApply;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Routing\UrlGenerator;
 
 class PostService
@@ -93,7 +94,7 @@ class PostService
         $post->save();
 
         return redirect()->route('user.profile', compact('gender'))
-                         ->with('errmsg', 'Bài viết của bạn đang được chờ duyệt');
+            ->with('success', Lang::get('messages.successPost'));
     }
 
     public function countPost()
@@ -109,6 +110,15 @@ class PostService
 
         return $posts;
 
+    }
+
+    public function search(Request $request)
+    {
+        $newPosts = Post::where('address', 'LIKE', '%' .$request->address. '%')
+                        ->Where('category_id', 'LIKE', '%' .$request->category_id. '%')
+                        ->get();
+
+        return $newPosts;
     }
 
     public function getPostsAccountLogin()

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\CoinService;
-use App\Models\Bank;
+use Illuminate\Support\Facades\Lang;
 
 class CoinController extends Controller
 {
@@ -25,6 +25,8 @@ class CoinController extends Controller
     {
         $this->coinService->addCoin($request);
 
-        return redirect()->route('user.coin')->with('succes', 'Nạp tiền thành công');
+        return redirect()->route('user.coin')
+            ->with('success', Lang::get('messages.coinSuccess'));
     }
+
 }

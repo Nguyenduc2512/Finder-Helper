@@ -11,7 +11,6 @@ return  [
     'post_type_unSuccess' => 0,
     'post_type_confirm' => 1,
     'post_type_success' => 2,
-
     'done' => 1,
     'doing' => 2,
 ];

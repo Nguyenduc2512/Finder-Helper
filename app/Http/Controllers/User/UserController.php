@@ -6,13 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ChangePasswordRequests;
 use App\Services\UserService;
 use App\Http\Requests\UserRequests;
-use App\Services\ChangePasswordService;
-use App\Services\PostService;
 use App\Services\ApplyJobService;
-use App\Http\Requests\LostPasswordRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Password;
+use App\Services\PostService;
 
 class UserController extends Controller
 {
@@ -34,14 +31,14 @@ class UserController extends Controller
         $this->userService->savePassword($request);
 
         return redirect()->route('user.change-password');
-
     }
 
     public function updateProfile(UserRequests $request)
     {
         $this->userService->updateProfile($request);
 
-        return redirect()->route('user.profile');
+        return redirect()->route('user.profile')
+            ->with('success', Lang::get('messages.success'));
     }
 
     public function applyJob(Request $request)
@@ -57,7 +54,7 @@ class UserController extends Controller
         $this->applyJobService->cancelApply($id);
 
         return redirect()->route('all-post')
-                         ->with(['success' => Lang::get('messages.cancelSuccess') ]);
+            ->with(['success' => Lang::get('messages.cancelSuccess') ]);
     }
 
     public function deletePost($id)

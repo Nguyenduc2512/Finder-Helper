@@ -1,43 +1,29 @@
-<div class="card mb-3" style="max-width: 100%;">
-    <div class="card-header">
-        <h4>Dashborad</h4>
-    </div>
-    <div class="card-body">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-list"></i>&nbsp; @lang('messages.listPost')
-                </a>
+<div class="widget">
+    <div class="tree_widget-sec">
+        <ul>
+            <li>
+                <a href="#" title=""><i class="fas fa-clipboard-list"></i></i>Quản lí công việc</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-notes-medical"></i>&nbsp; @lang('messages.newPost')
-                </a>
+            <li>
+                <a href="{{ route('user.post-create') }}" title=""><i class="fas fa-notes-medical"></i>&nbsp;@lang('messages.newPost')</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="{{ route('user.profile') }}">
-                    <i class="far fa-id-card"></i></i>&nbsp; @lang('messages.profile')
-                </a>
+            <li>
+                <a href="{{ route('user.profile') }}" title=""><i class="far fa-user"></i>@lang('messages.profile')</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-history"></i>&nbsp; @lang('messages.history')
-                </a>
+            <li>
+                <a href="{{ route('user.edit-profile') }}"><i class="far fa-edit"></i>Sửa Thông Tin Cá Nhân</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-key"></i>&nbsp; @lang('messages.changePassword')
-                </a>
+            <li>
+                <a href="" title=""><i class="fas fa-history"></i>&nbsp;@lang('messages.history')</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-dollar-sign"></i>&nbsp; @lang('messages.addCoin')
-                </a>
+            <li>
+                <a href="{{ route('user.coin') }}"><i class="fas fa-dollar-sign"></i>&nbsp;@lang('messages.addCoin')</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="#">
-                    <i class="fas fa-sign-out-alt"></i>&nbsp; @lang('messages.logout')
-                </a>
+            <li>
+                <a href="{{ route('user.change-password') }}" title=""><i class="fas fa-key"></i>&nbsp;@lang('messages.changePassword')</a>
+            </li>
+            <li>
+                <a href="#" title=""><i class="fas fa-sign-out-alt"></i>&nbsp;@lang('messages.logout')</a>
             </li>
         </ul>
     </div>

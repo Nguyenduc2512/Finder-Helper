@@ -152,8 +152,6 @@ body{
 .rating-stars ul > li.star.selected > i.fa {
   color:#FF912C;
 }
-
-}
 #avatar-profile{
 	width:200px;
 	border-radius: 50%;
@@ -169,3 +167,4 @@ body{
 #card-body-profile input{
 	height: 45px;
 }
+

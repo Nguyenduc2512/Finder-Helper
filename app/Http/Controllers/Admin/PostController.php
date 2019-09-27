@@ -34,7 +34,8 @@ class PostController extends Controller
     {
         $this->requestPost->update($request);
 
-        return redirect()->route('posts.index')->with(['success' => Lang::get('messages.requestPost') ]);
+        return redirect()->route('posts.index')
+            ->with('success', Lang::get('messages.requestPost'));
     }
 
     public function destroy(Post $post)

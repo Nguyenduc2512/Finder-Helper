@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\User;
-use App\Models\Post;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Services\PostService;
 use App\Services\UserService;
 use App\Services\ApplyJobService;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use function Symfony\Component\VarDumper\Dumper\esc;
 
@@ -64,6 +64,18 @@ class HomeController extends Controller
         return view('client.all_job',
                compact( 'newPosts', 'categories', 'locations', 'rule'));
 
+    }
+
+    public function search(Request $request)
+    {
+        $rule = Config::get('helper.user_type_helper');
+        $newPosts   = $this->postService->getNewPosts();
+        $categories = $this->postService->getCategories();
+        $locations  = $this->postService->getLocations();
+        $newPosts = $this->postService->search($request);
+
+        return view('client.search',
+            compact( 'newPosts', 'categories', 'locations', 'rule'));
     }
 
     public function profileFinder()

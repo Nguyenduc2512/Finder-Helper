@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequests;
 use App\Services\UploadService;
 use App\Http\Requests\LostPasswordRequest;
+use Illuminate\Support\Facades\Lang;
 
 class UserService
 {

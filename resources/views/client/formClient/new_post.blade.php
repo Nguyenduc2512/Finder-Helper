@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label> Quận/H </label>
+                                    <label> Quận/Huyện </label>
                                     <span class="text-danger">(*)</span>
                                     <select class="form-control" name="location_id">
                                         @foreach($location as $lo)
@@ -110,7 +110,6 @@
                                         <span class="text-danger"> {{$errors->first('detail')}} </span>
                                     @endif
                                 </div>
-
                                     <button type="submit" class="btn btn-danger btn-sm"> Đăng Tin </button>
                                     <a href="#" class="btn btn-warning btn-sm text-light"> Hủy </a>
                             </form>
@@ -121,4 +120,20 @@
             </div>
         </div>
     </div>
+@section('script')
+    <script>
+
+        @if ( session('fail') == true)
+
+        swal({
+            text: '{{ session('fail') }}',
+            icon: "warning",
+            button: true,
+            dangerMode: true,
+
+        });
+
+        @endif
+    </script>
+@stop
 @endsection

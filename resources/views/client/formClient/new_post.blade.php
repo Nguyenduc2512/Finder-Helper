@@ -34,13 +34,16 @@
                     <div class="row">
                         <div class="col-6">
                             <span class="pf-title">Thời gian bắt đầu</span>
-                            <div class="form-group">
-                                <input type="datetime-local" name="start_time" class="form-control"
-                                       id="time-day" value="{{old('start_time')}}">
+                            <div class='input-group date' id='time'>
+                                <div class="form-group">
+                                    <input type="text" name="start_time" class="form-control"
+                                           value="{{old('start_time')}}">
+                                    <i class="far fa-calendar-alt"></i>
+                                </div>
+                                @if($errors->first('start_time'))
+                                    <span class="text-danger"> {{$errors->first('start_time')}} </span>
+                                @endif
                             </div>
-                            @if($errors->first('start_time'))
-                                <span class="text-danger"> {{$errors->first('start_time')}} </span>
-                            @endif
                         </div>
 
                         <div class="col-6">
@@ -117,4 +120,32 @@
             </div>
         </div>
     </div>
+    @section('script')
+        <script>
+            $('.btn-remove').on('click', function(){
+
+                swal({
+                    text: "Bạn có chắc chắn muốn xoá bài viết này ?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+
+                })
+                    .then((willDelete) => {
+
+                        if (willDelete) {
+
+                            window.location.href = $(this).attr('linkurl');
+                            swal("Bạn đã xóa thành công bài viết này!", {
+                                icon: "success",
+                            });
+
+                        }  else {
+
+                            swal("Hủy thành công!");
+                        }
+                    });
+            });
+        </script>
+        @stop
 @endsection

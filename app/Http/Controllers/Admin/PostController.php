@@ -27,7 +27,9 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('admin.post.edit_post', ['post' => $post ]);
+        $categories = $this->requestPost->getCatgories();
+
+        return view('admin.post.edit_post', ['post' => $post ], compact('categories'));
     }
 
     public function update(Request $request)
@@ -35,7 +37,7 @@ class PostController extends Controller
         $this->requestPost->update($request);
 
         return redirect()->route('posts.index')
-            ->with('success', Lang::get('messages.requestPost'));
+            ->with('success', Lang::get('Thành công'));
     }
 
     public function destroy(Post $post)

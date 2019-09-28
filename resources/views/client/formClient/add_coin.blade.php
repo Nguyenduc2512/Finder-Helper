@@ -1,7 +1,7 @@
 @extends('client.layouts.master')
 @section('title', 'Nạp tiền')
 @section('content')
-    <div class="container" style="margin-top: 10%">
+    <div class="container" style="margin-top: 10%; padding: 50px">
         <div class="row">
             <div class="col-lg-3 column border-right">
                 @include('client.layouts.menu_bar')

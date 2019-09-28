@@ -31,8 +31,9 @@ class PostController extends Controller
     {
         $category = $this->postService->getCategories();
         $location = $this->postService->getLocations();
+        $gender = Config::get('helper');
 
-        return view('client.formClient.new_post', compact('category', 'location'));
+        return view('client.formClient.new_post', compact('category', 'location', 'gender'));
 
     }
 
@@ -60,9 +61,11 @@ class PostController extends Controller
         $post              = $this->postService->getPost($id);
         $countAmount       = $this->userApplyService->countAmount($id);
         $gender            = Config::get('helper');
+        $categories = $this->postService->getCategories();
+
 
         return view('client.userFinder.apply_request',
-               compact('post', 'gender', 'status', 'countAmount', 'statusOwner'));
+               compact('post', 'gender', 'status', 'countAmount', 'statusOwner', 'categories'));
     }
 
     public function confirmSuccess($id)

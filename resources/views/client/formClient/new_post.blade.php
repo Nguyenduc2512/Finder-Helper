@@ -1,7 +1,7 @@
 @extends('client.layouts.master')
 @section('title', 'Đăng công việc')
 @section('content')
-    <div class="container">
+    <div class="container" style="padding: 40px;">
         <div class="row">
             <div class="col-lg-3 column border-right">
                 @include('client.layouts.menu_bar')
@@ -87,17 +87,18 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <span class="pf-title">Địa chỉ cụ thể</span>
-                        <input type="text" name="address" class="form-control" placeholder="Địa chỉ"
-                               value="{{old('address')}}">
+                        <span class="pf-title">Địa chỉ cụ thể ( Không bao gồm quận huyện )</span>
+                            <div class="form-group">
+                                <input type="text" name="address" class="form-control" placeholder="Địa chỉ" value="{{old('address')}}">
+                            </div>
                         @if($errors->first('address'))
                             <span class="text-danger"> {{$errors->first('address')}} </span>
                         @endif
                     </div>
                     <div class="form-group">
-                        <span class="pf-title">Tiền lương</span>
+                        <span class="pf-title">Tiền lương  <i class="fas fa-coins"></i></span>
                         <input type="number" name="price" class="form-control"
-                               placeholder="Tính theo giờ">
+                               placeholder="Coin | 1 coin = 10000VND">
                         @if($errors->first('price'))
                             <span class="text-danger"> {{$errors->first('price')}} </span>
                         @endif
@@ -111,7 +112,7 @@
                             <span class="text-danger"> {{$errors->first('detail')}} </span>
                         @endif
                     </div>
-                    <button type="submit" class="btn btn-outline-success btn-xs" style="margin-top: 5%">Đăng Tin</button>
+                    <div class="col-7"><button type="submit" class="btn btn-success btn-xs" style="margin-top: 5%">Đăng Tin</button></div>
                 </form>
             </div>
         </div>

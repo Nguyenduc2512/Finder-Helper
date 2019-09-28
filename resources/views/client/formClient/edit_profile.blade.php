@@ -16,13 +16,17 @@
                     @if (isset(Auth::user()->id))
                         <input type="hidden" value="{{ Auth::user()->id }}" name="id">
                     @endif
-                    <img src="{{ asset(Auth::user()->avatar) }}"
-                         id="avatar-profile" class="img-responsive">
-                    <div class="form-group" id="form-profile">
-                        @if($errors->first('avatar'))
-                            <span class="text-danger"> {{$errors->first('avatar')}} </span>
-                        @endif
-                        <input type="file" name="avatar" id="my-profile" class="btn btn-outline-info">
+                    <div class="row">
+                        <div class="col-12">
+                            <img src="{{ asset(Auth::user()->avatar) }}"
+                                 id="avatar-profile" class="img-responsive">
+                            @if($errors->first('avatar'))
+                                <span class="text-danger"> {{$errors->first('avatar')}} </span>
+                            @endif
+                        </div>
+                        <div class="form-group col-4" id="form-profile">
+                            <input type="file" name="avatar" id="my-profile" class="btn btn-outline-info">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-9" style="margin-top : 5%;">

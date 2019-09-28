@@ -4,13 +4,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="main-featured-sec style3">
-                        <img src="{{ asset('images/sn1.jpg') }}" alt="" height="500px" />
+                        <img src="{{ asset('images/sn1.jpg') }}" alt="" width="100%" />
                         <div class="job-search-sec style3">
                             <div class="job-search style2">
                                 <h3>Find the career you deserve</h3>
                                 <span>Your job search starts and ends with us.</span>
                                 <div class="search-job2 style2">
-                                    <form action="{{ route('search') }}" method="post">
+                                    <form action="{{ route('search') }}" method="get ">
                                         @csrf
                                         <div class="row no-gape">
                                             <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
@@ -22,7 +22,7 @@
                                             <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
                                                 <div class="job-field">
                                                     <label>Ngành Nghề</label>
-                                                    <select  class="chosen-city" name="category-id">
+                                                    <select  class="chosen-city" name="category_id">
                                                         @foreach($categories as $category)
                                                             <option value="{{ $category->id }}">{{$category->name}}</option>
                                                         @endforeach

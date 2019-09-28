@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-lg-9 column">
                         <div class="heading left">
-                            <h4>Tất cả công việc</h4>
+                            <h4>Kết quả tìm kiếm :</h4>
                         </div><!-- Heading -->
                         @foreach($newPosts as $newPost)
                             @php
@@ -26,21 +26,21 @@
                                     </div>
                                     @if(Auth::check())
                                         @if(in_array(Auth::id(), $applies))
-                                            <a href="{{route('user.post-detail', ['id' => $newPost->id])}}">
-                                                 <span class="job-is fill btn-danger" style="width: 150px;">
+                                            <a href="{{route('post-detail', ['id' => $newPost->id])}}">
+                                                 <span class="job-is fill btn-danger text-white" style="width: 150px;">
                                                 @lang('messages.cancel')
                                             </span>
                                             </a>
                                         @else
-                                            <a href="{{route('user.post-detail', ['id' => $newPost->id])}}">
-                                                <span class="job-is fill btn-warning" style="width: 150px">
+                                            <a href="{{route('post-detail', ['id' => $newPost->id])}}">
+                                                <span class="job-is fill btn-warning text-white" style="width: 150px">
                                                 @lang('messages.detail')
                                             </span>
                                             </a>
                                         @endif
                                     @else
-                                        <a href="{{route('user.new-post', ['id' => $newPost->id])}}">
-                                            <span class="job-is fill btn-warning" style="width: 150px">
+                                        <a href="">
+                                            <span class="job-is fill btn-warning text-white" style="width: 150px">
                                                 @lang('messages.detail')
                                             </span>
                                         </a>

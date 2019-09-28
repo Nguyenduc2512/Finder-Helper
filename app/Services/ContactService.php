@@ -1,18 +1,14 @@
 <?php
-
 namespace App\Services;
 use App\Models\Contact;
 use Illuminate\Http\Request;
-
 class ContactService
 {
     public function getAllContact()
     {
         $contact = Contact::all();
-
         return $contact;
     }
-
     public function store(Request $request)
     {
         $data = $request->except('__token');
@@ -20,7 +16,6 @@ class ContactService
 
         return $contact;
     }
-
     public function update(Request $request)
     {
         $data = $request->except('__token', $request->id);

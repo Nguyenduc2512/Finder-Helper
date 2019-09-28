@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\CoinService;
 use Illuminate\Support\Facades\Lang;
+use App\Models\Bank;
+use Illuminate\Support\Facades\Config;
 
 class CoinController extends Controller
 {
@@ -17,8 +19,9 @@ class CoinController extends Controller
     public function index()
     {
         $banks = $this->coinService->getAllBank();
+        $gender = Config::get('helper');
 
-        return view('client.formClient.add_coin', compact('banks'));
+        return view('client.formClient.add_coin', compact('banks', 'gender'));
     }
 
     public function store(Request $request)

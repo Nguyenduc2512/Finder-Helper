@@ -1,38 +1,9 @@
 @extends('client.layouts.master')
-@section('title', 'job-detail')
+@section('title', 'Chi tiết công việc')
 @section('content')
     @php
         $statusOwner = $post->success->pluck('owner_post_status')->toArray();
     @endphp
-    <div class="menuDetail">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link text-info" href="#">@lang('messages.home')</a>
-            </li>
-            <li class="nav-item" id="nav-reponsive">
-                <a class="nav-link">/</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-info" href="">
-                    {{$post->category->name}}
-                </a>
-            </li>
-            <li class="nav-item" id="nav-reponsive">
-                <a class="nav-link">/</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-info" href="">
-                    {{$post->title}}
-                </a>
-            </li>
-            <li class="nav-item" id="nav-reponsive">
-                <a class="nav-link">/</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-info" href="#">@lang('messages.detail')</a>
-            </li>
-        </ul>
-    </div>
     <!--detail-job -->
     <div class="detail-job">
         <div class="container">
@@ -143,7 +114,6 @@
             </div>
         </div>
     </div>
-    <div style="padding: 50px"></div>
 @section('script')
     <script>
 

@@ -45,7 +45,7 @@ class UserController extends Controller
     {
         $this->applyJobService->applyJob($request);
 
-        return redirect()->route('user.profile')
+        return redirect()->route('user.history')
                          ->with(['success' => Lang::get('messages.applySuccess') ]);
     }
 

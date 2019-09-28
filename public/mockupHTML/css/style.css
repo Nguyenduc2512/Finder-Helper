@@ -19,12 +19,8 @@ body{
 .navbar-toggler:hover{
 	background-color: black;
 }
-.menuDetail{
-	margin-left: 8%;
-	padding-top: 1%;
-}
 .detail-job{
-	padding-top: 1%;
+
 }
 .flex-container {
   display: flex;

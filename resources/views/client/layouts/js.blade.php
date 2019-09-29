@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function(){
-  
+
         var img = document.querySelector('[name="avatar"]');
         img.onchange = function(){
 
@@ -21,7 +21,7 @@
             reader.readAsDataURL(file);
 
             reader.onload = function () {
-                    
+
                 document.querySelector(selector).src = reader.result;
             };
 
@@ -29,7 +29,7 @@
 
             console.log('Error: ', error);
             };
-        } 
+        }
     });
 
 </script>

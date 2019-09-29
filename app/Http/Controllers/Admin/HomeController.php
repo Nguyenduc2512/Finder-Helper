@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Services\CategoryService;
 use App\Services\PostService;
 use App\Services\UserService;
 use App\Services\ApplyJobService;
@@ -12,21 +13,23 @@ use Illuminate\Support\Facades\Config;
 class HomeController extends Controller
 {
     protected $userService;
-    protected $cateService;
+    protected $categoryService;
     protected $postService;
 
     public function __construct(PostService $postService,
                                 UserService $userService,
+                                CategoryService $categoryService,
                                 ApplyJobService $userApplyService)
     {
         $this->postService = $postService;
         $this->userService = $userService;
+        $this->categoryService = $categoryService;
         $this-> userApplyService = $userApplyService;
     }
 
     public function index()
     {
-        $categories =  $this->cateService->count();
+        $categories =  $this->categoryService->count();
         $bv = $this->postService->countPost();
         $posts = $this->postService->countPostRequest();
         $user =  $this->userService->countUser();

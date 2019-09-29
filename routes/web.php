@@ -16,6 +16,7 @@ Route::group(
         'as' => 'user.',
         'middleware' => 'auth'], function () {
     Route::get('profile', 'User\HomeController@profile')->name('profile');
+    Route::get('history', 'User\HomeController@history')->name('history');
     Route::get('profile-finder', 'User\HomeController@profileFinder')->name('profile-finder');
     Route::get('profile-helper', 'User\HomeController@profileHelper')->name('profile-helper');
     Route::get('update-info/{user}', 'User\HomeController@updateInfo')->name('update-info');
@@ -27,6 +28,8 @@ Route::group(
     Route::get('coin', 'User\CoinController@index')->name('coin');
     Route::post('store', 'User\CoinController@store')->name('store');
     Route::get('show-info', 'User\PagesController@showInfo')->name('show-info');
+    Route::get('contact', 'ContactController@index')->name('contact');
+    Route::post('contact', 'ContactController@store')->name('contact');
 
     //Finder route
     Route::get('new-post', 'User\PostController@create')->name('post-create');
@@ -61,6 +64,7 @@ Route::get('/all-post', 'User\HomeController@allPost')->name('all-post');
 Route::get('/category', 'User\HomeController@category')->name('category');
 Route::get('detail-post/{id}', 'User\PostController@detail')->name('post-detail');
 Route::get('post-category/{id}', 'User\HomeController@postCategory')->name('post-category');
+Route::get('search', 'User\HomeController@search')->name('search');
 
 Route::get('/auth/redirect/{provider}', 'Auth\LoginFacebookController@redirect');
 Route::get('/callback/{provider}', 'Auth\LoginFacebookController@callback');

@@ -313,13 +313,12 @@ button{
     float: left;
     margin: 20px 0 0;
     text-align: center;
-    width: 100%;
+    width: 75%;
 }
 .slick-dots li {
     width: 14px;
     height: 14px;
     background: none;
-    border: 2px solid #ffffff;
 
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -336,7 +335,6 @@ button{
 .slick-dots li button {
     width: 6px;
     height: 6px;
-    background: #ffffff;
 
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -351,7 +349,7 @@ button{
     color: transparent;
 }
 .slick-dots li.slick-active button {
-    opacity: 1;
+    opacity: 0;
     background: #ffffff;
 }
 .slick-prev, .slick-next {
@@ -1487,13 +1485,14 @@ label::after {
 }
 .c-logo {
     float: left;
-    width: 130px;
+    width: 100px;
     text-align: center;
 }
 .c-logo img {
     float: none;
     display: inline-block;
     max-width: 100%;
+    padding: 20px;
 }
 .job-title-sec h3 {
     display: table;
@@ -1685,7 +1684,7 @@ label::after {
 }
 .reviews-sec {
     float: left;
-    width: 100%;
+    width: 130%;
 }
 
 .comp-sec {
@@ -3718,13 +3717,11 @@ header.style4 .menu-sec nav > ul > li.menu-item-has-children > a::before {
 }
 .job-style-bx .job-is {
     margin: 0;
-
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
-    border-radius: 4px;
-
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
     color: #ffffff;
 }
 .tab-sec .tab-content {
@@ -11851,7 +11848,7 @@ header.style4 .account-btns > li a,
  }
  #avatar-profile{
      width:200px;
-     border-radius: 50%;
+     border-radius: 10%;
  }
  #form-profile{
      position: absolute;

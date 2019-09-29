@@ -771,3 +771,56 @@ html.dark .show > .dropdown-toggle.btn-default {
 .inputfile + label:hover {
     background-color: #96D2D9;
 }
+.job-is {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: Open Sans;
+    font-size: 12px;
+    border: 1px solid;
+    float: right;
+    padding: 7px 0;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+
+    width: 150px;
+    margin: 9px 0;
+    text-align: center;
+}
+.job-is.ft,
+.job-list-modern .job-is.ft{
+    color: #8b91dd;
+    border-color: #8b91dd;
+}
+.job-is.pt,
+.job-list-modern .job-is.pt{
+    color: #7dc246;
+    border-color: #7dc246;
+}
+.job-is.fl,
+.job-list-modern .job-is.fl{
+    color: #fb236a;
+    border-color: #fb236a;
+}
+.job-is.tp,
+.job-list-modern .job-is.tp{
+    color: #26ae61;
+    border-color: #26ae61;
+}
+.job-is.ft {
+    margin-top: 12px;
+}
+.job-style-bx .job-is {
+    margin: 0;
+
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+
+    color: #ffffff;
+}

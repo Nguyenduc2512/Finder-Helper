@@ -6,7 +6,7 @@
         <div class="block" style="margin-top: 5%">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
                         <h4>Việc làm gấp</h4>
                         @foreach($posts as $post)
                             @php
@@ -14,22 +14,20 @@
                             @endphp
                             <div class="job-listing wtabs">
                                 <div class="job-title-sec">
-                                    <div class="c-logo"><img src="{{ asset('images/em4.jpg') }}" alt=""/></div>
+                                    <div class="c-logo"><img src="{{ $post->user->avatar }}" alt=""width="300px" /></div>
                                     <h3><a href="#" title="">{{$post->title}}</a></h3>
                                     <span>{{$post->category->name}}</span>
                                     <div class="job-lctn text-danger">
                                     <i class="fas fa-map-marker"></i>{{$post->address}}
-                                    <i class="fas fa-dollar-sign" style="margin-left: 5%"></i>{{$post->price}}
+                                        <div style="margin-left: 20px">Lương: {{$post->price}}<i class="fas fa-coins" style="margin-left: 7px"></i></div>
                                 </div>
                             </div>
                             <div class="job-style-bx">
                                 @if(Auth::check())
                                     @if(in_array(Auth::id(), $applies))
-                                        <a href="{{route('post-detail', ['id' => $post->id])}}">
-                                            <span class="job-is fill btn-danger" style="width: 150px;">
-                                                @lang('messages.cancel')
+                                        <span class="job-is fill btn-primary" style="width: 150px;">
+                                            <a href="{{route('post-detail', ['id' => $post->id])}}">@lang('messages.cancel')</a>
                                             </span>
-                                        </a>
                                     @else
                                         <a href="{{route('post-detail', ['id' => $post->id])}}">
                                             <span class="job-is fill btn-warning" style="width: 150px;">
@@ -48,7 +46,7 @@
                         </div>
                         @endforeach<!-- Job -->
                 </div>
-                <div class="col-lg-6">
+                    <div class="col-lg-5">
                     <h4>Việc làm lâu dài</h4>
                     @foreach($newPosts as $newPost)
                         @php
@@ -56,31 +54,31 @@
                         @endphp
                         <div class="job-listing wtabs">
                             <div class="job-title-sec">
-                                <div class="c-logo"><img src="{{ asset('images/em4.jpg') }}"></div>
-                                <h3><a href="#" title="">{{$post->title}}</a></h3>
-                                <span>{{$post->category->name}}</span>
+                                <div class="c-logo"><img src="{{ $newPost->user->avatar }}"></div>
+                                <h3><a href="#" title="">{{$newPost->title}}</a></h3>
+                                <span>{{$newPost->category->name}}</span>
                                 <div class="job-lctn text-danger">
-                                    <i class="fas fa-map-marker"></i>{{$post->address}}
-                                    <i class="fas fa-dollar-sign" style="margin-left: 5%"></i>{{$post->price}}
+                                    <i class="fas fa-map-marker"></i>{{$newPost->address}} <br>
+                                    <div style="margin-left: 100px">Lương: {{$newPost->price}}<i class="fas fa-coins" style="margin-left: 7px"></i></div>
                                 </div>
                             </div>
                             <div class="job-style-bx">
                                 @if(Auth::check())
                                     @if(in_array(Auth::id(), $applies))
-                                        <a href="{{route('post-detail', ['id' => $post->id])}}">
-                                            <span class="job-is fill btn-danger" style="width: 150px;">
+                                        <a href="{{route('post-detail', ['id' => $newPost->id])}}">
+                                            <span class="job-is fill btn-primary" style="width: 150px;">
                                                 @lang('messages.cancel')
                                             </span>
                                         </a>
                                     @else
-                                        <a href="{{route('post-detail', ['id' => $post->id])}}">
+                                        <a href="{{route('post-detail', ['id' => $newPost->id])}}">
                                             <span class="job-is fill btn-warning" style="width: 150px">
                                                 @lang('messages.detail')
                                             </span>
                                         </a>
                                     @endif
                                 @else
-                                    <a href="{{route('post-detail', ['id' => $post->id])}}">
+                                    <a href="{{route('post-detail', ['id' => $newPost->id])}}">
                                         <span class="job-is fill btn-warning" style="width: 150px">
                                             @lang('messages.detail')
                                         </span>
@@ -92,8 +90,8 @@
                         </div>
                     @endforeach
                 </div>
+                 </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -110,23 +108,20 @@
                             <div class="job-listings-sec">
                                 <div class="job-listing wtabs">
                                     <div class="job-title-sec">
-                                        <div class="c-logo"><img src="{{ asset('images/em4.jpg') }}"></div>
+                                        <div class="c-logo"><img src="{{$postPriceHigh->user->avatar}}"></div>
                                         <h3><a href="#" title="">{{$postPriceHigh->title}}</a></h3>
                                         <span>{{$postPriceHigh->category->name}}</span>
                                         <div class="job-lctn text-danger">
-                                            <i class="fas fa-map-marker"></i>{{$postPriceHigh->address}}
-                                            <i class="fas fa-dollar-sign"
-                                               style="margin-left: 5%"></i>{{$postPriceHigh->price}}
+                                            <i class="fas fa-map-marker"></i>{{$postPriceHigh->address}} <br>
+                                            Lương : {{$postPriceHigh->price}}<i class="fas fa-coins" style="margin-left: 7px"></i>
                                         </div>
                                     </div>
                                     <div class="job-style-bx">
                                         @if(Auth::check())
                                             @if(in_array(Auth::id(), $applies))
-                                                <a href="{{route('post-detail', ['id' => $postPriceHigh->id])}}">
-                                                <span class="job-is btn-danger" style="width: 150px;">
-                                                    @lang('messages.cancel')
+                                                <span class="job-is fill btn-primary text-white" style="width: 150px;">
+                                                    <a href="{{route('post-detail', ['id' => $newPost->id])}}">@lang('messages.cancel')</a>
                                                 </span>
-                                                </a>
                                             @else
                                                 <a href="{{route('post-detail', ['id' => $postPriceHigh->id])}}">
                                                 <span class="job-is btn-warning" style="width: 150px;">
@@ -154,7 +149,7 @@
                             @foreach($categories as $category)
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link text-primary" href="#">
+                                        <a class="nav-link text-primary" href="{{route('post-category', ['id' => $category->id])}}">
                                             {{ $category->name }}
                                         </a>
                                     </li>
@@ -172,20 +167,19 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="heading">
-                            <h2>Các đối tác</h2>
-                            <span>Nhà tuyển dụng hàng đầu</span>
+                            <span><h2>Nhà tuyển dụng hàng đầu</h2></span>
                         </div>
                         <div class="reviews-sec" id="reviews-carousel">
-                            <div class="col-lg-4">
+                            <div class="col-lg-2">
                                 <img src="{{ asset('images/em4.jpg') }}" alt=""/>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-2">
                                 <img src="{{ asset('images/em4.jpg') }}" alt=""/>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-2">
                                 <img src="{{ asset('images/em4.jpg') }}" alt=""/>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-2">
                                 <img src="{{ asset('images/em4.jpg') }}" alt=""/>
                             </div>
                         </div>

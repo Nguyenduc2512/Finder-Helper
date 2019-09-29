@@ -112,15 +112,6 @@ class PostService
 
     }
 
-    public function search(Request $request)
-    {
-        $newPosts = Post::where('address', 'LIKE', '%' .$request->address. '%')
-                        ->Where('category_id', 'LIKE', '%' .$request->category_id. '%')
-                        ->get();
-
-        return $newPosts;
-    }
-
     public function getPostsAccountLogin()
     {
         $posts = Post::where('user_id', Auth::id())->orderBy('status', 'asc')->get();
@@ -173,4 +164,23 @@ class PostService
             return $status;
         }
     }
+
+    public function search(Request $request)
+    {
+        if (!$request->address) {
+            $newPosts = Post::where('category_id', $request->category_id)->get();
+
+            return $newPosts;
+        } elseif(!$request->category_id) {
+            $newPosts = Post::where('address', 'LIKE', '%' .$request->address. '%')->get();
+
+            return $newPosts;
+        }else
+        $newPosts = Post::where('address', 'LIKE', '%' .$request->address. '%')
+            ->Where('category_id', $request->category_id)
+            ->get();
+
+        return $newPosts;
+    }
+
 }

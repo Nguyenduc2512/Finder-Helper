@@ -56,36 +56,3 @@
         </div>
     </div>
 </div>
-<div id="coin" class="container tab-pane"><br>
-    <div class="col">
-        <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-            <div class="mb-4 mb-md-0 mr-5">
-                <img src="{{asset('img/avatar-default-icon.png')}}" alt="" style="width: 100px;">
-            </div>
-            <div class="mb-4 mb-md-0 mr-5">
-                <div class="job-post-item-header d-flex align-items-center">
-                    <h2 class="mr-3 text-black h4"></h2>
-                </div>
-                <div class="job-post-item-body d-block d-md-flex">
-                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <a href="#">Facebook,
-                            Inc.</a></div>
-                    <div><span class="fl-bigmug-line-big104"></span> <span>My Dinh, Ha Noi</span></div>
-                </div>
-                <div class="job-post-item-body d-block d-md-flex">
-                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :
-                                    1000$</span></div>
-                    <div><span class="fl-bigmug-line-big104"></span> <span>2h/2m</span></div>
-                </div>
-                <div class="" job-post-item-body>
-                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23">Help : Nguyen Minh Duc</span>
-                    </div>
-                </div>
-                <div class="" job-post-item-body>
-                    <div class="mr-3"><span class="fl-bigmug-line-portfolio23"><a href="">See
-                                        More</a></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

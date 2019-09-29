@@ -98,8 +98,7 @@
                     </div>
                     <div class="d-flex justify-content-between6 ">
                         <div class="form-check p-2">
-                            <input type="file" name="identification" value="{{old('identification')}}"  id="file" class="inputfile">
-                            <label for="file">Chọn file</label>
+                            <input type="file" name="identification" value="{{old('identification')}}">
                         </div>
                     </div>
                     @if($errors->first('identification'))
@@ -113,8 +112,7 @@
                     </div>
                     <div class="d-flex justify-content-between6 ">
                         <div class="form-check p-2">
-                            <input type="file" name="identification_back" value="{{old('identification_back')}}" id="file" class="inputfile">
-                            <label for="file">Chọn file</label>
+                            <input type="file" name="identification_back" value="{{old('identification_back')}}">
                         </div>
                     </div>
                     @if($errors->first('identification_back'))

@@ -1,37 +1,8 @@
 @extends('client.layouts.master')
-@section('title', 'job-detail')
+@section('title', 'Chi tiết công việc')
 @section('content')
-    <div class="menuDetail">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link text-info" href="#">@lang('messages.home')</a>
-            </li>
-            <li class="nav-item" id="nav-reponsive">
-                <a class="nav-link">/</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-info" href="">
-                    {{$post->category->name}}
-                </a>
-            </li>
-            <li class="nav-item" id="nav-reponsive">
-                <a class="nav-link">/</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-info" href="">
-                    {{$post->title}}
-                </a>
-            </li>
-            <li class="nav-item" id="nav-reponsive">
-                <a class="nav-link">/</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-info" href="#">@lang('messages.detail')</a>
-            </li>
-        </ul>
-    </div>
     <!--detail-job -->
-    <div class="detail-job">
+    <div class="detail-job" style="padding: 50px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -87,127 +58,120 @@
                     <h4><b><i>Ứng viên của bạn :</i></b></h4>
                     <div>
                         <table class="table table-bordered table-striped text-center">
-                                <thead>
-                                <tr>
-                                    <th>Tên</th>
-                                    <th>Địa chỉ</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Email</th>
-                                    <th>Hành động</th>
-                                    <th>Trạng thái</th>
-                                    <th>Đánh giá</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                            <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Địa chỉ</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Hành động</th>
+                                <th>Trạng thái</th>
+                                <th>Đánh giá</th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                                @foreach($post->applies as $user)
-                                    <tr  class="text-center">
-                                        <td>{!! $user->name !!}</td>
-                                        <td>{{$user->address}}</td>
-                                        <td>{{$user->phone}}</td>
-                                        <td>{{$user->email}}</td>
-                                        <td>
-                                            @if($countAmount == $post->amount)
-                                                @if($user->pivot->status == $status['post_type_confirm'])
+                            @foreach($post->applies as $user)
+                                <tr  class="text-center">
+                                    <td>{!! $user->name !!}</td>
+                                    <td>{{$user->address}}</td>
+                                    <td>{{$user->phone}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>
+                                        @if($countAmount == $post->amount)
+                                            @if($user->pivot->status == $status['post_type_confirm'])
+                                                <button type="button" onclick="" class="btn btn-info btn-sm">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            @else
+                                            @endif
+                                        @else
+                                            @if($user->pivot->status == $status['post_type_unSuccess'] && $countAmount < $post->amount)
+                                                <form method="post" enctype="multipart/form-data" action="{{route('user.accept-user', ['id' => $user->pivot->id])}}">
+                                                    @csrf
+                                                    <input type="hidden" name="post_id" value="{{$post->id}}">
                                                     <button type="button" onclick="" class="btn btn-info btn-sm">
                                                         <i class="fas fa-eye"></i>
                                                     </button>
-                                                @else
-                                                @endif
-                                            @else
-                                                @if($user->pivot->status == $status['post_type_unSuccess'] && $countAmount < $post->amount)
-                                                    <form method="post" enctype="multipart/form-data" action="{{route('user.accept-user', ['id' => $user->pivot->id])}}">
-                                                        @csrf
-                                                        <input type="hidden" name="post_id" value="{{$post->id}}">
-                                                        <button type="button" onclick="" class="btn btn-info btn-sm">
-                                                            <i class="fas fa-eye"></i>
-                                                        </button>
-                                                        <button class="btn btn-success btn-sm" type="submit">
-                                                            <i class="fa fa-check"></i>
-                                                        </button>
-                                                    </form>
-                                                @elseif($countAmount == $post->amount && $user->pivot->owner_post_status == $status['post_type_confirm'])
-                                                @elseif($user->pivot->status == $status['post_type_confirm'] && $countAmount == $post->amount)
-                                                    <form method="post" enctype="multipart/form-data" action="{{route('user.decline-user', ['id' => $user->pivot->id])}}">
-                                                        @csrf
-                                                        <input type="hidden" name="post_id" value="{{$post->id}}">
-                                                        <button type="button" onclick="" class="btn btn-info btn-sm">
-                                                            <i class="fas fa-eye"></i>
-                                                        </button>
-                                                        <button onclick="" class="btn btn-danger btn-sm" type="submit">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
-                                                    </form>
-                                                @endif
+                                                    <button class="btn btn-success btn-sm" type="submit">
+                                                        <i class="fa fa-check"></i>
+                                                    </button>
+                                                </form>
+                                            @elseif($countAmount == $post->amount && $user->pivot->owner_post_status == $status['post_type_confirm'])
+                                            @elseif($user->pivot->status == $status['post_type_confirm'] && $countAmount == $post->amount)
+                                                <form method="post" enctype="multipart/form-data" action="{{route('user.decline-user', ['id' => $user->pivot->id])}}">
+                                                    @csrf
+                                                    <input type="hidden" name="post_id" value="{{$post->id}}">
+                                                    <button type="button" onclick="" class="btn btn-info btn-sm">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button onclick="" class="btn btn-danger btn-sm" type="submit">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
                                             @endif
-                                        </td>
-                                        <td>
-                                            @if($countAmount == $post->amount)
-                                                @if($user->pivot->owner_post_status == $user->pivot->user_apply_status && $user->pivot->owner_post_status == $status['post_type_confirm'] )
-                                                    <div class="text-danger "><i>Đã thanh toán</i></div>
-                                                @elseif($user->pivot->status == $status['post_type_unSuccess'] )
-                                                    <div class="text-danger "><i>Bạn không tuyển ứng viên này</i></div>
-                                                @elseif($user->pivot->owner_post_status != $user->pivot->user_apply_status && $user->pivot->owner_post_status == $status['post_type_confirm'] )
-                                                    <div class="text-center" style="max-width: 100%;">
-                                                        <div style="padding: 10%">
-                                                            <a type="submit"
-                                                               class="btn btn-warning py-2 text-white" style="width: 150px; margin: auto">
-                                                                Đã hoàn thành
-                                                            </a>
-                                                        </div>
-                                                        <div style="padding: 30px">Chờ người được thuê xác nhận ...</div>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($countAmount == $post->amount)
+                                            @if($user->pivot->owner_post_status == $user->pivot->user_apply_status && $user->pivot->owner_post_status == $status['post_type_confirm'] )
+                                                <div class="text-danger "><i>Đã thanh toán</i></div>
+                                            @elseif($user->pivot->status == $status['post_type_unSuccess'] )
+                                                <div class="text-danger "><i>Bạn không tuyển ứng viên này</i></div>
+                                            @elseif($user->pivot->owner_post_status != $user->pivot->user_apply_status && $user->pivot->owner_post_status == $status['post_type_confirm'] )
+                                                <div class="text-center" style="max-width: 100%;">
+                                                    <div style="padding: 10%">
+                                                        <a type="submit"
+                                                           class="btn btn-warning py-2 text-white" style="width: 150px; margin: auto">
+                                                            Đã hoàn thành
+                                                        </a>
                                                     </div>
-                                                @else
-                                                    <div class="text-center" style="max-width: 100%;">
-                                                        <div style="padding: 30px">Công việc của bạn đang được thực hiện</div>
-                                                        <div style="padding: 10%">
-                                                            <a type="submit" href="{{route('user.owner-success', ['id'=>$post->id])}}"
-                                                               class="btn btn-success py-2 text-white" style="width: 150px; margin: auto">
-                                                                Hoàn thành
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                @endif
+                                                    <div style="padding: 30px">Chờ người được thuê xác nhận ...</div>
+                                                </div>
                                             @else
+                                                <div class="text-center" style="max-width: 100%;">
+                                                    <div style="padding: 30px">Công việc của bạn đang được thực hiện</div>
+                                                    <div style="padding: 10%">
+                                                        <a type="submit" href="{{route('user.owner-success', ['id'=>$post->id])}}"
+                                                           class="btn btn-success py-2 text-white" style="width: 150px; margin: auto">
+                                                            Hoàn thành
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             @endif
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                        @else
+                                        @endif
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div style="padding: 50px"></div>
 @section('script')
     <script>
-
         @if ( session('success') == true)
-
         swal({
             text: '{{ session('success') }}',
             icon: "success",
             button: true,
             dangerMode: true,
-
         });
-
         @endif
     </script>
 
     <script>
         function confirm() {
             $('.btn-danger').on('click', function(){
-
                 swal({
                     text: "Bạn có chắc chắn muốn bỏ phê duyệt ứng viên này   ?",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
-
                 })
             });
         }
@@ -226,7 +190,6 @@
                 error: function (response) {
                     alert('Error' + response);
                     console.log(response);
-
                 }
             });
         }

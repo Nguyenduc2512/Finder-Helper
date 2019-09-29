@@ -39,13 +39,22 @@ class HomeController extends Controller
 
     public function profile()
     {
+        $gender = Config::get('helper');
+        $rule = Config::get('helper');
+
+        return view('client.profile',
+               compact('gender'));
+    }
+
+    public function history()
+    {
         $user = $this->userService->getUserLogin();
         $gender = Config::get('helper');
         $rule = Config::get('helper.user_type_helper');
         $success = Config::get('helper');
         $posts = $this->postService->getPostsAccountLogin();
 
-        return view('client.profile',
+        return view('client.history',
                compact('gender', 'rule', 'user', 'success', 'posts'));
     }
 
@@ -96,6 +105,8 @@ class HomeController extends Controller
 
     public function updateInfo(User $user)
     {
+        $check = Config::get('helper');
+
         return view('client.loginUser.update_info');
     }
 
@@ -118,4 +129,5 @@ class HomeController extends Controller
 
         return view('client.post_category', compact('posts', 'categories'));
     }
+
 }

@@ -1,72 +1,74 @@
 @extends('client.layouts.master')
-@section('title', 'all-job')
-@section('content')<br>
-
-<div class="container" style="padding: 30px;">
-    <div class="row d-flex flex-column">
-        <div class="col-lg">
-            <h3>Công việc của bạn</h3><br>
-            <div class="row">
-                <div class="col-md-8 col-lg-8 mb-8 mb-lg-0">
-                    @foreach($posts as $post)
-                        @php
-                            $applies = $post->applies->pluck('id')->toArray();
-                        @endphp
-                        <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-                            <div class="mb-4 mb-md-0 mr-5">
-                                <img src="/{{$post->user->avatar}}" alt="" style="width: 70px;">
-                            </div>
-                            <div class="mb-4 mb-md-0 mr-5">
-                                <div class="job-post-item-header d-flex align-items-center">
-                                    <h4 class="mr-3 text-black h4">{{$post->title}}</h4>
-                                </div>
-                                <div class="job-post-item-body d-block d-md-flex">
-                                    <div><span class="fl-bigmug-line-big104"></span> <span></span></div>
-                                </div>
-                                <div class="job-post-item-body d-block d-md-flex">
-                                    <div class="mr-3">
-                                        <span class="fl-bigmug-line-portfolio23"></span>
-                                        <span> Mô tả : {{$post->category->name}} </span>
+@section('title', 'Tìm kiến công việc')
+@section('content')
+    @include('client.layouts.search-slide')
+    <section style="margin-top: 10%">
+        <div class="block remove-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 column">
+                        <div class="heading left">
+                            <h4>Tất cả công việc</h4>
+                        </div><!-- Heading -->
+                        @foreach($posts as $post)
+                            @php
+                                $applies = $post->applies->pluck('id')->toArray();
+                            @endphp
+                            <div class="job-listing wtabs">
+                                <div class="job-title-sec">
+                                    <div class="c-logo"><img src="/{{$post->user->avatar}}" alt=""></div>
+                                    <h3><a href="#" title="">{{$post->title}}</a></h3>
+                                    <span>{{$post->category->name}}</span>
+                                    <div class="job-lctn text-danger">
+                                        <i class="fas fa-map-marker"></i>{{$post->address}}
+                                        <div style="margin-left: 20px">Lương: {{$post->price}}<i class="fas fa-coins" style="margin-left: 7px"></i></div>
                                     </div>
                                 </div>
-                                <div class="job-post-item-body d-block d-md-flex">
-                                    <div><span class="fl-bigmug-line-big104"></span><span>Địa chỉ : {{$post->address}}</span></div>
-                                </div>
-                                <br>
-                                <br>
-                                <div class="job-post-item-body d-block d-md-flex">
-                                    <div class="mr-5"><span class="fl-bigmug-line-portfolio23"></span> <span>Price :{{$post->price}}</span></div>
+                                <div class="job-style-bx">
+                                    @if(Auth::check())
+                                        @if(in_array(Auth::id(), $applies))
+                                            <span class="job-is fill btn-primary" style="width: 150px;">
+                                            <a href="{{route('post-detail', ['id' => $post->id])}}">@lang('messages.cancel')</a>
+                                            </span>
+                                        @else
+                                            <a href="{{route('post-detail', ['id' => $post->id])}}">
+                                            <span class="job-is fill btn-warning" style="width: 150px;">
+                                                @lang('messages.detail')
+                                            </span>
+                                            </a>
+                                        @endif
+                                    @else
+                                        <a href="{{route('post-detail', ['id' => $post->id])}}">
+                                        <span class="job-is fill btn-warning" style="width: 150px;">
+                                            @lang('messages.detail')
+                                        </span>
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
-                            <div class="ml-auto">
-                                @if(Auth::check())
-                                    @if(in_array(Auth::id(), $applies))
-                                        <a href="{{route('post-detail', ['id' => $post->id])}}" class="btn btn-danger py-2 text-white" style="width: 150px">  @lang('messages.cancel')</a>
-                                    @else
-                                        <a href="{{route('post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
-                                    @endif
-                                @else
-                                    <a href="{{route('post-detail', ['id' => $post->id])}}" class="btn btn-warning py-2 text-white" style="width: 150px">  @lang('messages.detail')</a>
-                                @endif
+                    @endforeach<!-- Job -->
+                    </div>
+                    <aside class="col-lg-3 column" style="border-left: 1px solid #e8ecec;">
+                        <div class="widget">
+                            <h4>Danh mục công việc</h4>
+                            <div class="specialism_widget">
+                                @foreach($categories as $category)
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-primary" href="{{route('post-category', ['id' => $category->id])}}">
+                                                {{ $category->name }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                @endforeach
                             </div>
                         </div>
-                    @endforeach
-                </div>
-                <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
-                    <div>
-                        <h5>Danh mục liên quan :</h5><br>
-                        @foreach($categories as $category)
-                            <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-                                <a href="{{route('post-category', ['id' => $category->id])}}">{{$category->name}}</a>
-                            </div>
-                        @endforeach
-                    </div>
+                    </aside>
                 </div>
             </div>
         </div>
-
-    </div>
-</div>
+        </div>
+    </section>
 @section('script')
     <script>
 

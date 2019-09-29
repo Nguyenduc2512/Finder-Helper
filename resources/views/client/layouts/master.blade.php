@@ -7,5 +7,6 @@
     @include('client.layouts.footer')
 </div>
 @include('client.layouts.script')
+@include('client.layouts.js')
 @yield('script')
 

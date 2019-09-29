@@ -35,7 +35,8 @@ class LoginController extends Controller
             return redirect('/');
         }
 
-        return redirect()->route('login')->with('errmsg', 'Email hoặc mật khẩu không chính xác');
+        return redirect()->route('login')
+                         ->with('errmsg', 'Email hoặc mật khẩu không chính xác');
     }
 
     public function logout()

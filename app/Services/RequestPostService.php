@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Config;
@@ -16,12 +17,30 @@ class RequestPostService
         return $post;
     }
 
+    public function getCatgories()
+    {
+        $category = Category::all();
+
+        return $category;
+    }
+
     public function update(Request $request)
     {
-        $data = $request->except('_token', 'id');
         $post = Post::find($request->id);
+        $data = [
+            'title' => $request->title,
+            'category_id' => $request->category_id,
+            'amount'      => $request->amount,
+            'price'       =>$request->price,
+            'address'     => $request->address,
+            'detail'      => $request->detail,
+            'status'      => $request->status,
+            'start_time'  => $request->start_time,
+            'end_time'    => $request->end_time,
+        ];
 
-        return $post->update($data);
+        $post->fill($data);
+        $post->save();
     }
 
     public function destroy(Post $post)

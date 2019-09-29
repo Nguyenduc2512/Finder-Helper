@@ -12,41 +12,41 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                    <th>Tên công việc</th>
                     <th># Tên người thuê</th>
-                    <th>Công việc</th>
+                    <th>Danh mục</th>
                     <th>Số lượng</th>
-                    <th>lương</th>
+                    <th>lương <i class="fas fa-coins"></i></th>
                     <th>Địa Chỉ</th>
                     <th>Trạng thái</th>
-                    <th>Action</th>
+                    <th>Hành động</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($post as $item)
                     <tr>
-                        <td>{{ $item->id }}# &nbsp; {{ $item->user['name'] }}</td>
+                        <td>{{ $item->title }}</td>
+                        <td>{{ $item->user['name'] }}</td>
                         <td>{{ $item->category['name'] }}</td>
                         <td>{{ $item->amount }}</td>
-                        <td>{{ $item->price }}k/h</td>
+                        <td>{{ $item->price }} <i class="fas fa-coins"></i></td>
                         <td>{{ $item->address }}</td>
                         <td class="text-center">
                             @if ( $item->status == Config::get('helper.post_type_inActive') )
-                                <a href="{{ route('posts.edit', $item->id ) }}" class="btn btn-warning btn-sm">
+                                <a href="{{ route('posts.edit', $item->id ) }}" class="btn btn-warning btn-sm text-white">
                                     @lang('messages.errRequest')
                                 </a>
                             @elseif ( $item->status == Config::get('helper.post_type_active') )
-                                <a href="#" class="btn btn-success btn-sm">
+                                <a href="{{ route('posts.edit', $item->id ) }}" class="btn btn-success btn-sm">
                                     @lang('messages.request')
                                 </a>
+                            @else
+                                <div class="text-danger">Đã hoàn thành</div>
                             @endif
                         </td>
                         <td>
-                            <a href="" class="btn btn-info btn-sm">
+                            <a href="{{ route('posts.edit', $item->id ) }}" class="btn btn-info btn-sm">
                                 <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="javascript:;" class="btn btn-danger btn-sm btn-remove"
-                               linkurl="{{ route('posts.destroy', $item->id) }}">
-                                <i class="far fa-trash-alt"></i>
                             </a>
                         </td>
                     </tr>
@@ -69,33 +69,6 @@
         });
 
         @endif
-    </script>
-
-    <script>
-        $('.btn-remove').on('click', function(){
-
-            swal({
-                text: "Bạn có chắc chắn muốn xoá bài viết này ?",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-
-            })
-                .then((willDelete) => {
-
-                    if (willDelete) {
-
-                        window.location.href = $(this).attr('linkurl');
-                        swal("Bạn đã xóa thành công bài viết này!", {
-                            icon: "success",
-                        });
-
-                    }  else {
-
-                        swal("Hủy thành công!");
-                    }
-                });
-        });
     </script>
 @stop
 @endsection

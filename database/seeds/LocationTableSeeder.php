@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class LocationTableSeeder extends Seeder
 {
@@ -11,16 +12,27 @@ class LocationTableSeeder extends Seeder
      */
     public function run()
     {
-        $locat = [];
-        $faker = Faker\Factory::create();
-
-        for ($i=0 ; $i<10 ; $i++){
-            $item = [
-                'name'         => $faker->name,
-                'map_location' => $faker->realText($maxNbChars = 70, $indexSize = 2)
-            ];
-            $locat[] = $item;
-        }
-        DB::table('locations')->insert($locat);
+        DB::table('locations')->insert([
+            [
+                'name' => 'Quận Cầu Giấy',
+                'map_location' => 'Quận cầu giấy',
+            ],
+            [
+                'name' => 'Quận Ba Đình',
+                'map_location' => 'Quận ba đình',
+            ],
+            [
+                'name' => 'Quận Hoàn Kiếm',
+                'map_location' => 'Quận hoàn kiếm',
+            ],
+            [
+                'name' => 'Quận Long Biên',
+                'map_location' => 'Quận long biên',
+            ],
+            [
+                'name' => 'Quận Đống Đa',
+                'map_location' => 'Quận đống đa',
+            ],
+        ]);
     }
 }

@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
         for ($i=0 ; $i<10 ; $i++) {
             $item = [
                 'name'                => $faker->name,
-                'avatar'              => 'images/'.$faker->image('public/images/user', 400, 300, 'people', false),
+                'avatar'              => 'images/user/'.$faker->image('public/images/user', 400, 300, 'people', false),
                 'email'               => $faker->email,
                 'password'            => $faker->password,
                 'date_of_birth'       => $faker->date('Y-m-d', '1566950400'),

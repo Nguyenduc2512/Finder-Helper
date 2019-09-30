@@ -13,8 +13,8 @@
                 <div class="cand-single-user" style="margin-top: 10%">
                     <div class="can-detail-s">
                         <div class="cst"><img src="{{ asset(Auth::user()->avatar) }}" alt=""></div>
-                        <img src="{{ asset('images/mpf1.jpg') }}" alt="" class="img-cmt">
-                        <img src="{{ asset('images/mpf1.jpg') }}" alt="" class="img-cmnd">
+                        <img src="{{ asset(Auth::user()->identification) }}" alt="" class="img-cmt">
+                        <img src="{{ asset(Auth::user()->identification_back) }}" alt="" class="img-cmnd">
                        <div style="margin-top: 15%">
                            <h3>{{ Auth::user()->name }}</h3>
                            <P>

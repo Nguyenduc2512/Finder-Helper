@@ -12,11 +12,9 @@ class RatiosTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('rations')->insert([
+        DB::table('ratios')->insert([
             [
                 'money' => '1000',
-            ],
-            [
                 'coin' => '1',
             ]
         ]);

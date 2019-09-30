@@ -1,6 +1,6 @@
 <div class="responsive-header four">
     <div class="responsive-menubar">
-        <div class="res-logo"><a href="{{route('home')}}" title=""><img src="{{ asset('images/logo6.png') }}" alt="" /></a></div>
+        <div class="res-logo"><a href="{{route('home')}}" title="" style="font-size: 25px; font-weight: bold; text-transform: uppercase">Smart Job</a></div>
         <div class="menu-resaction">
             <div class="res-openmenu">
                 <img src="{{ asset('images/icon5.png') }}" alt="" />
@@ -40,8 +40,8 @@
     <div class="menu-sec">
         <div class="container">
             <div class="logo">
-                <a href="{{route('home')}}" title="">
-                    <img src="{{ asset('images/logo6.png') }}" alt=""/>
+                <a href="{{route('home')}}" title="" style="font-size: 25px; font-weight: bold; text-transform: uppercase">
+                    Smart Job
                 </a>
             </div><!-- Logo -->
             @if (Auth::user())

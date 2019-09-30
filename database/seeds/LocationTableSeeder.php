@@ -33,6 +33,22 @@ class LocationTableSeeder extends Seeder
                 'name' => 'Quận Đống Đa',
                 'map_location' => 'Quận đống đa',
             ],
+            [
+                'name' => 'Quận Hà Đông',
+                'map_location' => 'Quận hà đông',
+            ],
+            [
+                'name' => 'Quận Bắc Từ Liêm',
+                'map_location' => 'Quận bắc từ liêm',
+            ],
+            [
+                'name' => 'Quận Nam Từ Liêm',
+                'map_location' => 'Quận nam từ liêm',
+            ],
+            [
+                'name' => 'Quận Tây Hồ',
+                'map_location' => 'Quận tây hồ',
+            ],
         ]);
     }
 }

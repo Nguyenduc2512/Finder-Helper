@@ -51,6 +51,7 @@
                                 </div>
                             </div>
                         @endforeach
+                        {{$newPosts->links()}}
                         </div>
                     <aside class="col-lg-3 column" style="border-left: 1px solid #e8ecec;">
                         <div class="widget">

@@ -34,12 +34,9 @@
                     <div class="row">
                         <div class="col-6">
                             <span class="pf-title">Thời gian bắt đầu</span>
-                            <div class='input-group date' id='time'>
-                                <div class="form-group">
-                                    <input type="text" name="start_time" class="form-control"
-                                           value="{{old('start_time')}}">
-                                    <i class="far fa-calendar-alt"></i>
-                                </div>
+                            <div class="form-group">
+                                <input type="datetime-local" name="start_time" class="form-control"
+                                       value="{{old('start_time')}}">
                                 @if($errors->first('start_time'))
                                     <span class="text-danger"> {{$errors->first('start_time')}} </span>
                                 @endif

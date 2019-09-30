@@ -7,8 +7,8 @@
                         <img src="{{ asset('images/sn1.jpg') }}" alt="" width="100%" />
                         <div class="job-search-sec style3">
                             <div class="job-search style2">
-                                <h3>Find the career you deserve</h3>
-                                <span>Your job search starts and ends with us.</span>
+                                <h3>Tìm công việc của bạn</h3>
+                                <span>Chúng tôi mang đến cho bạn những công việc phù hợp nhất</span>
                                 <div class="search-job2 style2">
                                     <form action="{{ route('search') }}" method="get ">
                                         @csrf

@@ -8,6 +8,7 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <h4>Việc làm gấp</h4>
+                        <div  data-spy="scoll" data-target=".navbar" data-offset="50" style="height: 920px; overflow-y: scroll; border-radius: 7px; -webkit-overflow-scrolling: none">
                         @foreach($posts as $post)
                             @php
                                 $applies = $post->applies->pluck('id')->toArray();
@@ -44,15 +45,17 @@
                                 @endif
                             </div>
                         </div>
-                        @endforeach<!-- Job -->
-                </div>
+                        @endforeach
+                        </div>
+                    </div>
                     <div class="col-lg-5">
                     <h4>Việc làm lâu dài</h4>
-                    @foreach($newPosts as $newPost)
+                        <div  data-spy="scoll" data-target=".navbar" data-offset="50" style="height: 920px; overflow-y: scroll; border-radius: 7px">
+                        @foreach($newPosts as $newPost)
                         @php
                             $applies = $newPost->applies->pluck('id')->toArray();
                         @endphp
-                        <div class="job-listing wtabs">
+                        <div class="job-listing wtabs" >
                             <div class="job-title-sec">
                                 <div class="c-logo"><img src="{{ $newPost->user->avatar }}"></div>
                                 <h3><a href="#" title="">{{$newPost->title}}</a></h3>
@@ -89,7 +92,8 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
+                        </div>
+                    </div>
                  </div>
             </div>
         </div>
@@ -101,6 +105,7 @@
                 <div class="col-lg-9 column">
                     <h4>Việc làm lương cao</h4>
                     <div class="job-list-modern">
+                        <div  data-spy="scoll" data-target=".navbar" data-offset="50" style="height: 920px; overflow-y: scroll; border-radius: 7px">
                         @foreach($postsPriceHigh as $postPriceHigh)
                             @php
                                 $applies = $postPriceHigh->applies->pluck('id')->toArray();
@@ -140,6 +145,7 @@
                                 </div>
                             </div>
                         @endforeach
+                        </div>
                     </div>
                 </div>
                 <aside class="col-lg-3 column" style="border-left: 1px solid #e8ecec;">

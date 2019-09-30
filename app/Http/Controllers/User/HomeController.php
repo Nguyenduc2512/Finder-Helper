@@ -66,7 +66,7 @@ class HomeController extends Controller
     public function allPost()
     {
         $rule = Config::get('helper.user_type_helper');
-        $newPosts   = $this->postService->getNewPosts();
+        $newPosts   = $this->postService->getHotPosts();
         $categories = $this->postService->getCategories();
         $locations  = $this->postService->getLocations();
 
@@ -78,7 +78,6 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $rule = Config::get('helper.user_type_helper');
-        $newPosts   = $this->postService->getNewPosts();
         $categories = $this->postService->getCategories();
         $locations  = $this->postService->getLocations();
         $newPosts = $this->postService->search($request);

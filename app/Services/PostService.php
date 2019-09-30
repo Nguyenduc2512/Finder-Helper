@@ -26,7 +26,16 @@ class PostService
     {
         $status = Config::get('helper.post_type_active');
         $newposts = Post::where('status', $status)
-                        ->orderBy('start_time', 'desc')->paginate(10);
+                        ->orderBy('created_at', 'desc')->get();
+
+        return $newposts;
+    }
+
+    public function getHotPosts()
+    {
+        $status = Config::get('helper.post_type_active');
+        $newposts = Post::where('status', $status)
+                        ->orderBy('start_time', 'desc')->paginate(7);
 
         return $newposts;
     }
@@ -167,20 +176,17 @@ class PostService
 
     public function search(Request $request)
     {
-        if (!$request->address) {
-            $newPosts = Post::where('category_id', $request->category_id)->get();
+            $query = Post::query();
 
-            return $newPosts;
-        } elseif(!$request->category_id) {
-            $newPosts = Post::where('address', 'LIKE', '%' .$request->address. '%')->get();
+            if (!empty($request->category_id)) {
+                $query = $query->where('category_id', $request->category_id);
+            }
 
-            return $newPosts;
-        }else
-        $newPosts = Post::where('address', 'LIKE', '%' .$request->address. '%')
-            ->Where('category_id', $request->category_id)
-            ->get();
+            if (!empty($request->address)) {
+                $query = $query->where('address', 'LIKE', '%' .$request->address. '%');
+            }
 
-        return $newPosts;
+            return $query->get();
     }
 
 }

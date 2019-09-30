@@ -5,10 +5,10 @@
 <div class="card">
     <div class="card-header">
       <h3 class="card-title">
-        Danh sách danh mục
+        Danh sách danh mục <br><br>
         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
         data-target="#addCate" >
-          Add Category
+          Thêm danh mục
         </button>
       </h3>
     </div>
@@ -17,9 +17,9 @@
         <thead>
         <tr>
           <th>ID</th>
-          <th>NAME</th>
-          <th>Created_at</th>
-          <th>Action</th>
+          <th>Tên danh mục</th>
+          <th>Ngày tạo</th>
+          <th>Hành dộng</th>
         </tr>
         </thead>
         <tbody>
@@ -33,10 +33,6 @@
                   data-target="#edit" data-cate-id="{{ $cate->id }}" data-cate-name="{{ $cate->name}}">
                   <i class="fa fa-edit"></i>
               </button>
-              <a href="javascript:;" class="btn btn-danger btn-sm btn-remove"
-                linkurl="{{ route('categories.destroy', $cate->id) }}">
-                <i class="far fa-trash-alt"></i>
-              </a>
             </td>
           </tr>
         @endforeach

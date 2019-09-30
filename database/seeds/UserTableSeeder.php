@@ -15,13 +15,13 @@ class UserTableSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name'                     => 'User ',
-                'avatar'                   => '/images/user/defaut-avatar.png',
+                'avatar'                   => 'public/images/user/defaut-avatar.png',
                 'email'                    => 'user@gmail.com',
                 'password'                 =>  Hash::make('123456'),
                 'date_of_birth'            =>  '12-09-1999',
                 'identification_code'      =>  '12345678987',
-                'identification'           => '/images/user/simple.png',
-                'identification_back'      => '/images/user/simpleback.png',
+                'identification'           => 'public/images/user/simple.png',
+                'identification_back'      => 'public/images/user/simpleback.png',
                 'phone'                    => '0987654567',
                 'coin'                     => '0',
                 'gender'                   => '1',
@@ -32,13 +32,13 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'name'                     => 'linh luu ',
-                'avatar'                   => '/images/user/defaut-avatar.png',
+                'avatar'                   => 'public/images/user/defaut-avatar.png',
                 'email'                    => 'linh@gmail.com',
                 'password'                 =>  Hash::make('123456'),
                 'date_of_birth'            =>  '12-09-1999',
                 'identification_code'      =>  '12345678987',
-                'identification'           => '/images/user/simple.png',
-                'identification_back'      => '/images/user/simpleback.png',
+                'identification'           => 'public/images/user/simple.png',
+                'identification_back'      => 'public/images/user/simpleback.png',
                 'phone'                    => '0987654567',
                 'coin'                     => '0',
                 'gender'                   => '1',
@@ -49,13 +49,13 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'name'                     => 'Hải Phùng ',
-                'avatar'                   => '/images/user/defaut-avatar.png',
+                'avatar'                   => 'public/images/user/defaut-avatar.png',
                 'email'                    => 'hai@gmail.com',
                 'password'                 =>  Hash::make('123456'),
                 'date_of_birth'            =>  '09-09-1999',
                 'identification_code'      =>  '0987678987',
-                'identification'           => '/images/user/simple.png',
-                'identification_back'      => '/images/user/simpleback.png',
+                'identification'           => 'public/images/user/simple.png',
+                'identification_back'      => 'public/images/user/simpleback.png',
                 'phone'                    => '0987654567',
                 'coin'                     => '0',
                 'gender'                   => '3',
@@ -66,13 +66,13 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'name'                     => 'Minh Đức ',
-                'avatar'                   => '/images/user/defaut-avatar.png',
+                'avatar'                   => 'public/images/user/defaut-avatar.png',
                 'email'                    => 'duc@gmail.com',
                 'password'                 =>  Hash::make('123456'),
                 'date_of_birth'            =>  '21-09-1999',
                 'identification_code'      =>  '4435678987',
-                'identification'           => '/images/user/simple.png',
-                'identification_back'      => '/images/user/simpleback.png',
+                'identification'           => 'public/images/user/simple.png',
+                'identification_back'      => 'public/images/user/simpleback.png',
                 'phone'                    => '0987654567',
                 'coin'                     => '10000',
                 'gender'                   => '1',
@@ -81,7 +81,7 @@ class UserTableSeeder extends Seeder
                 'provider'                 => '0',
                 'provider_id'              => '0',
             ],
-        ]);
 
+        ]);
     }
 }

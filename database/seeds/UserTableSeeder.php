@@ -81,7 +81,6 @@ class UserTableSeeder extends Seeder
                 'provider'                 => '0',
                 'provider_id'              => '0',
             ],
-
         ]);
     }
 }

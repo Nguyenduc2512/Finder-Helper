@@ -52,7 +52,6 @@ class LoginService
         }
 
         $user->save();
-
     }
 
 }

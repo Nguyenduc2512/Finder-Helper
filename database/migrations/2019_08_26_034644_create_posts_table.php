@@ -26,9 +26,6 @@ class CreatePostsTable extends Migration
             $table->string('address');
             $table->text('detail');
             $table->tinyInteger('status')->default('0');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('location_id')->references('id')->on('locations');
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

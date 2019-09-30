@@ -1,4 +1,5 @@
 @extends('client.layouts.login')
+@section('title', 'Đăng nhập')
 @section('content')
     <div class="center-sign">
 
@@ -69,7 +70,6 @@
                     <div class="mb-1 text-center">
                         <a class="btn btn-facebook mb-3 ml-1 mr-1" href="{{ url('/auth/redirect/facebook') }}">@lang('messages.login') <i
                                 class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-google mb-3 ml-1 mr-1" href="#">@lang('messages.login') <i class="fab fa-google"></i></a>
                     </div>
 
                     <p class="text-center">Bạn đã có tài khoản <a href="{{route('sign')}}">Đăng ký</a></p>

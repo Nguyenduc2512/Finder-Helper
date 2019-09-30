@@ -24,7 +24,7 @@
                     <a href="{{ route('user.change-password') }}" title=""><i class="fas fa-key"></i>&nbsp;@lang('messages.changePassword')</a>
                 </li>
                 <li>
-                    <a href="#" title=""><i class="fas fa-sign-out-alt"></i>&nbsp;@lang('messages.logout')</a>
+                    <a href="{{ route('logout') }}" title=""><i class="fas fa-sign-out-alt"></i>&nbsp;@lang('messages.logout')</a>
                 </li>
             </ul>
         @else
@@ -48,7 +48,7 @@
                     <a href="{{ route('user.change-password') }}" title=""><i class="fas fa-key"></i>&nbsp;@lang('messages.changePassword')</a>
                 </li>
                 <li>
-                    <a href="#" title=""><i class="fas fa-sign-out-alt"></i>&nbsp;@lang('messages.logout')</a>
+                    <a href="{{ route('logout') }}" title=""><i class="fas fa-sign-out-alt"></i>&nbsp;@lang('messages.logout')</a>
                 </li>
             </ul>
         @endif

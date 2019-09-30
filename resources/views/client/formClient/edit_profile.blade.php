@@ -31,40 +31,40 @@
                     <div class="row">
                         <div class="col-md-9" style="margin-top : 5%;">
                             <div class="form-group">
-                                <span class="pf-title">Họ Và Tên</span>
+                                <span class="pf-title">Họ Và Tên <span class="text-danger">*</span></span>
                                     <input type="text" name="name" class="form-control"
-                                           value="{{ Auth::user()->name }}" rows="10">
+                                           value="{{ Auth::user()->name }}" rows="10" placeholder="Họ và tên">
                                 @if($errors->first('name'))
                                     <span class="text-danger"> {{$errors->first('name')}} </span>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <span class="pf-title">Email</span>
+                                <span class="pf-title">Email <span class="text-danger">*</span></span>
                                 <input type="text" name="email" class="form-control"
-                                       value="{{ Auth::user()->email }}">
+                                       value="{{ Auth::user()->email }}" placeholder="Email">
                                 @if($errors->first('email'))
                                     <span class="text-danger"> {{$errors->first('email')}} </span>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <span class="pf-title">Số điện thoại</span>
+                                <span class="pf-title">Số điện thoại <span class="text-danger">*</span></span>
                                 <input type="number" name="phone" class="form-control"
-                                       value="{{ Auth::user()->phone }}" id="phone">
+                                       value="{{ Auth::user()->phone }}" id="phone" placeholder="Số điện thoại">
                                 <span id="err" class="text-danger"></span>
                                 @if($errors->first('phone'))
                                     <span class="text-danger"> {{$errors->first('phone')}} </span>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <span class="pf-title">Ngày sinh</span>
+                                <span class="pf-title">Ngày sinh <span class="text-danger">*</span></span>
                                 <input type="date" name="date_of_birth" class="form-control"
-                                       value="{{ Auth::user()->date_of_birth }}">
+                                       value="{{ Auth::user()->date_of_birth }}" placeholder="Ngày sinh">
                                 @if($errors->first('date_of_birth'))
                                     <span class="text-danger"> {{$errors->first('date_of_birth')}} </span>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <span class="pf-title">Giới Tính</span>
+                                <span class="pf-title">Giới Tính <span class="text-danger">*</span></span>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="gender"
                                            @if (Auth::user()->gender == $gender['gender_type_male'] )
@@ -93,7 +93,7 @@
                                     <span class="text-danger"> {{$errors->first('gender')}} </span>
                                 @endif
                             </div>
-                            <div class="form-control">
+                            <div class="form-control button-edit">
                                 <button type="submit" class="btn btn-outline-success btn-xs">
                                     @lang('messages.update')
                                 </button>

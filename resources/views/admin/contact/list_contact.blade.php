@@ -30,7 +30,7 @@
                         <td>{{ $item->content }}</td>
                         <td class="text-center">
                             @if ( $item->status == Config::get('helper.contact_type_error') )
-                                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
+                                <button type="button" class="btn btn-warning btn-sm text-light" data-toggle="modal"
                                         data-target="#contact" data-id="{{ $item->id }}"
                                         data-status="{{ $item->status }}">
                                     Chưa liên hệ

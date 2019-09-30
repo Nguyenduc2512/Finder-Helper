@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
       $users = [];
         $faker = Faker\Factory::create();
 
-        for ($i=0 ; $i<10 ; $i++) {
+        for ($i=0 ; $i<5 ; $i++) {
             $item = [
                 'name'                => $faker->name,
                 'avatar'              => 'images/'.$faker->image('public/images/user', 400, 300, 'people', false),

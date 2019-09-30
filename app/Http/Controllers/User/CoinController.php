@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\CoinService;
+use App\Http\Requests\CoinRequest;
 use Illuminate\Support\Facades\Lang;
-use App\Models\Bank;
 use Illuminate\Support\Facades\Config;
 
 class CoinController extends Controller
@@ -24,7 +23,7 @@ class CoinController extends Controller
         return view('client.formClient.add_coin', compact('banks', 'gender'));
     }
 
-    public function store(Request $request)
+    public function store(CoinRequest $request)
     {
         $this->coinService->addCoin($request);
 

@@ -11,18 +11,17 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        $admin = [];
-        $faker = Faker\Factory::create();
-
-        for ($i=0 ; $i<5 ; $i++) {
-            $item = [
-                'name'     => $faker->name,
-                'avatar'   => 'images/'.$faker->image('public/images/admin', 400, 300, 'people', false),
-                'email'    => $faker->email,
-                'password' => $faker->password,
-                ];
-            $admin[] = $item;
-        }
-        DB::table('admins')->insert($admin);
+        DB::table('admins')->insert([
+            [
+                'name' => 'linh luu ',
+	    		'email' => 'admin@gmail.com',
+	    		'password' => Hash::make('123456'),
+            ],
+            [
+                'name' => 'Admin ',
+                'email' => 'admin1@gmail.com',
+                'password' => Hash::make('123456')
+            ],
+        ]);
     }
 }

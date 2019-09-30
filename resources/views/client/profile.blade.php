@@ -15,6 +15,7 @@
                         <div class="cst"><img src="{{ asset(Auth::user()->avatar) }}" alt=""></div>
                         <img src="{{ asset(Auth::user()->identification_back) }}" alt="" class="img-cmt" width="200">
                         <img src="{{ asset(Auth::user()->identification) }}" alt="" class="img-cmnd" width="200">
+
                        <div style="margin-top: 15%">
                            <h3>{{ Auth::user()->name }}</h3>
                            <P>

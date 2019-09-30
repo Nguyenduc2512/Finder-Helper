@@ -26,7 +26,7 @@ class CategoryTableSeeder extends Seeder
                 'name' => 'Trông em bé',
             ],
             [
-                'name' => 'Đón đưa theo giờ',
+                'name' => 'Sửa máy tính',
             ],
         ]);
     }

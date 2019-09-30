@@ -82,7 +82,6 @@ Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
     Route::post('update', 'Admin\PostController@update')->name('update');
     Route::get('destroy/{post}', 'Admin\PostController@destroy')->name('destroy');
 });
-
 Route::group(['prefix' => 'user-admin'], function () {
     Route::get('/list', 'Admin\UserController@index')->name('list-user');
 });

@@ -102,10 +102,14 @@
                             <input type="hidden" name="status" value="0">
                             @if(Auth::user())
                                 @if($rule == Auth::user()->rules)
-                                    @if(in_array(Auth::id(), $applies))
-                                        <a href="javascript:;" linkurl="{{route('user.cancel-apply', ['id' => $post->id])}}" class="btn btn-danger py-2 text-white" style="margin: 20px; margin-left: 300px; width: 150px">Bỏ ứng tuyển</a>
+                                    @if(Auth::user()->gender == $post->gender || $post->gender == $gender['gender_type_other'])
+                                        @if(in_array(Auth::id(), $applies))
+                                            <a href="javascript:;" linkurl="{{route('user.cancel-apply', ['id' => $post->id])}}" class="btn btn-danger py-2 text-white" style="margin: 20px; margin-left: 300px; width: 150px">Bỏ ứng tuyển</a>
+                                        @else
+                                            <button class="btn btn-warning py-2 text-white" type="submit" style="margin: 20px; width: 120px">@lang('messages.apply')</button>
+                                        @endif
                                     @else
-                                        <button class="btn btn-warning py-2 text-white" type="submit" style="margin: 20px; width: 120px">@lang('messages.apply')</button>
+                                        <div class="text-danger"><i> Bạn không phù hợp với vông việc này</i></div>
                                     @endif
                                 @endif
                             @else
@@ -122,7 +126,7 @@
                         @foreach($postsSameCategory as $postSameCategory)
                             <div>
                                 <div class="card-body" id="card-body">
-                                    <a class="nav-link" style="font-size: 18px;" href="{{ URL::to('/user/detail-post/'.$postSameCategory->id) }}" data-toggle="tooltip" title="Giúp việc nhà">{{$postSameCategory->title}}<br>
+                                    <a class="nav-link" style="font-size: 18px;" href="{{ URL::to('/detail-post/'.$postSameCategory->id) }}" data-toggle="tooltip" title="Giúp việc nhà">{{$postSameCategory->title}}<br>
                                         <span class="text-dark" style="font-size: 15px;">{{$postSameCategory->detail}}.</span>
                                     </a>
                                     <p class="card-text"><span class="text-danger" id="span-card-text"><i class="fas fa-dollar-sign"></i>{{$postSameCategory->price}}</span>

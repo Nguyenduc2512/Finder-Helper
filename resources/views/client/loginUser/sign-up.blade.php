@@ -158,13 +158,13 @@
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="rules" value="1">
                             <label class="form-check-label" for="exampleRadios2">
-                                Người giúp
+                                Người cần giúp
                             </label>
                         </div>
                         <div class="form-check ">
                             <input class="form-check-input " type="radio" name="rules" value="2">
                             <label class="form-check-label" for="exampleRadios2">
-                                Người thuê
+                                Người giúp
                             </label>
                         </div>
                     </div>

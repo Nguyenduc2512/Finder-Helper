@@ -2,7 +2,7 @@
     $(document).ready(function(){
 
         var img = document.querySelector('[name="avatar"]');
-        img.onchange = function(){
+        img.onchange = function() {
 
         var image = this.files[0];
 

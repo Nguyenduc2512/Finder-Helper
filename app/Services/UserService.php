@@ -57,7 +57,7 @@ class UserService
         return $user;
     }
 
-    public function create(UserRequests $request)
+    public function create($request)
     {
         $user = new User();
         $data = [

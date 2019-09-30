@@ -14,4 +14,4 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/css/bootstrap.css') }}" />
 <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/all.min.css')}}" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
-<link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css' rel='stylesheet' type='text/css'>
+<link href="{{ asset('css/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet">

@@ -33,20 +33,20 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <span class="pf-title">Thời gian bắt đầu <span class="text-danger">*</span></span>
-                            <div class="form-group">
-                                <input type="datetime-local" name="start_time" class="form-control"
-                                       value="{{old('start_time')}}">
-                                @if($errors->first('start_time'))
-                                    <span class="text-danger"> {{$errors->first('start_time')}} </span>
-                                @endif
+                            <span class="pf-title">Thời gian bắt đầu</span>
+                            <div class="form-group" >
+                                <input type="text" name="start_time" class="form-control" id="start_time"
+                                    value="{{old('start_time')}}">
                             </div>
+                            @if($errors->first('start_time'))
+                                <span class="text-danger"> {{$errors->first('start_time')}} </span>
+                            @endif
                         </div>
 
                         <div class="col-6">
                             <span class="pf-title">Thời gian kết thúc <span class="text-danger">*</span></span>
                             <div class="form-group">
-                                <input type="datetime-local" name="end_time" class="form-control"
+                                <input type="text" name="end_time" class="form-control" id="end_time"
                                        value="{{old('end_time')}}">
                             </div>
                             @if($errors->first('end_time'))
@@ -117,8 +117,35 @@
             </div>
         </div>
     </div>
-    @section('script')
-        <script>
+@section('script')
+    <script type="text/javascript">
+        $(function () {
+            $('#start_time').datetimepicker({
+                format: "YYYY-MM-DD HH-mm-ss",
+                defaultDate: "09/1/2019",
+                disabledDates: [
+                    moment("09/12/2019"),
+                    new Date(2019, 9 - 1, 21),
+                    "11/22/2013 00:53"
+                ]
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#end_time').datetimepicker({
+                format: "YYYY-MM-DD HH-mm-ss",
+                defaultDate: "09/1/2019",
+                disabledDates: [
+                    moment("09/12/2019"),
+                    new Date(2019, 9 - 1, 21),
+                    "11/22/2013 00:53",
+                ]
+            });
+        });
+    </script>
+    <script>
             $('.btn-remove').on('click', function(){
 
                 swal({

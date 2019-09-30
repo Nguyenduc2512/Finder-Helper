@@ -64,6 +64,7 @@ Route::get('/all-post', 'User\HomeController@allPost')->name('all-post');
 Route::get('/category', 'User\HomeController@category')->name('category');
 Route::get('detail-post/{id}', 'User\PostController@detail')->name('post-detail');
 Route::get('post-category/{id}', 'User\HomeController@postCategory')->name('post-category');
+Route::get('/info-page', 'User\HomeController@infoPage')->name('info-page');
 Route::get('search', 'User\HomeController@search')->name('search');
 
 Route::get('/auth/redirect/{provider}', 'Auth\LoginFacebookController@redirect');
@@ -87,7 +88,7 @@ Route::group(['prefix' => 'user-admin'], function () {
 });
 
 Route::get('/sign', 'Auth\SignUpController@show')->name('sign');
-Route::post('/sign', 'Auth\SignUpController@create');
+Route::post('/sign', 'Auth\SignUpController@create')->name('signUp');
 Route::group(['prefix' => 'coins', 'as' => 'coins.'], function () {
     Route::get('/', 'Admin\CoinController@index')->name('index');
     Route::get('{coin}/edit', 'Admin\CoinController@edit')->name('edit');

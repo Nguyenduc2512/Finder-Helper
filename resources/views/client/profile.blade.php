@@ -12,28 +12,38 @@
                 </div>
                 <div class="cand-single-user" style="margin-top: 10%">
                     <div class="can-detail-s">
-                        <div class="cst"><img src="{{ asset(Auth::user()->avatar) }}" alt=""></div>
-                        <img src="{{ asset(Auth::user()->identification_back) }}" alt="" class="img-cmt" width="200">
-                        <img src="{{ asset(Auth::user()->identification) }}" alt="" class="img-cmnd" width="200">
-
-                       <div style="margin-top: 15%">
-                           <h3>{{ Auth::user()->name }}</h3>
-                           <P>
-                               Giới tính:
-                               @if ( Auth::user()->gender == $gender['gender_type_male'] )
-                                   Nam
-                               @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
-                                   Nữ
-                               @else
-                                   Khác
-                               @endif
-                           </P>
-                           <p>Tiền: <i class="fas fa-dollar-sign"></i>{{ Auth::user()->coin }}</p>
-                           <span>Số điện thoại: {{ Auth::user()->phone }}</span>
-                           <span>Email: {{ Auth::user()->email }}</span>
-                           <span>Số CMND: {{ Auth::user()->identification_code}}</span>
-                       </div>
+                        <div class="row">
+                            <div class="cst col-6" style="margin-left: 80px">
+                                <img src="/{{ Auth::user()->avatar }}" alt="">
+                            </div>
+                            <div class="col-12" style="margin-top: -20px">
+                                <div class="col-sm-6" style="margin-top: 7px">
+                                    <img src="/{{ Auth::user()->identification }}" alt="" class="img-cmt" width="100px">
+                                </div>
+                                <div class="col--sm-6">
+                                    <img src="/{{ Auth::user()->identification_back }}" alt="" class="img-cmnd" width="100px">
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div style="margin-top: -12%; float: left; margin-left: 50px; width: 400px">
+                       <h3>{{ Auth::user()->name }}</h3>
+                       <P>
+                           Giới tính:
+                           @if ( Auth::user()->gender == $gender['gender_type_male'] )
+                               Nam
+                           @elseif ( Auth::user()->gender == $gender['gender_type_female'] )
+                               Nữ
+                           @else
+                               Khác
+                           @endif
+                       </P>
+                       <p>Coin: {{ Auth::user()->coin }} <i class="fas fa-coins"></i></p>
+                       <span>Số điện thoại: {{ Auth::user()->phone }}</span><br><br>
+                       <span>Email: {{ Auth::user()->email }}</span><br><br>
+                       <span>Số CMND: {{ Auth::user()->identification_code}}</span><br>
+                     </div>
+
                 </div>
             </div>
         </div>

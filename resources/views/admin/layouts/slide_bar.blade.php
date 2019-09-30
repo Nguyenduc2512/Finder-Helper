@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="{{route('admin')}}" class="brand-link">
         <h4 class="brand-text font-weight-light">Admin Finder Helper</h4>
     </a>
 
@@ -24,7 +24,7 @@
                 <li class="nav-item has-tree-view">
                     <a href="{{route('admin')}}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Dashboard</p>
+                        <p>Trang chủ</p>
                     </a>
                 </li>
                 <li class="nav-item has-tree-view">
@@ -38,17 +38,14 @@
                         <i class="fas fa-newspaper"></i>
                         <p>
                             @lang('messages.postJob')
-                            <span class="right badge badge-danger">New</span>
+                            <span class="right badge badge-danger">Bài viết mới</span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="{{route('list-user')}}" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            @lang('messages.user')
-                            <span class="badge badge-info right"></span>
-                        </p>
+                        <i class="fas fa-user"></i>
+                        <p>@lang('messages.user')</p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
@@ -56,13 +53,12 @@
                         <i class="fas fa-dollar-sign"></i>
                         <p>
                             @lang('messages.coin')
-                            <span class="badge badge-info right"></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="{{route('contact.list-contact')}}" class="nav-link">
-                        <i class="fas fa-file-signature"></i>
+                        <i class="fas fa-envelope"></i>
                         <p>
                             @lang('messages.contact')
                             <span class="badge badge-info right"></span>

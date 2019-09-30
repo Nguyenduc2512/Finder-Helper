@@ -11,7 +11,7 @@
 			<div class="icon">
 				<i class="fas fa-user-alt"></i></i>
 			</div>
-			<a href="{{route('list-user')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+			<a href="{{route('list-user')}}" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 	<div class="col-lg-3 col-6">
@@ -24,7 +24,7 @@
 			<div class="icon">
 				<i class="fas fa-list-alt"></i>
 			</div>
-			<a href="{{route('categories.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+			<a href="{{route('categories.index')}}" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 	<div class="col-lg-3 col-6">
@@ -37,7 +37,7 @@
 			<div class="icon">
 				<i class="fas fa-newspaper"></i>
 			</div>
-			<a href="{{route('posts.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+			<a href="{{route('posts.index')}}" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 		<div class="col-lg-3 col-6">
@@ -50,7 +50,7 @@
 			<div class="icon">
 				<i class="fas fa-newspaper"></i>
 			</div>
-			<a href="{{route('posts.index')}}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+			<a href="{{route('posts.index')}}" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
 		</div>
 	</div>
 	<!-- ./col -->

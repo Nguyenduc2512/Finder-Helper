@@ -1,12 +1,12 @@
 @include('admin.layouts.css')
 <div class="login-box">
         <div class="login-logo">
-          <a href="../../index2.html"><b>Admin</b>LTE</a>
+          <a></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
           <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Đăng nhập Admin</p>
             @if (session('errmsg'))
             <p class="text-danger"> {{session('errmsg')}} </p>
     @endif
@@ -24,7 +24,7 @@
                 </div>
               </div>
               <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Password" name="password">
+                <input type="password" class="form-control" placeholder="Mật kh" name="password">
                 <div class="input-group-append">
                   <div class="input-group-text">
                     <span class="fas fa-lock"></span>
@@ -36,27 +36,23 @@
                   <div class="icheck-primary">
                     <input type="checkbox" id="remember">
                     <label for="remember">
-                      Remember Me
+                      Ghi nhớ mật khẩu
                     </label>
                   </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-4">
-                  <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                  <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
                 </div>
                 <!-- /.col -->
               </div>
             </form>
             <!-- /.social-auth-links -->
-
             <p class="mb-1">
-              <a href="#">I forgot my password</a>
-            </p>
-            <p class="mb-0">
-              <a href="register.html" class="text-center">Register a new membership</a>
+              <a href="#">Quên mật khẩu</a>
             </p>
           </div>
           <!-- /.login-card-body -->
         </div>
       </div>
-@include('admin.layouts.style') 
+@include('admin.layouts.style')

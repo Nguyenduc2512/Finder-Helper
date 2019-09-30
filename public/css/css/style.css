@@ -276,8 +276,8 @@ input[type="number"],
 input[type="date"],
 input[type="datetime-local"],
 input[type="email"], textarea, select {
-    background: #e4e4e4 none repeat scroll 0 0;
-    border: medium none;
+    background: none repeat scroll 0 0;
+    border: solid 0.5 #96D2D9;
     float: left;
     font-size: 14px;
     font-weight: 400;
@@ -11890,4 +11890,8 @@ header.style4 .account-btns > li a,
  }
  #span-card-text{
      margin-left: 5%;
+ }
+
+ ::-webkit-scrollbar {
+     display: none;
  }

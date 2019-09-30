@@ -15,14 +15,14 @@ class AdminTableSeeder extends Seeder
             [
                 'name' => 'linh luu ',
 	    		'email' => 'admin@gmail.com',
-                'avatar' => 'public/images/user/defaut-avatar.png',
 	    		'password' => Hash::make('123456'),
+                'avatar'   => 'public/images/user/defaut-avatar.png',
             ],
             [
                 'name' => 'Admin ',
                 'email' => 'admin1@gmail.com',
-                'avatar' => 'public/images/user/defaut-avatar.png',
-                'password' => Hash::make('123456')
+                'password' => Hash::make('123456'),
+                'avatar'   => 'public/images/user/defaut-avatar.png',
             ],
         ]);
     }

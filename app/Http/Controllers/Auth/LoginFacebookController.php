@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\UpdateInfoRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -23,29 +24,24 @@ class LoginFacebookController extends Controller
     {
         return Socialite::driver($provider)->redirect();
     }
-    
+
     public function callback($provider)
     {
         $userInfo = Socialite::driver($provider)->stateless()->user();
-        $user = $this->loginService->createUser($userInfo, $provider); 
+        $user = $this->loginService->createUser($userInfo, $provider);
         Auth::login($user);
 
-        if (Auth::user()->rules == Config::get('helper.user_type_finder')) {
+        if (Auth::user()->rules) {
 
-            return redirect()->route('user.profile-finder');
-
-        } else if (Auth::user()->rules == Config::get('helper.user_type_helper')) {
-
-            return redirect()->route('user.profile-helper');
-
+            return redirect()->route('user.profile');
         } else {
 
             return redirect()->route('user.update-info', Auth::user()->id );
         }
-        
+
     }
 
-    public function addInfo(Request $request)
+    public function addInfo(UpdateInfoRequest $request)
     {
         $this->loginService->createInfo($request);
 

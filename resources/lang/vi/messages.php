@@ -56,7 +56,7 @@ return [
     'applySuccess'   => 'Ứng tuyển thành công',
     'cancel'         => 'Đã ứng tuyển',
     'cancelSuccess'  => 'Bỏ ứng tuyển thành công',
-    'coin'           => 'Lịch sử thanh toán',
+    'coin'           => 'Nạp tiền',
     'delete'         => 'Xóa thành công',
     'post'           => 'Tin của bạn',
     'accept'         => 'Phê duyệt thành công',
@@ -64,4 +64,6 @@ return [
     'success'        => 'Xác nhận thành công',
     'upPost'         => 'Bài viết của bạn đang được chờ duyệt',
     'user'           => 'Thành viên',
+    'coinSuccess'    => 'Nạp tiền thành công',
+    'register'       => 'Đăng kí tài khoản',
 ];

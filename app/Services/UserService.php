@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequests;
 use App\Services\UploadService;
-use App\Http\Requests\LostPasswordRequest;
 use Illuminate\Support\Facades\Lang;
 
 class UserService
@@ -28,7 +27,7 @@ class UserService
 
         if (password_verify($request->password, $user->password) == false) {
             return redirect()->route('user.change-password')
-                             ->with('errmsg', 'Old password is incorrect');
+                             ->with('errmsg', 'Mật khẩu cũ không chính xác');
         }
 
         $user->update(
@@ -41,7 +40,7 @@ class UserService
                          ->with('errmsg', 'Change password successfully');
     }
 
-    public function updateProfile(UserRequests $request)
+    public function updateProfile(Request $request)
     {
         $user = User::find($request->id);
         $user->fill($request->all());
@@ -58,7 +57,7 @@ class UserService
         return $user;
     }
 
-    public function create(Request $request)
+    public function create(UserRequests $request)
     {
         $user = new User();
         $data = [

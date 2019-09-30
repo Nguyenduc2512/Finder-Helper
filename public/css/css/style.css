@@ -276,8 +276,7 @@ input[type="number"],
 input[type="date"],
 input[type="datetime-local"],
 input[type="email"], textarea, select {
-    background: none repeat scroll 0 0;
-    border: solid 0.5 #96D2D9;
+    border: 1px solid #e8ecec;
     float: left;
     font-size: 14px;
     font-weight: 400;
@@ -306,6 +305,12 @@ button{
     background:black;
     border:0;
     letter-spacing:1px;
+}
+.button-coin {
+    margin-left: 30%;
+}
+.button-edit{
+    margin-left: 40%;
 }
 /* Icons */
 /* Arrows */

@@ -1,11 +1,20 @@
-<?php 
+<?php
 
 namespace App\Services;
 use App\Models\User;
+use App\Services\UploadService;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateInfoRequest;
 
 class LoginService
 {
+    protected $uploadFile;
+
+    public function __construct(UploadService $uploadFile)
+    {
+        $this->uploadFile = $uploadFile;
+    }
+
     public function createUser($userInfo, $provider)
     {
         $user = User::where('provider_id', $userInfo->id)->first();
@@ -23,13 +32,26 @@ class LoginService
         return $user;
     }
 
-    public function createInfo(Request $request)
+    public function createInfo(UpdateInfoRequest $request)
     {
-        $data = $request->except('_token', 'id');
         $user = User::find($request->id);
-        $user->update($data);
+        $user->fill($request->all());
 
-        return $user;
+        if ( $request->hasFile('identification_back') ) {
+
+            $path = $this->uploadFile->uploadIdentification_back($request);
+
+            $user->identification_back = request()->identification_back->move('images/user', $path);
+        }
+
+        if ( $request->hasFile('identification') ) {
+
+            $path = $this->uploadFile->uploadIdentification($request);
+
+            $user->identification = request()->identification->move('images/user', $path);
+        }
+
+        $user->save();
     }
-    
+
 }

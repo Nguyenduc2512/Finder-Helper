@@ -1,4 +1,4 @@
-<footer class="style2">
+<footer class="style2" style="margin-top: 5%">
     <div class="block">
         <div class="container">
             <div class="row">

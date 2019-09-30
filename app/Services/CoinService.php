@@ -6,8 +6,17 @@ use App\Models\Ratio;
 use Illuminate\Http\Request;
 use App\Models\Coin;
 use App\Models\User;
+use App\Services\UploadService;
 
-class CoinService{
+class CoinService
+{
+    protected $upload;
+
+    public function __construct(UploadService $upLoad)
+    {
+        $this->upload = $upLoad;
+    }
+
     public function getAllCoin()
     {
         $coin = Coin::all();
@@ -31,8 +40,25 @@ class CoinService{
 
     public function addCoin(Request $request)
     {
-        $data = $request->except('_token');
-        $coin = Coin::create($data);
+        $coin = new Coin();
+        $data = [
+            'user_id' => $request->user_id,
+            'ratio_id' => $request->ratio_id,
+            'bank' => $request->bank,
+            'bank_id' => $request->bank_id,
+            'status' => $request->status,
+            'money' => $request->money,
+            'image' => $request->image,
+        ];
+        $coin->fill($data);
+
+        if ( $request->hasFile('image')) {
+
+            $path = $this->upload->upload($request);
+            $coin->image = request()->image->move('images/img', $path);
+        }
+
+        $coin->save();
     }
 
     public function show(Coin $coin)

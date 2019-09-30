@@ -4,16 +4,19 @@
     <div class="center-sign">
         <div class="panel card-sign">
             <div class="card-title-sign mt-3 text-right">
-                <h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> Sign Up</h2>
+                <h4 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> @lang('messages.register')</h4>
             </div>
             <div class="card-body">
-                <form action="{{route('sign')}}" method="post" enctype="multipart/form-data" novalidate >
+                <form action="{{route('user.add-info')}}" method="post" enctype="multipart/form-data" novalidate >
                     @csrf
+                    @if (isset(Auth::user()->id))
+                        <input type="hidden" name="id" value="{{ Auth::user()->id }}">
+                    @endif
                     <div class="form-group mb-3">
                         <label>Tên hiển thị</label>
                         <label class="text-danger">(*)</label>
                         <div class="input-group">
-                            <input name="name" type="text" class="form-control form-control-lg"  value="{{old('name')}}"/>
+                            <input name="name" type="text" class="form-control form-control-lg"  value="{{ Auth::user()->name }}"/>
                             <span class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fas fa-user"></i>
@@ -28,7 +31,7 @@
                         <label>Email</label>
                         <label class="text-danger">(*)</label>
                         <div class="input-group">
-                            <input name="email" type="text" class="form-control form-control-lg" value="{{old('email')}}"/>
+                            <input name="email" type="text" class="form-control form-control-lg" value="{{ Auth::user()->email }}"/>
                             <span class="input-group-append">
                             <span class="input-group-text">
                                 <i class="fas fa-user"></i>
@@ -37,39 +40,6 @@
                         </div>
                         @if($errors->first('email'))
                             <span class="text-danger"> {{$errors->first('email')}} </span>
-                        @endif
-                    </div>
-                    <div class="form-group mb-3">
-                        <label>Mật khẩu</label>
-                        <label class="text-danger">(*)</label>
-                        <div class="input-group">
-                            <input name="password" type="password" class="form-control form-control-lg" value="{{old('password')}}" />
-                            <span class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </span>
-                        </div>
-                        @if($errors->first('password'))
-                            <span class="text-danger"> {{$errors->first('password')}} </span>
-                        @endif
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <div class="clearfix">
-                            <label class="float-left">Nhập lại password</label>
-                            <label class="text-danger">(*)</label>
-                        </div>
-                        <div class="input-group">
-                            <input name="pwd" type="password" class="form-control form-control-lg" value="{{old('pwd')}}"/>
-                            <span class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </span>
-                        </div>
-                        @if($errors->first('pwd'))
-                            <span class="text-danger"> {{$errors->first('pwd')}} </span>
                         @endif
                     </div>
                     <div class="form-group mb-3">
@@ -200,7 +170,6 @@
 
                     <div class="mb-1 text-center">
                         <a class="btn btn-facebook mb-3 ml-1 mr-1" href="#">Đăng nhập <i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-google mb-3 ml-1 mr-1" href="#">Đăng nhập <i class="fab fa-google"></i></a>
                     </div>
 
                     <p class="text-center">Bạn đã có tài khoản<a href="{{route('login')}}">Đăng nhập</a></p>
@@ -208,7 +177,5 @@
                 </form>
             </div>
         </div>
-
-
     </div>
 @endsection

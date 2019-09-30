@@ -49,7 +49,7 @@
                     <th>STK</th>
                     <th>Ngân hàng</th>
                     <th>Tiền nạp</th>
-                    <th>Ngày</th>
+                    <th>Ảnh hóa đơn</th>
                     <th>Trạng thái</th>
                 </tr>
                 </thead>
@@ -60,10 +60,10 @@
                         <td>{{ $item->bank }}</td>
                         <td>{{ $item->banks['name']}}</td>
                         <td>{{ $item->money }}</td>
-                        <td>{{ $item->created_at }}</td>
+                        <td><img src="{{ asset($item->image)}}" width="100"></td>
                         <td class="text-center">
                             @if ( $item->status == 0 )
-                                <a href="{{ route('coins.edit', $item->id) }}" class="btn btn-warning btn-sm">
+                                <a href="{{ route('coins.edit', $item->id) }}" class="btn btn-warning btn-sm text-light">
                                     @lang('messages.errRequest')
                                 </a>
                             @elseif ( $item->status == 1)

@@ -106,7 +106,7 @@ class HomeController extends Controller
     {
         $check = Config::get('helper');
 
-        return view('client.loginUser.update_info');
+        return view('client.formClient.update_info');
     }
 
     public function changePassword()

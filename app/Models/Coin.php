@@ -14,6 +14,7 @@ class Coin extends Model
         'bank_id',
         'status',
         'money',
+        'image',
     ];
 
     public function user()

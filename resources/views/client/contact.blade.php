@@ -14,30 +14,30 @@
                                     <div class="col-lg-12">
                                         <span class="pf-title">Họ và Tên</span>
                                         <div class="pf-field">
-                                            <input type="text" placeholder="Họ và Tên" name="name">
+                                            <input type="text" placeholder="Họ và Tên" name="name" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <span class="pf-title">Email</span>
                                         <div class="pf-field">
-                                            <input type="email" placeholder="Email" name="email">
+                                            <input type="email" placeholder="Email" name="email" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <span class="pf-title">Số điện thoại</span>
                                         <div class="pf-field">
-                                            <input type="text" placeholder="Số điện thoại" name="phone">
+                                            <input type="text" placeholder="Số điện thoại" name="phone" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <span class="pf-title">Cần tư vấn</span>
                                         <div class="pf-field">
-                                            <textarea name="content" placeholder="Cần tư vấn"></textarea>
+                                            <textarea name="content" placeholder="Cần tư vấn" required></textarea>
                                             <input type="hidden" name="status" value="0">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <button type="submit">Gửi liên hệ</button>
+                                        <button type="submit" style="margin-left: 25%">Gửi liên hệ</button>
                                     </div>
                                 </div>
                             </form>

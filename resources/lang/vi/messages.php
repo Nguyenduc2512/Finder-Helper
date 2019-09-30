@@ -64,4 +64,6 @@ return [
     'success'        => 'Xác nhận thành công',
     'upPost'         => 'Bài viết của bạn đang được chờ duyệt',
     'user'           => 'Thành viên',
+    'haveAccount'    => 'Bạn đã có tài khoản ? ',
+    'sent'           => 'Gửi link'
 ];

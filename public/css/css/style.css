@@ -11900,3 +11900,6 @@ header.style4 .account-btns > li a,
  ::-webkit-scrollbar {
      display: none;
  }
+ .search-job2 .job-field .chosen-container-single .chosen-single div::before {
+     display: none;
+ }

@@ -15,7 +15,7 @@ class UserTableSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name'                     => 'User ',
-                'avatar'                   => 'public/images/user/defaut-avatar.png',
+                'avatar'                   => '/images/user/defaut-avatar.png',
                 'email'                    => 'user@gmail.com',
                 'password'                 =>  Hash::make('123456'),
                 'date_of_birth'            =>  '12-09-1999',

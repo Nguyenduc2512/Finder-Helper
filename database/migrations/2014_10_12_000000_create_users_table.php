@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('date_of_birth')->nullable();
             $table->string('identification_code')->nullable();
-            $table->integer('coin')->default(0);
+            $table->integer('coin')->nullable();
             $table->tinyInteger('gender')->nullable();
             $table->tinyInteger('rules')->nullable();
             $table->integer('status')->nullable();

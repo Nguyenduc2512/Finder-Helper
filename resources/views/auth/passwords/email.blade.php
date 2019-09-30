@@ -4,8 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
+                <div class="card-header">Quên mật khẩu</div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -32,11 +31,11 @@
                         <div class="form-group row mb-1">
                             <div class="col-md-7 offset-md-5">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Link') }}
+                                    Gửi link
                                 </button>
                             </div>
                         </div>
-                        <p class="text-center"> Don't have an account yet? <a href="index.html">Sign Up!</a></p>
+                        <p class="text-center"> Bạn chưa có tài khoản? <a href="{{route('sign')}}">Đăng ký</a></p>
                     </form>
                 </div>
             </div>

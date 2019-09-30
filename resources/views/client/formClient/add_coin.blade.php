@@ -10,18 +10,21 @@
                 <div class="profile-title">
                     <h3>@lang('messages.coin')</h3>
                 </div>
-                <form action="{{ route('user.store') }}" method="post" style="margin-left: 3%">
+                <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data" style="margin-left: 3%">
                     @csrf
                     @if (isset(Auth::user()->id))
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     @endif
                     <input type="hidden" name="ratio_id" value="1">
                     <div class="form-group">
-                        <span class="pf-title">Số tài khoản </span>
+                        <span class="pf-title">Số tài khoản <span class="text-danger">*</span></span>
                         <input type="number" name="bank" class="form-control"
                                placeholder="Số tài khoản ngân hàng" required>
+                        @if($errors->first('bank'))
+                            <span class="text-danger"> {{$errors->first('bank')}} </span>
+                        @endif
                     </div>
-                    <span class="pf-title">Tên Ngân Hàng</span>
+                    <span class="pf-title">Tên Ngân Hàng <span class="text-danger">*</span></span>
                     <div class="pf-field">
                         <select data-placeholder="Please Select Specialism" class="chosen"
                                 name="bank_id" style="display: none;">
@@ -32,17 +35,29 @@
                     </div>
                     <input type="hidden" name="status" value="0">
                     <div class="form-group">
-                        <span class="pf-title">Số tiền nạp </span>
-                        <input type="number" name="money" class="form-control"
-                               placeholder="Số tiền nạp" required>
+                        <span class="pf-title">Số tiền nạp <span class="text-danger">*</span></span>
+                        <input type="text" name="money" class="form-control"
+                               placeholder="Số tiền nạp"  onkeyup="this.value=FormatNumber(this.value);" required>
+                        @if($errors->first('money'))
+                            <span class="text-danger"> {{$errors->first('money')}} </span>
+                        @endif
                     </div>
-                    <button type="submit" class="btn btn-outline-success btn-xs">
-                        @lang('messages.coin')
-                    </button>
-                    <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal"
-                            data-target="#exampleModalCenter" style="margin-right: 1%">
-                        Hướng Dẫn
-                    </button>
+                    <div class="form-group">
+                        <span class="pf-title">Ảnh hóa đơn <span class="text-danger">*</span></span>
+                        <input type="file" name="image" class="form-control">
+                        @if($errors->first('image'))
+                            <span class="text-danger"> {{$errors->first('image')}} </span>
+                        @endif
+                    </div>
+                    <div class="button-coin">
+                        <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal"
+                                data-target="#exampleModalCenter" style="margin-right: 1%">
+                            Hướng Dẫn
+                        </button>
+                        <button type="submit" class="btn btn-outline-success btn-xs">
+                            @lang('messages.coin')
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -68,5 +83,6 @@
     </div>
 @section('script')
     @include('client.layouts.success')
+    @include('client.layouts.format_money')
 @stop
 @endsection

@@ -1,5 +1,5 @@
 @extends('auth.layouts.login')
-@section('title', 'sign in')
+@section('title', 'Đăng nhập')
 @section('content')
 <div class="center-sign">
 

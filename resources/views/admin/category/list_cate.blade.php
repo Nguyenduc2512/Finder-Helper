@@ -1,11 +1,11 @@
 @extends('admin.layouts.main')
-@section('title', 'List cate')
+@section('title', 'Quản lí danh mục')
 @section('titlePage', 'Quản lí danh mục')
 @section('content')
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">
-        Danh sách danh mục <br><br>
+      <h3 class="card-title" style="float: right">
+        Danh sách danh mục
         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
         data-target="#addCate" >
           Thêm danh mục
@@ -43,33 +43,6 @@
 @include('admin.category.formCate')
 @section('script')
     @include('admin.layouts.success')
-<script>
-    $('.btn-remove').on('click', function(){
-
-    swal({
-      text: "Bạn có chắc chắn muốn xoá danh mục này ?",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-
-    })
-    .then((willDelete) => {
-
-      if (willDelete) {
-
-        window.location.href = $(this).attr('linkurl');
-        swal("Bạn đã xóa thành công danh mục này!", {
-          icon: "success",
-        });
-
-      }  else {
-
-        swal("Hủy thành công!");
-      }
-    });
-  });
-</script>
-
 <script type="text/javascript">
 
 	$('#edit').on('show.bs.modal', function (event) {

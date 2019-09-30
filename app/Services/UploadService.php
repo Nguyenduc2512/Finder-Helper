@@ -34,4 +34,13 @@ class UploadService{
 
             return $filename;
     }
+
+    public function upload(Request $request)
+    {
+        $filename = $request->image->getClientOriginalName();
+        $filename = str_replace(' ', '-', $filename);
+        $filename = uniqid() . '-' . $filename;
+
+        return $filename;
+    }
 }

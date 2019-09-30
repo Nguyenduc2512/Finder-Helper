@@ -40,11 +40,4 @@ class CategoryController extends Controller
             ->with('success', Lang::get('messages.success'));
     }
 
-    public function destroy(Category $category)
-    {
-       $this->categoryService->destroy($category);
-
-       return $this->index();
-    }
-
 }

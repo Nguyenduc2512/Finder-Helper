@@ -82,5 +82,6 @@ class UserTableSeeder extends Seeder
                 'provider_id'              => '0',
             ],
         ]);
+
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\UserApply;
 use Illuminate\Support\Facades\Auth;
@@ -83,7 +84,6 @@ class ApplyJobService
         $userPosts = UserApply::where('post_id', $id)
                               ->update(['owner_post_status' => $status]);
 
-        return $userPosts;
     }
 
     public function getUserApplyById($id)
@@ -91,13 +91,27 @@ class ApplyJobService
         $status = UserApply::where('user_id', Auth::id())
                            ->where('post_id', $id)->first();
 
-        return $status;
+
     }
 
     public function helperConfirm($id)
     {
         $status = Config::get('helper.done');
         $userApplyStatus = UserApply::find($id);
+        $userApplyStatus = $userApplyStatus->load('user');
+        $userApplyStatus = $userApplyStatus->load('post');
+
+        $a = $userApplyStatus->user['coin'];
+        $b = $userApplyStatus->post['price'];
+        $c = $a + $b;
+
+        $user = User::find(Auth::user()->id);
+        $data = [
+            'coin' => $c,
+        ];
+
+        $user->update($data);
+
         $userApplyStatus->user_apply_status = $status;
         $userApplyStatus->save();
 

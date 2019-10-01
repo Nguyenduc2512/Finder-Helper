@@ -291,7 +291,6 @@ textarea{
 }
 strong{font-weight:800}
 button{
-    float:right;
     font-size:18px;
     padding:8px 30px;
     color:#FFF;
@@ -307,7 +306,7 @@ button{
     letter-spacing:1px;
 }
 .button-coin {
-    margin-left: 30%;
+    margin-left: 40%;
 }
 .button-edit{
     margin-left: 40%;
@@ -3656,9 +3655,8 @@ header.style4 .menu-sec nav > ul > li.menu-item-has-children > a::before {
 .nav.nav-tabs > li a {
     float: left;
     font-family: Quicksand;
-    font-size: 18px;
     font-weight: bold;
-    letter-spacing: 0px;
+    letter-spacing: 1px;
     padding: 15px 30px;
 
     -webkit-border-radius: 8px;

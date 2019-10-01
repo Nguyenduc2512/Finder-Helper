@@ -5,7 +5,7 @@
 
         <div class="panel card-sign">
             <div class="card-title-sign mt-3 text-right">
-                <h2 class="title text-uppercase font-weight-bold m-0"><a href="{{route('home')}}">Finder-Helper</a></h2>
+                <h4 class="title text-uppercase font-weight-bold m-0">@lang('messages.login')</h4>
             </div>
 
             <div class="card-body">
@@ -33,7 +33,7 @@
 
                     <div class="form-group mb-3">
                         <div class="clearfix">
-                            <label class="float-left">@lang('messages.password') *</label>
+                            <label class="float-left">@lang('messages.password') <span class="text-danger"> *</span></label>
                         </div>
                         <div class="input-group">
                             <input name="password" type="password" class="form-control form-control-lg"/>

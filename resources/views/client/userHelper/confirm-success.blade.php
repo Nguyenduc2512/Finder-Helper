@@ -82,7 +82,7 @@
                                 @else
                                     @if($userApplyById->user_apply_status == $check['post_type_confirm'] && $userApplyById->user_apply_status != $userApplyById->owner_post_status)
                                         <div class="card border-light mb-3 text-center" style="max-width: 100%;">
-                                            <div style="padding: 10%">
+                                            <div style=" : 10%">
                                                 <a type="submit"
                                                    class="btn btn-warning py-2 text-white" style="width: 150px; margin: auto">
                                                     Đã hoàn thành

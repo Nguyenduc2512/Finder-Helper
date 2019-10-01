@@ -37,7 +37,7 @@ class UserService
         );
 
         return redirect()->route('user.change-password')
-                         ->with('errmsg', 'Change password successfully');
+                         ->with('success', Lang::get('messages.successPassword'));
     }
 
     public function updateProfile(Request $request)

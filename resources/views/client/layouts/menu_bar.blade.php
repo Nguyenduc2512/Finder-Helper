@@ -3,7 +3,7 @@
         @if(Auth::user()->rules == $gender['user_type_finder'])
             <ul class="nav nav-pills nav-stacked">
                 <li>
-                    <a href="{{ route('user.profile') }}" title=""><i class="far fa-user"></i>@lang('messages.profile')</a>
+                    <a href="{{ route('user.profile') }}" title="" ><i class="far fa-user"></i>@lang('messages.profile')</a>
                 </li>
                 <li class="active">
                     <a href="{{ route('user.edit-profile') }}"><i class="far fa-edit"></i>Sửa Thông Tin Cá Nhân</a>
@@ -15,7 +15,7 @@
                     <a href="{{ route('user.post-create') }}" title=""><i class="fas fa-notes-medical"></i>&nbsp;@lang('messages.newPost')</a>
                 </li>
                 <li>
-                    <a href="" title=""><i class="fas fa-history"></i>&nbsp;@lang('messages.history')</a>
+                    <a href="{{ route('user.history') }}" title=""><i class="fas fa-history"></i>&nbsp;@lang('messages.history')</a>
                 </li>
                 <li>
                     <a href="{{ route('user.coin') }}"><i class="fas fa-coins"></i>&nbsp;@lang('messages.addCoin')</a>

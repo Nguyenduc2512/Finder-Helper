@@ -14,7 +14,7 @@
                     <div class="can-detail-s">
                         <div class="row">
                             <div class="cst col-6" style="margin-left: 80px">
-                                <img src="/{{ Auth::user()->avatar }}" alt="">
+                                <img src="{{ asset(Auth::user()->avatar) }}" alt="">
                             </div>
                             <div class="col-12" style="margin-top: -20px">
                                 <div class="col-sm-6" style="margin-top: 7px">

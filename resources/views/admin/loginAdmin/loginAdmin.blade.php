@@ -6,7 +6,7 @@
         <!-- /.login-logo -->
         <div class="card">
           <div class="card-body login-card-body">
-            <p class="login-box-msg">Đăng nhập Admin</p>
+            <p class="">Đăng nhập Admin</p>
             @if (session('errmsg'))
             <p class="text-danger"> {{session('errmsg')}} </p>
     @endif
@@ -41,8 +41,8 @@
                   </div>
                 </div>
                 <!-- /.col -->
-                <div class="col-4">
-                  <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
+                  <div class="col-sm-4 text-right">
+                  <button type="submit" class="btn btn-primary mt-2" style="width: 100px">Đăng nhập</button>
                 </div>
                 <!-- /.col -->
               </div>

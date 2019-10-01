@@ -62,8 +62,9 @@ return [
     'accept'         => 'Phê duyệt thành công',
     'decline'        => 'Bỏ phê duyệt thành công',
     'success'        => 'Xác nhận thành công',
-    'upPost'         => 'Bài viết của bạn đang được chờ duyệt',
+    'upPost'         => 'Bài viết của bạn đang chờ duyệt',
     'user'           => 'Thành viên',
     'coinSuccess'    => 'Nạp tiền thành công',
     'register'       => 'Đăng kí tài khoản',
+    'successPassword' => 'Đổi mật khẩu thành công'
 ];

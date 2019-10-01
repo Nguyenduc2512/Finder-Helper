@@ -84,7 +84,7 @@
                     <div class="form-group mb-3 ">
                         <div class="d-flex justify-content-between6 ">
                             <div class="form-check p-2"  id="form-profile">
-                                <input type="hidden" name="avatar" value="images/user/avatar-default-icon.png" >
+                                <input type="hidden" name="avatar" value="images/user/defaut-avatar.png" >
                             </div>
                         </div>
                         @if($errors->first('identification_code'))

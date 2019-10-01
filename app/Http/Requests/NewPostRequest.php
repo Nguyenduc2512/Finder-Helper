@@ -25,8 +25,8 @@ class NewPostRequest extends FormRequest
     {
         return [
             'title'      => 'required|max:100',
-            'start_time' => 'required|date',
-            'end_time'   => 'required|date|after_or_equal:start_time',
+            'start_time' => 'required',
+            'end_time'   => 'required|after_or_equal:start_time',
             'amount'     => 'required',
             'gender'     => 'required',
             'address'    => 'required',
@@ -39,7 +39,6 @@ class NewPostRequest extends FormRequest
         return [
             'title.required' => 'Tiêu đề không được để trống',
             'start_time.required' => 'Ngày bắt đầu không được để trống',
-            'start_time.date' => 'Ngày bắt đầu không thể trước ngày hôm nay',
             'end_time.required' => 'Ngày bắt đầu không được để trống',
             'end_time.date' => 'Ngày kết thúc không thể trước ngày bắt đầu',
             'amount.required' => 'Số lượng không được để trống',

@@ -26,7 +26,7 @@
                     <a href="{{ route('all-post') }}" title="">Công Việc</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" title="">Giới Thiệu</a>
+                    <a href="{{route('info-page')}}" title="">Giới Thiệu</a>
                 </li>
                 <li class="menu-item">
 
@@ -82,7 +82,7 @@
                         <a href="{{ route('all-post') }}" title="">Công Việc</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#" title="">Giới Thiệu</a>
+                        <a href="{{route('info-page')}}" title="">Giới Thiệu</a>
                     </li>
                     <li class="menu-item">
 

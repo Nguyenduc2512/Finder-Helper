@@ -111,7 +111,8 @@ class HomeController extends Controller
 
     public function changePassword()
     {
-        return view('client.formClient.change_password');
+        $gender = Config::get('helper');
+        return view('client.formClient.change_password', compact('gender'));
     }
 
     public function editProfile()
@@ -127,6 +128,11 @@ class HomeController extends Controller
         $categories = $this->postService->getCategories();
 
         return view('client.post_category', compact('posts', 'categories'));
+    }
+
+    public function infoPage()
+    {
+        return view('client.info');
     }
 
 }

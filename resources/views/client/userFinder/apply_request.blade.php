@@ -109,6 +109,8 @@
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>
+                                            @else
+                                                <div class="text-danger"> Công việc của bạn chưa đủ người thực hiện</div>
                                             @endif
                                         @endif
                                     </td>

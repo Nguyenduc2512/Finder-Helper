@@ -94,7 +94,7 @@
                                 @endif
                             </div>
                             <div class="form-control button-edit">
-                                <button type="submit" class="btn btn-outline-success btn-xs">
+                                <button type="submit" class="btn btn-success btn-xs">
                                     @lang('messages.update')
                                 </button>
                             </div>

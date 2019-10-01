@@ -66,11 +66,9 @@
                                 <th>Email</th>
                                 <th>Hành động</th>
                                 <th>Trạng thái</th>
-                                <th>Đánh giá</th>
                             </tr>
                             </thead>
                             <tbody>
-
                             @foreach($post->applies as $user)
                                 <tr  class="text-center">
                                     <td>{!! $user->name !!}</td>
@@ -144,7 +142,6 @@
                                         @else
                                         @endif
                                     </td>
-                                    <td></td>
                                 </tr>
                             @endforeach
                             </tbody>

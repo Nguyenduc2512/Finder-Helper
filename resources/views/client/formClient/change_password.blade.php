@@ -11,7 +11,7 @@
                     <h3>@lang('messages.changePassword')</h3>
                 </div>
                 @if (session('errmsg'))
-                    <p class="text-danger"> {{session('errmsg')}} </p>
+                    <p class="pf-title text-danger"> {{session('errmsg')}} </p>
                 @endif
                 <form action="{{ route('user.save-password') }}" method="post" style="margin-left: 3%">
                     @csrf
@@ -19,30 +19,30 @@
                         <input type="hidden" name="id" value="{{ Auth::user()->id }}">
                     @endif
                     <div class="form-group">
-                        <span class="pf-title">@lang('messages.oldPassword')</span>
+                        <span class="pf-title">@lang('messages.oldPassword') <span class="text-danger"> *</span></span>
                         <input type="password" name="password" class="form-control"
-                               placeholder="@lang('messages.oldPassword')">
+                               placeholder="@lang('messages.oldPassword')" required>
                         @if($errors->first('password'))
                             <span class="text-danger"> {{$errors->first('password')}} </span>
                         @endif
                     </div>
                     <div class="form-group">
-                        <span class="pf-title">@lang('messages.newPassword')</span>
+                        <span class="pf-title">@lang('messages.newPassword') <span class="text-danger"> *</span></span>
                         <input type="password" name="newpassword" class="form-control"
-                               placeholder="@lang('messages.newPassword')">
+                               placeholder="@lang('messages.newPassword')" required>
                         @if($errors->first('newpassword'))
                             <span class="text-danger"> {{$errors->first('newpassword')}} </span>
                         @endif
                     </div>
                     <div class="form-group">
-                        <span class="pf-title">@lang('messages.rePassword')</span>
+                        <span class="pf-title">@lang('messages.rePassword') <span class="text-danger"> *</span></span>
                         <input type="password" name="repassword" class="form-control"
-                               placeholder="@lang('messages.rePassword')">
+                               placeholder="@lang('messages.rePassword')" required>
                         @if($errors->first('repassword'))
                             <span class="text-danger"> {{$errors->first('repassword')}} </span>
                         @endif
                     </div>
-                    <button type="submit" class="btn btn-outline-success btn-xs">
+                    <button type="submit" class="btn btn-success btn-xs" style="margin-left: 40%">
                         @lang('messages.update')
                     </button>
                 </form>

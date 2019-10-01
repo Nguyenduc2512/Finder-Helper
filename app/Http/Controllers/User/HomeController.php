@@ -112,6 +112,7 @@ class HomeController extends Controller
     public function changePassword()
     {
         $gender = Config::get('helper');
+
         return view('client.formClient.change_password', compact('gender'));
     }
 

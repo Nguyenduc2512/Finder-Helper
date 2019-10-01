@@ -1,5 +1,5 @@
 @extends('client.layouts.test')
-@section('title', 'Thông tin cá nhân')
+@section('title', 'Lịch sử')
 @section('content')
     <div class="container" style="margin-top: 10%">
         <div class="row">

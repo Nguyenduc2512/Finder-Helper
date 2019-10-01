@@ -50,11 +50,11 @@
                         @endif
                     </div>
                     <div class="button-coin">
-                        <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal"
-                                data-target="#exampleModalCenter" style="margin-right: 1%">
+                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal"
+                                data-target="#exampleModalCenter">
                             Hướng Dẫn
                         </button>
-                        <button type="submit" class="btn btn-outline-success btn-xs">
+                        <button type="submit" class="btn btn-success btn-xs">
                             @lang('messages.coin')
                         </button>
                     </div>

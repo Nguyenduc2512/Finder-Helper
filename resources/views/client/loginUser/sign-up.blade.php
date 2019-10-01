@@ -4,7 +4,7 @@
     <div class="center-sign">
         <div class="panel card-sign">
             <div class="card-title-sign mt-3 text-right">
-                <h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> Sign Up</h2>
+                <h4 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> @lang('messages.register')</h4>
             </div>
             <div class="card-body">
                 <form action="{{route('sign')}}" method="post" enctype="multipart/form-data" novalidate >
@@ -199,8 +199,8 @@
                 </span>
 
                     <div class="mb-1 text-center">
-                        <a class="btn btn-facebook mb-3 ml-1 mr-1" href="#">Đăng nhập <i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-google mb-3 ml-1 mr-1" href="#">Đăng nhập <i class="fab fa-google"></i></a>
+                        <a class="btn btn-facebook mb-3 ml-1 mr-1" href="{{ url('/auth/redirect/facebook') }}">@lang('messages.login') <i
+                                class="fab fa-facebook-f"></i></a>
                     </div>
 
                     <p class="text-center">Bạn đã có tài khoản<a href="{{route('login')}}">Đăng nhập</a></p>

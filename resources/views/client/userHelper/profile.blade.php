@@ -15,7 +15,7 @@
                     <th># Tên người thuê</th>
                     <th>Công việc</th>
                     <th>Số lượng</th>
-                    <th>lương</th>
+                    <th>Lương</th>
                     <th>Địa Chỉ</th>
                     <th>Trạng thái</th>
                 </tr>
@@ -34,7 +34,7 @@
                         <td>{{ $apply->user['name'] }}</td>
                         <td>{{ $apply->title }}</td>
                         <td>{{ $apply->amount }}</td>
-                        <td>{{ $apply->price }}k/h</td>
+                        <td>{{ $apply->price }}</td>
                         <td>{{ $apply->address }}</td>
                         <td class="text-center">
                             @if($apply->status == $success['post_type_success'] && $status == $success['post_type_unSuccess'])

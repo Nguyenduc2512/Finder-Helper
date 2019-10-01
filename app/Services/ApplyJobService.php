@@ -80,21 +80,6 @@ class ApplyJobService
 
     public function ownerSuccess($id)
     {
-        $userApply = UserApply::find($id);
-        $userApply = $userApply->load('user');
-        $userApply = $userApply->load('post');
-
-        $a = $userApply->user['coin'];
-        $b = $userApply->post['price'];
-        $c = $a - $b;
-
-        $user = User::find(Auth::user()->id);
-        $data = [
-            'coin' => $c,
-        ];
-
-        $user->update($data);
-
         $status = Config::get('helper.post_type_confirm');
         $userPosts = UserApply::where('post_id', $id)
                               ->update(['owner_post_status' => $status]);
